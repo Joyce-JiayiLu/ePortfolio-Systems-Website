@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Login from "./pages/Login"
 import "./views/styles.css";
+import UpdateProfile from "./pages/UpdateProfile";
 
 export default function App() {
   return (
@@ -19,6 +20,9 @@ export default function App() {
           </Route>
           <Route exact path="/login">
               <Login />
+          </Route>
+          <Route exact path="/updateProfile">
+              <UpdateProfile />
           </Route>
       </Switch>
     </div>

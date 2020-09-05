@@ -27,7 +27,7 @@ export default function UpdateProfile() {
          </textarea></td></tr>
                 <tr height={'100px'}><td>introduction</td><td><textarea rows = "5" cols = "40" id="introduction">
          </textarea></td></tr>
-                <Button className={"btn-success"} onClick={onSubmit}>
+                <Button className={"btn-success"}>
                     Save
                 </Button>
             </table>
@@ -35,27 +35,27 @@ export default function UpdateProfile() {
     );
 }
 
-function onSubmit() {
-    var first_name = document.getElementById("first_name").value;
-    var last_name = document.getElementById("last_name").value;
-    var gender = document.getElementById("gender").value;
-    var working_experience = document.getElementById("working_experience").value;
-    var salary = document.getElementById("salary").value;
-    var introduction = document.getElementById("introduction").value;
-    var age = document.getElementById("age").value
-    var address = document.getElementById("address").value;
-    var contact_information = document.getElementById("contact_information").value;
-    const username = window.sessionStorage.getItem("username");
-    updateCaregiver({
-        first_name,
-        last_name,
-        gender,
-        introduction,
-        username,
-        age,
-        address,
-        salary,
-        working_experience,
-        contact_information,
-    });
-}
+// function onSubmit() {
+//     var first_name = document.getElementById("first_name").value;
+//     var last_name = document.getElementById("last_name").value;
+//     var gender = document.getElementById("gender").value;
+//     var working_experience = document.getElementById("working_experience").value;
+//     var salary = document.getElementById("salary").value;
+//     var introduction = document.getElementById("introduction").value;
+//     var age = document.getElementById("age").value
+//     var address = document.getElementById("address").value;
+//     var contact_information = document.getElementById("contact_information").value;
+//     const username = window.sessionStorage.getItem("username");
+//     updateCaregiver({
+//         first_name,
+//         last_name,
+//         gender,
+//         introduction,
+//         username,
+//         age,
+//         address,
+//         salary,
+//         working_experience,
+//         contact_information,
+//     });
+// }
