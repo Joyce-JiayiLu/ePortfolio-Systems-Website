@@ -8,7 +8,8 @@ export default function Login() {
     if (isAuthenticated){
     return (
         <div>
-        <button onClick={() => logout()}>Log out</button>
+            <button onClick={() => logout()}>Log out</button>
+            <button onClick={updateUserProfile(user.sub)}> Update </button>
         <div>
             <p>{user.name}</p>
             <p>{user.email}</p>
@@ -25,4 +26,8 @@ export default function Login() {
 
     }
 
+}
+
+function updateUserProfile(){
+    //window.location.assign(`http://localhost:3000/login`);
 }
