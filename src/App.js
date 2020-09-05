@@ -11,13 +11,17 @@ import "./views/styles.css";
 
 export default function App() {
   return (
+    <Router>
     <div className="App">
       <Nav />
       <Header />
-      {/* the content */}
-      {/* A <Switch> looks through its children <Route>s and
-          renders the first one that matches the current URL. */}
+      <Switch>
+          <Route exact path="/">
+              <Home />
+          </Route>
+      </Switch>
       <Home />
     </div>
+    </Router>
   );
 }
