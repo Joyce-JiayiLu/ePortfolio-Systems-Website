@@ -17,8 +17,6 @@ export default function UpdateProfile() {
          </textarea></td></tr>
                 <tr><td>age</td><td><textarea rows = "1" cols = "40" id="age">
          </textarea></td></tr>
-                <tr><td>expected salary($/hour)</td><td><textarea rows = "1" cols = "40" id="salary">
-         </textarea></td></tr>
                 <tr><td>address(city)</td><td><textarea rows = "1" cols = "40" id="address">
          </textarea></td></tr>
                 <tr><td>working experience(years)</td><td><textarea rows = "1" cols = "40" id="working_experience">

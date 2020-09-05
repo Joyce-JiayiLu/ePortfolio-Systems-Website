@@ -16,7 +16,7 @@ export default function Login() {
             <p>{user.sub}</p>
 
         </div>
-            <button onClick={()=>updateUserProfile(user.sub)}> Update </button>
+            <button onClick={() => updateUserProfile(user.sub)}> Update </button>
         </div>
     );}else{
         return (
