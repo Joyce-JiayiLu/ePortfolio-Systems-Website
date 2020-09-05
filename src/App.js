@@ -5,8 +5,7 @@ import Nav from "./components/Nav";
 import Header from "./components/Header";
 
 import Home from "./pages/Home";
-import Authors from "./pages/Authors";
-
+import Login from "./pages/Login"
 import "./views/styles.css";
 
 export default function App() {
@@ -19,8 +18,10 @@ export default function App() {
           <Route exact path="/">
               <Home />
           </Route>
+          <Route exact path="/login">
+              <Login />
+          </Route>
       </Switch>
-      <Home />
     </div>
     </Router>
   );

@@ -7,5 +7,8 @@ export default function Nav() {
     <NavLink exact to="/">
       Home
     </NavLink>
+    <NavLink exact to="/Login">
+      Log in
+    </NavLink>
   </nav>;
 }
