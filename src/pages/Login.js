@@ -16,7 +16,7 @@ export default function Login() {
             <p>{user.sub}</p>
 
         </div>
-            <button onClick={() => updateUserProfile(user.sub)}> Update </button>
+            <button onClick={() => updateUserProfile(user)}> Update </button>
         </div>
     );}else{
         return (
@@ -29,6 +29,6 @@ export default function Login() {
 
 }
 
-function updateUserProfile(){
-    window.location.assign(`http://localhost:3000/updateProfile`);
+function updateUserProfile(user){
+    window.location.assign(`http://localhost:3000/updateProfile/${user.sub}`);
 }

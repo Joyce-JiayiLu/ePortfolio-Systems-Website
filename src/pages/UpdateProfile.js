@@ -34,6 +34,12 @@ export default function UpdateProfile() {
 }
 
 function onSubmit() {
+    let username;
+    username = window.location.pathname;
+    let index;
+    index = username.lastIndexOf('/');
+    let userid;
+    userid = username.slice(index+1);
     var first_name = document.getElementById("first_name").value;
     var last_name = document.getElementById("last_name").value;
     var gender = document.getElementById("gender").value;
@@ -43,7 +49,7 @@ function onSubmit() {
     // var age = document.getElementById("age").value
     // var address = document.getElementById("address").value;
     // var contact_information = document.getElementById("contact_information").value;
-    const userid = window.sessionStorage.getItem("userid");
+    //const userid = window.sessionStorage.getItem("userid");
     updateUserProfile({
         userid,
         first_name,
