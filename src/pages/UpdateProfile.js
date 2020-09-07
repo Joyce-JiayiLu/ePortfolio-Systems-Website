@@ -34,12 +34,8 @@ export default function UpdateProfile() {
 }
 
 function onSubmit() {
-    let username;
-    username = window.location.pathname;
-    let index;
-    index = username.lastIndexOf('/');
     let userid;
-    userid = username.slice(index+1);
+    userid = window.sessionStorage.getItem("userid");
     var first_name = document.getElementById("first_name").value;
     var last_name = document.getElementById("last_name").value;
     var gender = document.getElementById("gender").value;

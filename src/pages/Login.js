@@ -6,6 +6,7 @@ export default function Login() {
     const {logout } = useAuth0();
     const { user, isAuthenticated }  = useAuth0()
     if (isAuthenticated){
+        window.sessionStorage.setItem("userid",user.sub);
     return (
         <div>
             <button onClick={() => logout()}>Log out</button>
@@ -30,5 +31,5 @@ export default function Login() {
 }
 
 function updateUserProfile(user){
-    window.location.assign(`http://localhost:3000/updateProfile/${user.sub}`);
+    window.location.assign(`http://localhost:3000/updateProfile/`);
 }
