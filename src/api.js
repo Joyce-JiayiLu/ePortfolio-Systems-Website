@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 // TODO - update this to be your url
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = "http://geniusolio.herokuapp.com";
 
 function getAuthors() {
   const endpoint = BASE_URL + `/author-management`;
@@ -75,4 +75,47 @@ export function useAuthors() {
     authors,
     error
   };
+}
+
+export function updateUserProfile(user) {
+  const { userid, first_name, last_name, gender, introduction} = user;
+  var reg=/^[0-9]+.?[0-9]*$/;
+  // if(!reg.test(age)){
+  //   alert("age must be number!");
+  //   return;
+  // }
+  if(gender.toLocaleLowerCase() !== "male" && gender.toLocaleLowerCase() !== "female"){
+    alert("please include 'male' or 'female' as a gender!");
+    return;
+  }
+  if (!first_name || !last_name) {
+    alert("must include a first name or last name to update!");
+    return;
+  }
+  if (!gender){
+    alert("must include gender!");
+    return;
+  }
+  if (!introduction){
+    alert("must include an introduction!");
+    return;
+  }
+  const endpoint = BASE_URL + `/user/${userid}`;
+  //console.log(contact_information.value);
+  // return fetch query to update an author
+  return fetch(endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      first_name,
+      last_name,
+      gender,
+      introduction,
+    })
+  }).then(res =>{
+    //window.location.assign(`https://healthnextdoor.herokuapp.com/user-management/${window.sessionStorage.getItem("username")}`)
+
+  });
 }
