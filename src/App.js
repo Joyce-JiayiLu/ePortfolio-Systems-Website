@@ -18,10 +18,10 @@ export default function App() {
           <Route exact path="/">
               <Home />
           </Route>
-          <Route exact path="/login">
+          <Route path="/login">
               <Login />
           </Route>
-          <Route exact path="/updateProfile">
+          <Route path='/updateProfile'>
               <UpdateProfile />
           </Route>
       </Switch>
