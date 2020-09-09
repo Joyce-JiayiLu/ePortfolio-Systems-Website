@@ -4,8 +4,9 @@ import { useAuth0} from "@auth0/auth0-react";
 export default function Login() {
     const {loginWithRedirect } = useAuth0();
     const {logout } = useAuth0();
-    const { user, isAuthenticated }  = useAuth0()
+    const { user, isAuthenticated }  = useAuth0();
     if (isAuthenticated){
+        console.log("yes is authenticated");
         window.sessionStorage.setItem("userid",user.sub);
     return (
         <div>

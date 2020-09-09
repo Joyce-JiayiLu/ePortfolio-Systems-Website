@@ -100,7 +100,7 @@ export function updateUserProfile(user) {
     alert("must include an introduction!");
     return;
   }
-  const endpoint = BASE_URL + `/user/${userid}`;
+  const endpoint = BASE_URL + `/user`;
   //console.log(contact_information.value);
   // return fetch query to update an author
   return fetch(endpoint, {
@@ -109,6 +109,7 @@ export function updateUserProfile(user) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
+      userid,
       first_name,
       last_name,
       gender,
