@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login"
 import "./views/styles.css";
 import UpdateProfile from "./pages/UpdateProfile";
-import Blog from "./components/Blog";
+import Blog from "./components/Blog/Blog";
 
 export default function App() {
   return (
