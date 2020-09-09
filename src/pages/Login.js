@@ -32,5 +32,5 @@ export default function Login() {
 }
 
 function updateUserProfile(user){
-    window.location.assign(`http://localhost:3000/updateProfile/`);
+    window.location.assign(`http://localhost:3000/updateProfile/${user.sub}`);
 }
