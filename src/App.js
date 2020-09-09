@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login"
 import "./views/styles.css";
 import UpdateProfile from "./pages/UpdateProfile";
+import Blog from "./components/Blog";
 
 export default function App() {
   return (
@@ -20,6 +21,9 @@ export default function App() {
           </Route>
           <Route path="/login">
               <Login />
+          </Route>
+          <Route path="/blog">
+              <Blog />
           </Route>
           <Route path='/updateProfile'>
               <UpdateProfile />
