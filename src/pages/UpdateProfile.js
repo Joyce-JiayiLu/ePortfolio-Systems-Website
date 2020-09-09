@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import {addCaregiver, updateUserProfile} from "../api";
+import {checkUser, updateUserProfile} from "../api";
 import Button from "../components/Button";
 
 export default function UpdateProfile() {
@@ -47,11 +47,12 @@ function onSubmit() {
     // var working_experience = document.getElementById("working_experience").value;
     // var salary = document.getElementById("salary").value;
     var introduction = document.getElementById("introduction").value;
+
     // var age = document.getElementById("age").value
     // var address = document.getElementById("address").value;
     // var contact_information = document.getElementById("contact_information").value;
     //const userid = window.sessionStorage.getItem("userid");
-    updateUserProfile({
+    checkUser({
         userid,
         first_name,
         last_name,

@@ -115,6 +115,47 @@ export function updateUserProfile(user) {
       introduction,
     })
   }).then(res =>{
+    window.location.assign(`http://localhost:3000/login`)
+
+  });
+}
+
+export function checkUser(user) {
+  const endpoint = BASE_URL + `/user/${user.userid}`;
+  return fetch(endpoint).then(res => {
+    //console.log(res);
+    return res.json();
+  }).then(res =>{
+      if(res.ok){
+        updateUserProfile(user);
+      }
+      else{
+        createUser(user);
+      }
+  });
+}
+
+function createUser(user){
+  const { userid, first_name, last_name, gender, introduction, email_address, image, resume} = user;
+  const endpoint = BASE_URL + `/user`;
+  //console.log(contact_information.value);
+  // return fetch query to update an author
+  return fetch(endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      first_name,
+      last_name,
+      gender,
+      introduction,
+      userid,
+      // email_address,
+      // image,
+      // resume
+    })
+  }).then(res =>{
     //window.location.assign(`https://healthnextdoor.herokuapp.com/user-management/${window.sessionStorage.getItem("username")}`)
 
   });
