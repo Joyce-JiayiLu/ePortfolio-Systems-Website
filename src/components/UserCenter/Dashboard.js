@@ -22,6 +22,7 @@ import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
+import Avatar from "@material-ui/core/Avatar";
 
 function Copyright() {
     return (
@@ -143,12 +144,15 @@ export default function Dashboard() {
                         <MenuIcon />
                     </IconButton>
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                        Dashboard
+                        User Center
                     </Typography>
                     <IconButton color="inherit">
                         <Badge badgeContent={4} color="secondary">
                             <NotificationsIcon />
                         </Badge>
+                    </IconButton>
+                    <IconButton color="inherit">
+                    <Avatar alt="Jiayi Lu" src="/static/images/avatar/1.jpg" />
                     </IconButton>
                 </Toolbar>
             </AppBar>

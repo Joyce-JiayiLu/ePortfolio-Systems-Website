@@ -12,15 +12,10 @@ import AssignmentIcon from '@material-ui/icons/Assignment';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ResumeIcon from '@material-ui/icons/AccountBox';
 import PortfolioIcon from '@material-ui/icons/Collections';
+import BookmarkIcon from '@material-ui/icons/CollectionsBookmark';
 
 export const mainListItems = (
     <div>
-        <ListItem button>
-            <ListItemIcon>
-                <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Dashboard" />
-        </ListItem>
         <ListItem button>
             <ListItemIcon>
                 <AccountCircleIcon />
@@ -44,18 +39,12 @@ export const mainListItems = (
 
 export const secondaryListItems = (
     <div>
-        <ListSubheader inset>Saved reports</ListSubheader>
+        <ListSubheader inset></ListSubheader>
         <ListItem button>
             <ListItemIcon>
-                <AssignmentIcon />
+                <BookmarkIcon />
             </ListItemIcon>
-            <ListItemText primary="Current month" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <AssignmentIcon />
-            </ListItemIcon>
-            <ListItemText primary="Last quarter" />
+            <ListItemText primary="Bookmarks" />
         </ListItem>
         <ListItem button>
             <ListItemIcon>
