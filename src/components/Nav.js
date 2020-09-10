@@ -13,5 +13,8 @@ export default function Nav() {
     <NavLink exact to="/blog">
       My Blog
     </NavLink>
+    <NavLink exact to="/user">
+      Usercenter
+    </NavLink>
   </nav>;
 }

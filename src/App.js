@@ -9,6 +9,7 @@ import Login from "./pages/Login"
 import "./views/styles.css";
 import UpdateProfile from "./pages/UpdateProfile";
 import Blog from "./components/Blog/Blog";
+import Users from "./pages/Users";
 
 export default function App() {
   return (
@@ -28,6 +29,10 @@ export default function App() {
           <Route path='/updateProfile'>
               <UpdateProfile />
           </Route>
+          <Route path='/user'>
+              <Users/>
+          </Route>
+
       </Switch>
     </div>
     </Router>
