@@ -18,6 +18,7 @@ import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import HomeIcon from '@material-ui/icons/Home';
 import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
@@ -143,6 +144,10 @@ export default function Dashboard() {
                     >
                         <MenuIcon />
                     </IconButton>
+                    <IconButton color="inherit" onClick={() => backHomePage()}>
+                        <HomeIcon />
+                    </IconButton>
+
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
                         User Center
                     </Typography>
@@ -203,4 +208,8 @@ export default function Dashboard() {
             </main>
         </div>
     );
+}
+
+function backHomePage(){
+    window.location.assign(`http://localhost:3000/`);
 }
