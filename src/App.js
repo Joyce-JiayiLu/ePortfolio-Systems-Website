@@ -9,21 +9,27 @@ import Login from "./pages/Login"
 import "./views/styles.css";
 import UpdateProfile from "./pages/UpdateProfile";
 import Blog from "./components/Blog/Blog";
+import Dashboard from "./components/UserCenter/Dashboard";
 
 export default function App() {
   return (
     <Router>
     <div className="App">
-      <Nav />
+
       <Switch>
           <Route exact path="/">
+              <Nav />
               <Home />
           </Route>
           <Route path="/login">
+              <Nav />
               <Login />
           </Route>
           <Route path="/blog">
               <Blog />
+          </Route>
+          <Route path="/usercenter">
+              <Dashboard />
           </Route>
           <Route path='/updateProfile'>
               <UpdateProfile />
