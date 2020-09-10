@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 
 // TODO - update this to be your url
-const BASE_URL = "http://geniusolio.herokuapp.com";
+const BASE_URL = "https://geniusolio.herokuapp.com";
 
-function getAuthors() {
-  const endpoint = BASE_URL + `/author-management`;
-
+function getUsers() {
+  const endpoint = BASE_URL + `/user`;
+  return fetch(endpoint).then(res => {
+    console.log(res);
+    return res.json();
+  });
   // TODO
   // return fetch call that gets author list
 }
@@ -52,15 +55,15 @@ export function deleteAuthor(id) {
   // return fetch query
 }
 
-export function useAuthors() {
+export function useUsers() {
   const [loading, setLoading] = useState(true);
-  const [authors, setAuthors] = useState([]);
+  const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    getAuthors()
-      .then(authors => {
-        setAuthors(authors);
+    getUsers()
+      .then(users => {
+        setUsers(users);
         setLoading(false);
       })
       .catch(e => {
@@ -72,7 +75,7 @@ export function useAuthors() {
 
   return {
     loading,
-    authors,
+    users,
     error
   };
 }
