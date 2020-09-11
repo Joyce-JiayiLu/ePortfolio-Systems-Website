@@ -9,7 +9,6 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import Header from './BlogHeader';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
-import Main from './Main';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
 import post1 from './blog-post.1.md';
@@ -70,17 +69,10 @@ const sidebar = {
     description:
         '',
     archives: [
-        { title: 'March 2020', url: '#' },
-        { title: 'February 2020', url: '#' },
-        { title: 'January 2020', url: '#' },
-        { title: 'November 1999', url: '#' },
-        { title: 'October 1999', url: '#' },
-        { title: 'September 1999', url: '#' },
-        { title: 'August 1999', url: '#' },
-        { title: 'July 1999', url: '#' },
-        { title: 'June 1999', url: '#' },
-        { title: 'May 1999', url: '#' },
-        { title: 'April 1999', url: '#' },
+        { title: 'September 2020', url: '#' },
+        { title: 'August 2020', url: '#' },
+        { title: 'July 2020', url: '#' },
+        { title: 'June 2020', url: '#' },
     ],
     social: [
         { name: 'GitHub', icon: GitHubIcon },
