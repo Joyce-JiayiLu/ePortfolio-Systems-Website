@@ -23,23 +23,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const sections = [
-    { title: 'Technology', url: '#' },
-    { title: 'Design', url: '#' },
-    { title: 'Culture', url: '#' },
-    { title: 'Business', url: '#' },
-    { title: 'Politics', url: '#' },
-    { title: 'Opinion', url: '#' },
-    { title: 'Science', url: '#' },
-    { title: 'Health', url: '#' },
-    { title: 'Style', url: '#' },
-    { title: 'Travel', url: '#' },
+    // { title: 'Technology', url: '#' },
+    // { title: 'Design', url: '#' },
+    // { title: 'Culture', url: '#' },
+    // { title: 'Business', url: '#' },
+    // { title: 'Politics', url: '#' },
+    // { title: 'Opinion', url: '#' },
+    // { title: 'Science', url: '#' },
+    // { title: 'Health', url: '#' },
+    // { title: 'Style', url: '#' },
+    // { title: 'Travel', url: '#' },
 ];
 
 const mainFeaturedPost = {
-    title: 'Title of a longer featured blog post',
+    title: "Dig into today's Most featured design here.",
     description:
-        "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-    image: 'https://source.unsplash.com/random',
+        "",
+    image: 'https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
     imgText: 'main image description',
     linkText: 'Continue reading…',
 };
@@ -47,18 +47,18 @@ const mainFeaturedPost = {
 const featuredPosts = [
     {
         title: 'Featured post',
-        date: 'Nov 12',
+        date: '',
         description:
-            'This is a wider card with supporting text below as a natural lead-in to additional content.',
-        image: 'https://source.unsplash.com/random',
+            '',
+        image: 'https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1423&q=80',
         imageText: 'Image Text',
     },
     {
-        title: 'Post title',
-        date: 'Nov 11',
+        title: 'Featured post',
+        date: '',
         description:
-            'This is a wider card with supporting text below as a natural lead-in to additional content.',
-        image: 'https://source.unsplash.com/random',
+            '',
+        image: 'https://images.unsplash.com/photo-1496284045406-d3e0b918d7ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
         imageText: 'Image Text',
     },
 ];
@@ -68,7 +68,7 @@ const posts = [post1, post2, post3];
 const sidebar = {
     title: 'About',
     description:
-        'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
+        '',
     archives: [
         { title: 'March 2020', url: '#' },
         { title: 'February 2020', url: '#' },
@@ -96,7 +96,7 @@ export default function Blog() {
         <React.Fragment>
             <CssBaseline />
             <Container maxWidth="lg">
-                <Header title="Blog" sections={sections} />
+                <Header title="Design Square" sections={sections} />
                 <main>
                     <MainFeaturedPost post={mainFeaturedPost} />
                     <Grid container spacing={4}>
@@ -105,7 +105,7 @@ export default function Blog() {
                         ))}
                     </Grid>
                     <Grid container spacing={5} className={classes.mainGrid}>
-                        <Main title="From the firehose" posts={posts} />
+                        {/*<Main title="From the firehose" posts={posts} />*/}
                         <Sidebar
                             title={sidebar.title}
                             description={sidebar.description}
@@ -115,7 +115,7 @@ export default function Blog() {
                     </Grid>
                 </main>
             </Container>
-            <Footer title="Footer" description="Something here to give the footer a purpose!" />
+            <Footer title="GeniuSolio" description="Endorse your own works." />
         </React.Fragment>
     );
 }
