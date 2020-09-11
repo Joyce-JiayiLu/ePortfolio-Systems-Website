@@ -37,7 +37,6 @@ export default function UpdateProfile() {
 
     return (
         <div>
-            <Nav />
         <form className={classes.root} noValidate autoComplete="off">
             <div>
             <TextField required id="first_name" label="firstname" variant="outlined" />

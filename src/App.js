@@ -33,6 +33,7 @@ export default function App() {
               <Dashboard />
           </Route>
           <Route path='/updateProfile'>
+              <Nav />
               <UpdateProfile />
           </Route>
           <Route path='/user'>
