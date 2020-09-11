@@ -8,6 +8,7 @@ import DeleteButton from "../components/DeleteButton";
 import UploadButton from "../components/UploadButton";
 import LoginButton from "../components/LoginButton";
 import LogoutButton from "../components/LogoutButton";
+import {useAuth0} from "@auth0/auth0-react";
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -17,6 +18,16 @@ const useStyles = makeStyles((theme) => ({
 
 export default function IconLabelButtons() {
     const classes = useStyles();
+
+    //check if user login
+    const { user, isAuthenticated }  = useAuth0();
+    if (isAuthenticated){
+        console.log("yes is authenticated");
+        window.sessionStorage.setItem("usersub",user.sub);
+        window.location.assign(`http://localhost:3000/usercenter/${user.sub}`);
+        //window.sessionStorage.setItem("userid",user_id);
+        //getUserAndCreat(user_id);
+    }
 
     return (
 

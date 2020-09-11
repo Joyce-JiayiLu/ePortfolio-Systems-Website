@@ -24,6 +24,7 @@ import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
 import Avatar from "@material-ui/core/Avatar";
+import {getUserAndCreat} from "../../api";
 
 function Copyright() {
     return (
@@ -120,6 +121,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Dashboard() {
+
+    let username;
+    username = window.location.pathname;
+    let index;
+    index = username.lastIndexOf('/');
+    let userid;
+    userid = username.slice(index+1);
+    getUserAndCreat(userid);
+
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
     const handleDrawerOpen = () => {
