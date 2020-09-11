@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Button from "./Button";
 
 export default function Nav() {
   return <nav>
@@ -21,3 +22,4 @@ export default function Nav() {
     </NavLink>
   </nav>;
 }
+
