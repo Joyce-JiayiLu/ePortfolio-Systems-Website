@@ -19,12 +19,27 @@ export default function IconLabelButtons() {
     const classes = useStyles();
 
     return (
+
         <div>
-            <DeleteButton></DeleteButton>
-            <UploadButton></UploadButton>
-            <SaveButton></SaveButton>
-            <LoginButton></LoginButton>
-            <LogoutButton></LogoutButton>
+
+            <div
+                style={{
+                    backgroundImage: `url("https://github.com/issaafalkattan/React-Landing-Page-Template/blob/master/public/img/intro-bg.jpg?raw=true")`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                    height: 1000,
+                    textAlign: "center",
+                    fontSize: 90,
+                    color: "white",
+                    display: "flex",
+                    backgroundColor: "#282c34",
+                    justifyContent: "center",
+                    alignItems: "center"
+                }}>
+                WELCOME TO THE WAREHOUSE OF PORTFOLIO.
+
+            </div>
         </div>
     );
 }
