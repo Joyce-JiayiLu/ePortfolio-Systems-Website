@@ -11,22 +11,13 @@ export default function Login() {
     const { loginWithRedirect } = useAuth0();
     const { logout } = useAuth0();
     const { user, isAuthenticated }  = useAuth0();
-    if (isAuthenticated){
-        console.log("yes is authenticated");
-        var user_id = user.sub;
-        user_id.replace("|","%");
-        console.log(user_id);
-        window.sessionStorage.setItem("userid",user_id);
-        getUserAndCreat(user_id);
-
+    if(window.sessionStorage.getItem("usersub")){
     return (
         <div>
             <LogoutButton />
 
         <div>
-            <p>{user.name}</p>
-            <p>{user.email}</p>
-            <p>{user.sub}</p>
+            {window.sessionStorage.getItem("usersub")}
 
         </div>
             <UpdateProfileButton />

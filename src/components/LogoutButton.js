@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LogoutButton() {
     const classes = useStyles();
-    const { logout } = useAuth0();
+    //const { logout } = useAuth0();
 
     return (
         <div className={classes.root}>
@@ -22,4 +22,9 @@ export default function LogoutButton() {
             </Button>
         </div>
     );
+}
+
+function logout() {
+    window.sessionStorage.removeItem("usersub")
+    window.location.assign('http://localhost:3000');
 }
