@@ -128,7 +128,7 @@ export default function Dashboard() {
     index = username.lastIndexOf('/');
     let userid;
     userid = username.slice(index+1);
-    getUserAndCreat(userid);
+    getUserAndCreat(window.sessionStorage.getItem("usersub"));
 
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
