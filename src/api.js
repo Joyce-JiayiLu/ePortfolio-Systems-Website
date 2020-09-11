@@ -13,25 +13,33 @@ function getUsers() {
   // return fetch call that gets author list
 }
 
-export function getAuthor(id) {
-  const endpoint = BASE_URL + `/author-management/${id}`;
-
+export function getUser(id) {
+  const endpoint = BASE_URL + `/user/${id}`;
+  return fetch(endpoint).then(res => {
+    console.log(res);
+    return res.json();
+  });
   // TODO
   // return fetch statement to get an author by the id
 }
 
-export function addAuthor(author) {
-  const { id, first_name, last_name } = author;
-  if (!id || !first_name || !last_name) {
-    alert("must include all fields");
-    return;
-  }
+export function getUserAndCreat(id) {
+  const endpoint = BASE_URL + `/user/${id}`;
+  return fetch(endpoint).then(res => {
+    if(!res.ok){
+      const user = {"userid":id};
+      createUser(user);
+    }
+  });
+  // TODO
+  // return fetch statement to get an author by the id
+}
 
-  const endpoint = BASE_URL + `/author-management/`;
+
 
   // TODO
   // return fetch statement to add an author
-}
+
 
 export function updateAuthor(author) {
   const { id, first_name, last_name } = author;
