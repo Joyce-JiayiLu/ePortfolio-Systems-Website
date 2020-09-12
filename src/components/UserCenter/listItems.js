@@ -13,24 +13,24 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ResumeIcon from '@material-ui/icons/AccountBox';
 import PortfolioIcon from '@material-ui/icons/Collections';
 import BookmarkIcon from '@material-ui/icons/CollectionsBookmark';
-import UpdateProfileButton from "../UpdateProfileButton";
-import LogoutButton from "../LogoutButton";
+import UpdateProfileButton from "../Button/UpdateProfileButton";
+import LogoutButton from "../Button/LogoutButton";
 
 export const mainListItems = (
     <div>
-        <ListItem button>
+        <ListItem button onClick={() => toUserInformation()}>
             <ListItemIcon>
                 <AccountCircleIcon />
             </ListItemIcon>
             <ListItemText primary="User Information" />
         </ListItem>
-        <ListItem button>
+        <ListItem button onClick={() => toResume()}>
             <ListItemIcon>
                 <ResumeIcon />
             </ListItemIcon>
             <ListItemText primary="Resume" />
         </ListItem>
-        <ListItem button>
+        <ListItem button onClick={() => toPortfolioCollections()}>
             <ListItemIcon>
                 <PortfolioIcon />
             </ListItemIcon>
@@ -54,7 +54,19 @@ export const secondaryListItems = (
             </ListItemIcon>
             <ListItemText primary="Friends" />
         </ListItem>
-        <UpdateProfileButton />
+
         <LogoutButton />
     </div>
 );
+
+function toPortfolioCollections(){
+    window.location.assign(`http://localhost:3000/portfoliocollections`);
+}
+
+function toResume(){
+    window.location.assign(`http://localhost:3000/resume`);
+}
+
+function toUserInformation(){
+    window.location.assign(`http://localhost:3000/usercenter`);
+}

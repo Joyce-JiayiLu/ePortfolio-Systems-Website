@@ -89,7 +89,7 @@ export function useUsers() {
 }
 
 export function updateUserProfile(user) {
-  const { userid, first_name, last_name, gender, introduction} = user;
+  const { userid, first_name, last_name, gender, introduction, age} = user;
   var reg=/^[0-9]+.?[0-9]*$/;
   // if(!reg.test(age)){
   //   alert("age must be number!");
@@ -118,9 +118,11 @@ export function updateUserProfile(user) {
       first_name,
       last_name,
       introduction,
+      age,
+      gender,
     })
   }).then(res =>{
-    window.location.assign(`http://localhost:3000/login`)
+    window.location.assign(`http://localhost:3000/usercenter`)
 
   });
 }
@@ -144,7 +146,7 @@ export function checkUser(user) {
 }
 
 function createUser(user){
-  const { userid, first_name, last_name, gender, introduction, email_address, image, resume} = user;
+  const { userid, first_name, last_name, gender, introduction, email_address, image, resume, age} = user;
   const endpoint = BASE_URL + `/user`;
   //console.log(contact_information.value);
   // return fetch query to update an author
@@ -159,6 +161,7 @@ function createUser(user){
       gender,
       introduction,
       userid,
+      age,
       // email_address,
       // image,
       // resume

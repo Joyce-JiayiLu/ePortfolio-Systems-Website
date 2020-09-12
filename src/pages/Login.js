@@ -12,13 +12,13 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import LoginButton from "../components/LoginButton";
+import LoginButton from "../components/Button/LoginButton";
 
 import { useAuth0} from "@auth0/auth0-react";
 
-import LogoutButton from "../components/LogoutButton";
+import LogoutButton from "../components/Button/LogoutButton";
 
-import UpdateProfileButton from "../components/UpdateProfileButton";
+import UpdateProfileButton from "../components/Button/UpdateProfileButton";
 
 import {getUserAndCreat} from "../api"
 

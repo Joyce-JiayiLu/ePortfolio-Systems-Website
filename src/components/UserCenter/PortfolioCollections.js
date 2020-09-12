@@ -27,6 +27,7 @@ import Avatar from "@material-ui/core/Avatar";
 import {getUserAndCreat, useUsers} from "../../api";
 import UpdateProfileButton from "../Button/UpdateProfileButton";
 import UploadImageButton from "../Button/UploadImageButton";
+import FileUpload from "../FileUpload";
 
 function Copyright() {
     return (
@@ -118,10 +119,8 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
     },
     fixedHeight: {
-        height: 440,
-    },
-    fixedHeightImage: {
-        height: 240,
+        height: 350,
+        align: "center",
     },
 
     buttonBottom: {
@@ -157,7 +156,6 @@ export default function Dashboard() {
         setOpen(false);
     };
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-    const fixedHeightPaperImage = clsx(classes.paper, classes.fixedHeightImage);
 
 
     const { loading, users, error } = useUsers();
@@ -170,18 +168,13 @@ export default function Dashboard() {
     let first_name;
     let last_name;
     let introduction;
-    let gender;
-    let age;
-
     {users.map(user => {
         if(user.userid===window.sessionStorage.getItem("usersub")){
             first_name = user.first_name;
             last_name  = user.last_name;
             introduction = user.introduction;
-            gender = user.gender;
-            age = user.age;
         }})}
-     //console.log(first_name);
+    //console.log(first_name);
 
     return (
         <div className={classes.root}>
@@ -210,7 +203,7 @@ export default function Dashboard() {
                         </Badge>
                     </IconButton>
                     <IconButton color="inherit">
-                    <Avatar alt="Jiayi Lu" src="/static/images/avatar/1.jpg" />
+                        <Avatar alt="Jiayi Lu" src="/static/images/avatar/1.jpg" />
                     </IconButton>
                 </Toolbar>
             </AppBar>
@@ -234,39 +227,38 @@ export default function Dashboard() {
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
-                    <Grid container spacing={3}>
+                    <Grid container spacing={3} justify={"center"}>
                         {/* Chart */}
-                        <Grid item xs={12} md={8} lg={9}>
+                        <Grid item xs={12}>
+                            {/*{md={8} lg={9}}*/}
                             <Paper className={fixedHeightPaper}>
-                                <p>firstname: {first_name}</p>
-                                <p>lastname:  {last_name}</p>
-                                <p>gender:  {gender}</p>
-                                <p>birthday:  {age}</p>
-                                <p>introduction:  {introduction}</p>
-                                <p></p>
-                                <p></p>
-                                <p></p>
-                                <p className={classes.buttonBottom}><UpdateProfileButton /></p>
+                                <p>Portfolio</p>
+                                <p>Portfolio</p>
+
 
                             </Paper>
 
                         </Grid>
                         {/* Recent Deposits */}
-                        <Grid item xs={12} md={4} lg={3}>
-                            <Paper className={fixedHeightPaperImage}>
-                                <p>
-                                    <Avatar className={classes.imagePosition} alt="Jiayi Lu" src="/static/images/avatar/1.jpg" />
-                                </p>
-                                <p className={classes.buttonBottom}>
-                                    <UploadImageButton />
-                                </p>
+                        {/*{<Grid item xs={12} md={4} lg={3}>*/}
+                        {/*    <Paper className={fixedHeightPaperImage}>*/}
+                        {/*        <p>*/}
+                        {/*            <Avatar className={classes.imagePosition} alt="Jiayi Lu" src="/static/images/avatar/1.jpg" />*/}
+                        {/*        </p>*/}
+                        {/*        <p className={classes.buttonBottom}>*/}
+                        {/*            <UploadImageButton />*/}
+                        {/*        </p>*/}
+                        {/*    </Paper>*/}
+                        {/*</Grid>}*/}
+                        {/* Recent Orders */}
+                        <Grid item xs={12} >
+                            <Paper className={classes.paper}>
+                                <FileUpload />
                             </Paper>
                         </Grid>
-                        {/* Recent Orders */}
-                        <Grid item xs={12}>
 
-                        </Grid>
                     </Grid>
+
                     <Box pt={4} className={classes.buttonBottom}>
                         <Copyright />
                     </Box>

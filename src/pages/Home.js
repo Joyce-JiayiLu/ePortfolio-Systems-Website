@@ -1,15 +1,8 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import KeyboardVoiceIcon from '@material-ui/icons/KeyboardVoice';
-import Icon from '@material-ui/core/Icon';
-import SaveButton from "../components/SaveButton";
-import DeleteButton from "../components/DeleteButton";
-import UploadButton from "../components/UploadButton";
-import LoginButton from "../components/LoginButton";
-import LogoutButton from "../components/LogoutButton";
 import {useAuth0} from "@auth0/auth0-react";
 import FileUpload from "../components/FileUpload";
+
 const useStyles = makeStyles((theme) => ({
     button: {
         margin: theme.spacing(1),
@@ -47,9 +40,10 @@ export default function IconLabelButtons() {
                     alignItems: "center"
                 }}>
                 WELCOME TO THE WAREHOUSE OF PORTFOLIO.
-
             </div>
+
             <FileUpload/>
+
         </div>
     );
 }
