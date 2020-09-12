@@ -30,9 +30,7 @@ export default function IconLabelButtons() {
     }
 
     return (
-
         <div>
-
             <div
                 style={{
                     backgroundImage: `url("https://github.com/issaafalkattan/React-Landing-Page-Template/blob/master/public/img/intro-bg.jpg?raw=true")`,

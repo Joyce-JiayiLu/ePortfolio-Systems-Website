@@ -21,13 +21,13 @@ export default function UpdateProfileButton({ className, children, onClick, ...p
             color="default"
             className={classes.button}
             startIcon={<PersonIcon />}
-            onClick={() => updateUserProfile(window.sessionStorage.getItem("usersub"))}
+            onClick={() => updateUserProfile(user)}
         >
             Update Profile
         </Button>
     );
 }
 
-function updateUserProfile(userid){
-    window.location.assign(`http://localhost:3000/updateProfile/${userid}`);
+function updateUserProfile(user){
+    window.location.assign(`http://localhost:3000/updateProfile/${user.sub}`);
 }

@@ -138,13 +138,10 @@ export function checkUser(user) {
     //console.log(res);
     return res.json();
   }).then(res =>{
-    console.log("here");
       if(res.ok){
-        console.log("ok");
         updateUserProfile(user);
       }
       else{
-        console.log("400");
         createUser(user);
       }
   });
