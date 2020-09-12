@@ -42,9 +42,8 @@ export default function IconLabelButtons() {
                     height: 1000,
                     textAlign: "center",
                     fontSize: 90,
-                    color: "white",
+                    color: "grey",
                     display: "flex",
-                    backgroundColor: "#282c34",
                     justifyContent: "center",
                     alignItems: "center"
                 }}>
