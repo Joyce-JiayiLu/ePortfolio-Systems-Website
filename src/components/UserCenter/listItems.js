@@ -13,8 +13,8 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ResumeIcon from '@material-ui/icons/AccountBox';
 import PortfolioIcon from '@material-ui/icons/Collections';
 import BookmarkIcon from '@material-ui/icons/CollectionsBookmark';
-import UpdateProfileButton from "../UpdateProfileButton";
-import LogoutButton from "../LogoutButton";
+import UpdateProfileButton from "../Button/UpdateProfileButton";
+import LogoutButton from "../Button/LogoutButton";
 
 export const mainListItems = (
     <div>
@@ -54,7 +54,7 @@ export const secondaryListItems = (
             </ListItemIcon>
             <ListItemText primary="Friends" />
         </ListItem>
-        <UpdateProfileButton />
+
         <LogoutButton />
     </div>
 );

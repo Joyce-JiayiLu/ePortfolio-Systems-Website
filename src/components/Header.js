@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { addAuthor } from "../api";
-import Button from "../components/Button";
+import Button from "./Button/Button";
 
 export default function Header() {
   // const [id, setId] = useState("");

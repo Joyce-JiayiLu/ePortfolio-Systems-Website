@@ -25,6 +25,8 @@ import Deposits from './Deposits';
 import Orders from './Orders';
 import Avatar from "@material-ui/core/Avatar";
 import {getUserAndCreat, useUsers} from "../../api";
+import UpdateProfileButton from "../Button/UpdateProfileButton";
+import UploadImageButton from "../Button/UploadImageButton";
 
 function Copyright() {
     return (
@@ -116,8 +118,20 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
     },
     fixedHeight: {
+        height: 440,
+    },
+    fixedHeightImage: {
         height: 240,
     },
+
+    buttonBottom: {
+        marginTop: 70,
+    },
+
+    imagePosition: {
+        marginLeft: 90,
+    }
+
 }));
 
 export default function Dashboard() {
@@ -143,6 +157,7 @@ export default function Dashboard() {
         setOpen(false);
     };
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+    const fixedHeightPaperImage = clsx(classes.paper, classes.fixedHeightImage);
 
 
     const { loading, users, error } = useUsers();
@@ -220,24 +235,31 @@ export default function Dashboard() {
                             <Paper className={fixedHeightPaper}>
                                 <p>firstname: {first_name}</p>
                                 <p>lastname:  {last_name}</p>
-
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p className={classes.buttonBottom}><UpdateProfileButton /></p>
 
                             </Paper>
+
                         </Grid>
                         {/* Recent Deposits */}
                         <Grid item xs={12} md={4} lg={3}>
-                            <Paper className={fixedHeightPaper}>
-
+                            <Paper className={fixedHeightPaperImage}>
+                                <p>
+                                    <Avatar className={classes.imagePosition} alt="Jiayi Lu" src="/static/images/avatar/1.jpg" />
+                                </p>
+                                <p className={classes.buttonBottom}>
+                                    <UploadImageButton />
+                                </p>
                             </Paper>
                         </Grid>
                         {/* Recent Orders */}
                         <Grid item xs={12}>
-                            <Paper className={classes.paper}>
-                                <Orders />
-                            </Paper>
+
                         </Grid>
                     </Grid>
-                    <Box pt={4}>
+                    <Box pt={4} className={classes.buttonBottom}>
                         <Copyright />
                     </Box>
                 </Container>

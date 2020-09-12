@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import "../views/FileUpload.css";
-import UploadButton from "./UploadButton";
+import UploadButton from "./Button/UploadButton";
 
 export default class FileUpload extends Component{
 

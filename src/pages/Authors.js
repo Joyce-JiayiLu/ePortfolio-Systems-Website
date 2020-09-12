@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAuthors, updateAuthor, deleteAuthor } from "../api";
 
-import Button from "../components/Button";
+import Button from "../components/Button/Button";
 
 export default function Authors() {
   const { loading, authors, error } = useAuthors();

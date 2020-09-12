@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useUsers, updateCaregiver, deleteCaregiver } from "../api";
 //import Loading from "../components/Loading";
-import Button from "../components/Button";
+import Button from "../components/Button/Button";
 //import ReactStars from "react-rating-stars-component";
 //import Upload from "../components/Upload";
 
