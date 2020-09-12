@@ -227,7 +227,7 @@ export default function Dashboard() {
                         {/* Recent Deposits */}
                         <Grid item xs={12} md={4} lg={3}>
                             <Paper className={fixedHeightPaper}>
-                                <Deposits />
+
                             </Paper>
                         </Grid>
                         {/* Recent Orders */}
