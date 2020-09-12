@@ -18,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
             width: '25ch',
         },
     },
+    container: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
     formControl: {
         margin: theme.spacing(1),
         minWidth: 300,
@@ -75,11 +79,11 @@ export default function UpdateProfile() {
                 </FormControl>
             </div>
             <div>
-                <form noValidate>
+                <form className={classes.container} noValidate>
                     <TextField
                         id="age"
                         label="Birthday"
-                        type="string"
+                        type="date"
                         defaultValue="2000-05-24"
                         className={classes.textFieldStyle}
                         InputLabelProps={{
@@ -89,7 +93,6 @@ export default function UpdateProfile() {
                     />
                 </form>
             </div>
-
             <div>
                 <TextField required multiline rows={5} id="introduction" label="introduction" variant="outlined" className={classes.textFieldStyle} />
             </div>
@@ -120,6 +123,7 @@ function onSubmit(gender) {
     // var working_experience = document.getElementById("working_experience").value;
     var introduction = document.getElementById("introduction").value;
     var age = document.getElementById("age").value;
+    age = age.toString();
     console.log(age);
     console.log(gender);
     // var address = document.getElementById("address").value;
