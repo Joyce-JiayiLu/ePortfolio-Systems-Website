@@ -8,22 +8,7 @@ import UploadButton from "./Button/UploadButton";
 
 export default function FileUpload () {
 
-    const config = {
-        bucketName: 'itproject',
-        dirName: 'file', /* optional */
-        region: 'ap-southeast-2',
-        accessKeyId: 'AKIAJ6JITOOOA3AF5QWA',
-        secretAccessKey: '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',
-    };
-
     const [selectedFile, setSelectedFile] = useState(null);
-
-    function onClickHandler() {
-        console.log(selectedFile);
-        uploadFile(selectedFile, config)
-            .then(data => console.log(data))
-            .catch(err => console.error(err))
-    }
 
     return(
         <div className="container">
@@ -37,7 +22,7 @@ export default function FileUpload () {
                     </form>
                 </div>
             </div>
-            <button type="button" className="btn btn-success btn-block" onClick={onClickHandler}>Upload</button>
+            <UploadButton data={selectedFile} />
         </div>
     );
 };
