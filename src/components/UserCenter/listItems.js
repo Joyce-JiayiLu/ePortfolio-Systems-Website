@@ -30,7 +30,7 @@ export const mainListItems = (
             </ListItemIcon>
             <ListItemText primary="Resume" />
         </ListItem>
-        <ListItem button>
+        <ListItem button onClick={() => toPortfolioCollections()}>
             <ListItemIcon>
                 <PortfolioIcon />
             </ListItemIcon>
@@ -58,3 +58,7 @@ export const secondaryListItems = (
         <LogoutButton />
     </div>
 );
+
+function toPortfolioCollections(){
+    window.location.assign(`http://localhost:3000/portfoliocollections`);
+}
