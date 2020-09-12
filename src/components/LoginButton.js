@@ -17,9 +17,9 @@ export default function LoginButton() {
 
     return (
         <div className={classes.root}>
-            <Button variant="contained" color="primary" onClick={() => loginWithRedirect()}>
+            <div variant="contained" color="primary" onClick={() => loginWithRedirect()}>
                 Log In
-            </Button>
+            </div>
         </div>
     );
 }
