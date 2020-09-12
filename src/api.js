@@ -95,23 +95,17 @@ export function updateUserProfile(user) {
   //   alert("age must be number!");
   //   return;
   // }
-  if(gender.toLocaleLowerCase() !== "male" && gender.toLocaleLowerCase() !== "female"){
-    alert("please include 'male' or 'female' as a gender!");
-    return;
-  }
+
   if (!first_name || !last_name) {
     alert("must include a first name or last name to update!");
     return;
   }
-  if (!gender){
-    alert("must include gender!");
-    return;
-  }
+
   if (!introduction){
     alert("must include an introduction!");
     return;
   }
-  const endpoint = BASE_URL + `/user`;
+  const endpoint = BASE_URL + `/user/${userid}`;
   //console.log(contact_information.value);
   // return fetch query to update an author
   return fetch(endpoint, {
@@ -123,7 +117,6 @@ export function updateUserProfile(user) {
       userid,
       first_name,
       last_name,
-      gender,
       introduction,
     })
   }).then(res =>{
@@ -138,10 +131,13 @@ export function checkUser(user) {
     //console.log(res);
     return res.json();
   }).then(res =>{
+    console.log("here");
       if(res.ok){
+        console.log("ok");
         updateUserProfile(user);
       }
       else{
+        console.log("400");
         createUser(user);
       }
   });

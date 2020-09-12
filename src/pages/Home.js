@@ -30,7 +30,9 @@ export default function IconLabelButtons() {
     }
 
     return (
+
         <div>
+
             <div
                 style={{
                     backgroundImage: `url("https://github.com/issaafalkattan/React-Landing-Page-Template/blob/master/public/img/intro-bg.jpg?raw=true")`,
@@ -40,10 +42,11 @@ export default function IconLabelButtons() {
                     height: 1000,
                     textAlign: "center",
                     fontSize: 90,
-                    color: "grey",
+                    color: "white",
                     display: "flex",
+                    backgroundColor: "#282c34",
                     justifyContent: "center",
-                    alignItems: "center",
+                    alignItems: "center"
                 }}>
                 WELCOME TO THE WAREHOUSE OF PORTFOLIO.
 

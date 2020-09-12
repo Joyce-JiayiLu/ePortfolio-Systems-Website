@@ -24,7 +24,7 @@ import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
 import Avatar from "@material-ui/core/Avatar";
-import {getUserAndCreat} from "../../api";
+import {getUserAndCreat, useUsers} from "../../api";
 
 function Copyright() {
     return (
@@ -120,7 +120,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function UserCenter() {
+export default function Dashboard() {
+    if(!window.sessionStorage.getItem("usersub")){
+
+        window.location.assign("http://localhost:3000/login")
+    }
 
     let username;
     username = window.location.pathname;
@@ -128,7 +132,7 @@ export default function UserCenter() {
     index = username.lastIndexOf('/');
     let userid;
     userid = username.slice(index+1);
-    getUserAndCreat(userid);
+    getUserAndCreat(window.sessionStorage.getItem("usersub"));
 
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
@@ -139,6 +143,25 @@ export default function UserCenter() {
         setOpen(false);
     };
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
+
+    const { loading, users, error } = useUsers();
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+    if (error) {
+        return <p>Something went wrong: {error.message}</p>;
+    }
+    let first_name;
+    let last_name;
+    let introduction;
+    {users.map(user => {
+        if(user.userid===window.sessionStorage.getItem("usersub")){
+            first_name = user.first_name;
+            last_name  = user.last_name;
+            introduction = user.introduction;
+        }})}
+     //console.log(first_name);
 
     return (
         <div className={classes.root}>
@@ -195,21 +218,24 @@ export default function UserCenter() {
                         {/* Chart */}
                         <Grid item xs={12} md={8} lg={9}>
                             <Paper className={fixedHeightPaper}>
+                                <p>firstname: {first_name}</p>
+                                <p>lastname:  {last_name}</p>
+
 
                             </Paper>
                         </Grid>
                         {/* Recent Deposits */}
                         <Grid item xs={12} md={4} lg={3}>
                             <Paper className={fixedHeightPaper}>
-
+                                <Deposits />
                             </Paper>
                         </Grid>
                         {/* Recent Orders */}
-                        {/*{<Grid item xs={12}>*/}
-                        {/*    <Paper className={classes.paper}>*/}
-                        {/*        <Orders />*/}
-                        {/*    </Paper>*/}
-                        {/*</Grid>}*/}
+                        <Grid item xs={12}>
+                            <Paper className={classes.paper}>
+                                <Orders />
+                            </Paper>
+                        </Grid>
                     </Grid>
                     <Box pt={4}>
                         <Copyright />

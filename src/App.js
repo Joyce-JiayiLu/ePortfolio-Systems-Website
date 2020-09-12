@@ -9,14 +9,13 @@ import Login from "./pages/Login"
 import "./views/styles.css";
 import UpdateProfile from "./pages/UpdateProfile";
 import Blog from "./components/Blog/Blog";
-import UserCenter from "./components/UserCenter/UserCenter";
+import Dashboard from "./components/UserCenter/Dashboard";
 import Users from "./pages/Users";
 
 export default function App() {
   return (
     <Router>
     <div className="App">
-
       <Switch>
           <Route exact path="/">
               <Nav />
@@ -30,7 +29,7 @@ export default function App() {
               <Blog />
           </Route>
           <Route path="/usercenter">
-              <UserCenter />
+              <Dashboard />
           </Route>
           <Route path='/updateProfile'>
               <Nav />
@@ -39,7 +38,6 @@ export default function App() {
           <Route path='/user'>
               <Users/>
           </Route>
-
       </Switch>
     </div>
     </Router>
