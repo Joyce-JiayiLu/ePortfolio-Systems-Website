@@ -18,13 +18,13 @@ import LogoutButton from "../Button/LogoutButton";
 
 export const mainListItems = (
     <div>
-        <ListItem button>
+        <ListItem button onClick={() => toUserInformation()}>
             <ListItemIcon>
                 <AccountCircleIcon />
             </ListItemIcon>
             <ListItemText primary="User Information" />
         </ListItem>
-        <ListItem button>
+        <ListItem button onClick={() => toResume()}>
             <ListItemIcon>
                 <ResumeIcon />
             </ListItemIcon>
@@ -61,4 +61,12 @@ export const secondaryListItems = (
 
 function toPortfolioCollections(){
     window.location.assign(`http://localhost:3000/portfoliocollections`);
+}
+
+function toResume(){
+    window.location.assign(`http://localhost:3000/resume`);
+}
+
+function toUserInformation(){
+    window.location.assign(`http://localhost:3000/usercenter`);
 }

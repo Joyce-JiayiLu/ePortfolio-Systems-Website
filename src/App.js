@@ -12,6 +12,7 @@ import Blog from "./components/Blog/Blog";
 import Dashboard from "./components/UserCenter/Dashboard";
 import Users from "./pages/Users";
 import PortfolioCollections from "./components/UserCenter/PortfolioCollections";
+import Resume from "./components/UserCenter/Resume";
 
 export default function App() {
   return (
@@ -34,6 +35,9 @@ export default function App() {
           </Route>
           <Route path="/portfoliocollections">
               <PortfolioCollections />
+          </Route>
+          <Route path="/resume">
+              <Resume />
           </Route>
           <Route path='/updateProfile'>
               <Nav />
