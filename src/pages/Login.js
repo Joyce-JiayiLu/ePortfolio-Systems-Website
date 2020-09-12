@@ -130,13 +130,14 @@ export default function SignInSide() {
                             variant="contained"
                             color="primary"
                             className={classes.submit}
+                            onClick={() => loginWithRedirect()}
                         >
                             <LoginButton />
                         </Button>
                         <Grid container>
                             <Grid item xs>
                                 <Link href="#" variant="body2">
-                                    
+
                                 </Link>
                             </Grid>
                             <Grid item>
