@@ -61,7 +61,9 @@ If users have already logged in, when they click this button, the page will link
 ![Image text](https://raw.githubusercontent.com/Jiayi-Joyce-Lu/IT-Project-Front-end/master/src/picture/usercenterpage.png?token=AOZXEAJCGE6E3DERTJC3HCK7MYIIW)
 
 In user center page, we developed several sub functions, the first one is Update Profile in user information, and the second one is the Upload File feature in Portfolio Collections and Resume page.
-
+ 
+ * however, for the Upload File function, we haven't finished the displaying function, you could check the uploaded file in console.
+ ![Image text](https://raw.githubusercontent.com/Jiayi-Joyce-Lu/IT-Project-Front-end/master/src/picture/console.png?token=AOZXEAI3HUFVD5S37ROAO2C7MYQL2)
  ## Authors
  
  - [Jiayi Lu](https://github.com/Jiayi-Joyce-Lu)
