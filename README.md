@@ -48,7 +48,7 @@ The third button on the navigation bar is the Signup/Login or user center featur
 
 #### Signup/Login page
 
-    If users haven't signed up/logged in, when they click this button, the page will link to the signup/login page.
+If users haven't signed up/logged in, when they click this button, the page will link to the signup/login page.
 
 ![Image text](https://raw.githubusercontent.com/Jiayi-Joyce-Lu/IT-Project-Front-end/master/src/picture/loginpage.png?token=AOZXEAPRDLRUHICFVM4JJN27MYICE)
 
@@ -56,11 +56,19 @@ In this page, user could click login/signup button, then the page will link to a
 
 #### User Center Page
 
-    If users have already logged in, when they click this button, the page will link to their user center.
+If users have already logged in, when they click this button, the page will link to their user center.
     
 ![Image text](https://raw.githubusercontent.com/Jiayi-Joyce-Lu/IT-Project-Front-end/master/src/picture/usercenterpage.png?token=AOZXEAJCGE6E3DERTJC3HCK7MYIIW)
 
+In user center page, we developed several sub functions, the first one is Update Profile in user information, and the second one is the Upload File feature in Portfolio Collections and Resume page.
 
+ ## Authors
+ 
+ - [Jiayi Lu](https://github.com/Jiayi-Joyce-Lu)
+ - [Zhiqing Wu](https://github.com/zhiqingw)
+ - [Wei Zhang](https://github.com/Proletariatee)
+ - [Xuxu Xue](https://github.com/ElliotXue)
+ - [Mingyue Gu](https://github.com/gmy0516)
 
 
 
