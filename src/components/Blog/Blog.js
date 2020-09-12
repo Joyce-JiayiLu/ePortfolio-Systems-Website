@@ -11,6 +11,8 @@ import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
+import HomeIcon from "@material-ui/icons/Home";
+import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles((theme) => ({
     mainGrid: {
@@ -98,3 +100,4 @@ export default function Blog() {
         </React.Fragment>
     );
 }
+
