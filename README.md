@@ -30,3 +30,37 @@ Then, as Material-UI is also available as an [npm package](https://www.npmjs.com
 
     npm install @material-ui/core
 
+Finally, run the command:
+    
+    npm start
+
+## Main Features
+
+### User Blog Feature
+
+The middle button on the navigation bar is the user blog page, which used to display user's portfolio.
+
+![Image text](https://raw.githubusercontent.com/Jiayi-Joyce-Lu/IT-Project-Front-end/master/src/picture/blogpage.png?token=AOZXEAINTUMMIESYNRQVHY27MYHJI)
+
+### User Center Feature
+
+The third button on the navigation bar is the Signup/Login or user center feature.
+
+#### Signup/Login page
+
+    If users haven't signed up/logged in, when they click this button, the page will link to the signup/login page.
+
+![Image text](https://raw.githubusercontent.com/Jiayi-Joyce-Lu/IT-Project-Front-end/master/src/picture/loginpage.png?token=AOZXEAPRDLRUHICFVM4JJN27MYICE)
+
+In this page, user could click login/signup button, then the page will link to auth0 api which user could use to login/signup.
+
+#### User Center Page
+
+    If users have already logged in, when they click this button, the page will link to their user center.
+    
+![Image text](https://raw.githubusercontent.com/Jiayi-Joyce-Lu/IT-Project-Front-end/master/src/picture/usercenterpage.png?token=AOZXEAJCGE6E3DERTJC3HCK7MYIIW)
+
+
+
+
+

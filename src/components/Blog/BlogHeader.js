@@ -7,6 +7,8 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+import HomeIcon from "@material-ui/icons/Home";
+import {useAuth0} from "@auth0/auth0-react";
 
 const useStyles = makeStyles((theme) => ({
     toolbar: {
@@ -28,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Header(props) {
     const classes = useStyles();
     const { sections, title } = props;
+    const { loginWithRedirect } = useAuth0();
 
     return (
         <React.Fragment>
@@ -46,7 +49,12 @@ export default function Header(props) {
                 <IconButton>
                     <SearchIcon />
                 </IconButton>
-                <Button variant="outlined" size="small">
+
+                <IconButton color="inherit" onClick={() => backHomePage()}>
+                    <HomeIcon />
+                </IconButton>
+
+                <Button variant="outlined" size="small" onClick={() => loginWithRedirect()}>
                     Sign up
                 </Button>
             </Toolbar>
@@ -72,3 +80,7 @@ Header.propTypes = {
     sections: PropTypes.array,
     title: PropTypes.string,
 };
+
+function backHomePage(){
+    window.location.assign(`http://localhost:3000/`);
+}
