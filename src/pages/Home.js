@@ -42,8 +42,6 @@ export default function IconLabelButtons() {
                 WELCOME TO THE WAREHOUSE OF PORTFOLIO.
             </div>
 
-            <FileUpload/>
-
         </div>
     );
 }
