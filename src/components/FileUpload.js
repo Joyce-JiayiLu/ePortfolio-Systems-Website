@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 import ReactS3, {uploadFile} from 'react-s3';
 import S3FileUpload from 'react-s3';
-
+import BackupIcon from '@material-ui/icons/Backup';
 
 export default function FileUpload () {
     const config = {
@@ -23,6 +23,7 @@ export default function FileUpload () {
     return(
         <div className="file">
             <h1> upload</h1>
+            <p><BackupIcon /></p>
             <input type='file' onChange={upload}/>
 
 

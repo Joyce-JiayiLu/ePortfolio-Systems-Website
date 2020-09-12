@@ -90,9 +90,6 @@ export default function UpdateProfile() {
                 </form>
             </div>
 
-            <TextField id="address" label="address(city)" variant="outlined" className={classes.textFieldStyle} />
-            <TextField id="working_experience" label="working experience(years)" variant="outlined" className={classes.textFieldStyle} />
-            <TextField id="contact_information" label="contact information" variant="outlined" className={classes.textFieldStyle} />
             <div>
                 <TextField required multiline rows={5} id="introduction" label="introduction" variant="outlined" className={classes.textFieldStyle} />
             </div>
