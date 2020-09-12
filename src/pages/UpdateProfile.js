@@ -9,7 +9,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
-import Nav from "../components/Nav";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -19,6 +18,24 @@ const useStyles = makeStyles((theme) => ({
             width: '25ch',
         },
     },
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 300,
+    },
+    selectEmpty: {
+        marginTop: theme.spacing(2),
+    },
+    divStyle: {
+        margin: "auto",
+    },
+    textFieldStyle: {
+        margin: theme.spacing(1),
+        width: 300,
+    },
+    button: {
+        margin: theme.spacing(1),
+        width: 300,
+    }
 }));
 
 export default function UpdateProfile() {
@@ -38,46 +55,49 @@ export default function UpdateProfile() {
     return (
         <div>
         <form className={classes.root} noValidate autoComplete="off">
-            <div>
-            <TextField required id="first_name" label="firstname" variant="outlined" />
+            <div className={classes.divStyle}>
+            <TextField required id="first_name" label="firstname" variant="outlined" className={classes.textFieldStyle} />
 
-            <TextField required id="last_name" label="lastname" variant="outlined" />
-            <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel id="genderInput">Gender</InputLabel>
-                <Select
-                    labelId="genderSelect"
-                    id="gender"
-                    value={gender}
-                    onChange={handleChangeGender}
-                    label="gender(male/female)"
-                >
-                    <MenuItem value={'male'}>Male</MenuItem>
-                    <MenuItem value={'female'}>Female</MenuItem>
-                </Select>
-            </FormControl>
-            <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel id="ageInput">Age</InputLabel>
-                <Select
-                    labelId="ageSelect"
-                    id="age"
-                    value={age}
-                    onChange={handleChangeAge}
-                    label="age"
-                >
-                    <MenuItem value="">
-                        <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={10}>10</MenuItem>
-                    <MenuItem value={20}>20</MenuItem>
-                    <MenuItem value={30}>30</MenuItem>
-                </Select>
-            </FormControl>
-            <TextField id="address" label="address(city)" variant="outlined" />
-            <TextField id="working_experience" label="working experience(years)" variant="outlined" />
-            <TextField id="contact_information" label="contact information" variant="outlined" />
-            <TextField required multiline rows={4} id="introduction" label="introduction" variant="outlined" />
+            <TextField required id="last_name" label="lastname" variant="outlined" className={classes.textFieldStyle} />
+            <div>
+                <FormControl variant="outlined" className={classes.formControl}>
+                    <InputLabel id="genderInput">Gender</InputLabel>
+                    <Select
+                        labelId="genderSelect"
+                        id="gender"
+                        value={gender}
+                        onChange={handleChangeGender}
+                        label="gender(male/female)"
+                    >
+                        <MenuItem value={'male'}>Male</MenuItem>
+                        <MenuItem value={'female'}>Female</MenuItem>
+                    </Select>
+                </FormControl>
             </div>
             <div>
+                <form noValidate>
+                    <TextField
+                        id="age"
+                        label="Birthday"
+                        type="date"
+                        defaultValue="2000-05-24"
+                        className={classes.textFieldStyle}
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        variant="outlined"
+                    />
+                </form>
+            </div>
+
+            <TextField id="address" label="address(city)" variant="outlined" className={classes.textFieldStyle} />
+            <TextField id="working_experience" label="working experience(years)" variant="outlined" className={classes.textFieldStyle} />
+            <TextField id="contact_information" label="contact information" variant="outlined" className={classes.textFieldStyle} />
+            <div>
+                <TextField required multiline rows={5} id="introduction" label="introduction" variant="outlined" className={classes.textFieldStyle} />
+            </div>
+            </div>
+            <div className={classes.divStyle}>
                 <Button
                     variant="contained"
                     color="primary"
