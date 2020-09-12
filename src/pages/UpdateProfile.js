@@ -79,7 +79,7 @@ export default function UpdateProfile() {
                     <TextField
                         id="age"
                         label="Birthday"
-                        type="date"
+                        type="string"
                         defaultValue="2000-05-24"
                         className={classes.textFieldStyle}
                         InputLabelProps={{
@@ -151,6 +151,9 @@ function onSubmit() {
     // var working_experience = document.getElementById("working_experience").value;
     // var salary = document.getElementById("salary").value;
     var introduction = document.getElementById("introduction").value;
+    var age = document.getElementById("age").value;
+    console.log(age);
+    console.log(gender);
 
     // var age = document.getElementById("age").value
     // var address = document.getElementById("address").value;
@@ -162,6 +165,7 @@ function onSubmit() {
         last_name,
         gender,
         introduction,
+        age,
         // username,
         // age,
         // address,

@@ -170,11 +170,16 @@ export default function Dashboard() {
     let first_name;
     let last_name;
     let introduction;
+    let gender;
+    let age;
+
     {users.map(user => {
         if(user.userid===window.sessionStorage.getItem("usersub")){
             first_name = user.first_name;
             last_name  = user.last_name;
             introduction = user.introduction;
+            gender = user.gender;
+            age = user.age;
         }})}
      //console.log(first_name);
 
@@ -235,6 +240,9 @@ export default function Dashboard() {
                             <Paper className={fixedHeightPaper}>
                                 <p>firstname: {first_name}</p>
                                 <p>lastname:  {last_name}</p>
+                                <p>gender:  {gender}</p>
+                                <p>birthday:  {age}</p>
+                                <p>introduction:  {introduction}</p>
                                 <p></p>
                                 <p></p>
                                 <p></p>
