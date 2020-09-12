@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SaveButton({ className, children, onClick, ...props }) {
+export default function UploadButton({ className, children, onClick, ...props }) {
 
     const classes = useStyles();
 
@@ -23,12 +23,12 @@ export default function SaveButton({ className, children, onClick, ...props }) {
         secretAccessKey: '955HvvuUBkU/RmdArf+LHOatQ57mMc/RziBL8XNq',
     };
 
-    const upload = async e => {
-        console.log(e.target.files[0]);
-        uploadFile(e.target.files[0], config)
+    function onClickHandler() {
+        console.log(props.data);
+        uploadFile(props.data, config)
             .then(data => console.log(data))
             .catch(err => console.error(err))
-    };
+    }
 
     return (
         <Button
@@ -36,7 +36,7 @@ export default function SaveButton({ className, children, onClick, ...props }) {
             color="default"
             className={classes.button}
             startIcon={<CloudUploadIcon />}
-            onClick={upload}
+            onClick={onClickHandler}
         >
             Upload
         </Button>
