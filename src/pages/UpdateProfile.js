@@ -64,7 +64,7 @@ export default function UpdateProfile() {
                     <InputLabel id="genderInput">Gender</InputLabel>
                     <Select
                         labelId="genderSelect"
-                        id="gender"
+                        name="gender"
                         value={gender}
                         onChange={handleChangeGender}
                         label="gender(male/female)"
@@ -103,7 +103,7 @@ export default function UpdateProfile() {
                     color="primary"
                     className={classes.button}
                     startIcon={<SaveIcon />}
-                    onClick={() => onSubmit()}
+                    onClick={() => onSubmit(gender)}
                 >
                     Save
                 </Button>
@@ -139,7 +139,7 @@ export default function UpdateProfile() {
     );
 }
 
-function onSubmit() {
+function onSubmit(gender) {
 
     let userid;
     userid = window.sessionStorage.getItem("usersub");
@@ -147,7 +147,7 @@ function onSubmit() {
    // userid = window.sessionStorage.getItem("userid");
     var first_name = document.getElementById("first_name").value;
     var last_name = document.getElementById("last_name").value;
-    var gender = document.getElementById("gender").value;
+    //var gender = document.getElementById("gender").value;
     // var working_experience = document.getElementById("working_experience").value;
     // var salary = document.getElementById("salary").value;
     var introduction = document.getElementById("introduction").value;
