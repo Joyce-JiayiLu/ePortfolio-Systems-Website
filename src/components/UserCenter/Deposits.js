@@ -20,14 +20,14 @@ export default function Deposits() {
         <React.Fragment>
             <Title>Recent Deposits</Title>
             <Typography component="p" variant="h4">
-                $3,024.00
+                11111
             </Typography>
             <Typography color="textSecondary" className={classes.depositContext}>
-                on 15 March, 2019
+                33333
             </Typography>
             <div>
                 <Link color="primary" href="#" onClick={preventDefault}>
-                    View balance
+                    22222
                 </Link>
             </div>
         </React.Fragment>

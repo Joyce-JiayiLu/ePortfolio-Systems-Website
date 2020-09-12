@@ -21,13 +21,8 @@ export default function UpdateProfileButton({ className, children, onClick, ...p
             color="default"
             className={classes.button}
             startIcon={<PersonIcon />}
-            onClick={() => updateUserProfile(window.sessionStorage.getItem("usersub"))}
         >
             Update Image
         </Button>
     );
-}
-
-function updateUserProfile(userid){
-    window.location.assign(`http://localhost:3000/updateProfile/${userid}`);
 }

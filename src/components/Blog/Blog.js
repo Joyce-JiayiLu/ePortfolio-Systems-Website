@@ -11,9 +11,6 @@ import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
-import post1 from './blog-post.1.md';
-import post2 from './blog-post.2.md';
-import post3 from './blog-post.3.md';
 
 const useStyles = makeStyles((theme) => ({
     mainGrid: {
@@ -24,14 +21,6 @@ const useStyles = makeStyles((theme) => ({
 const sections = [
     // { title: 'Technology', url: '#' },
     // { title: 'Design', url: '#' },
-    // { title: 'Culture', url: '#' },
-    // { title: 'Business', url: '#' },
-    // { title: 'Politics', url: '#' },
-    // { title: 'Opinion', url: '#' },
-    // { title: 'Science', url: '#' },
-    // { title: 'Health', url: '#' },
-    // { title: 'Style', url: '#' },
-    // { title: 'Travel', url: '#' },
 ];
 
 const mainFeaturedPost = {
@@ -61,8 +50,6 @@ const featuredPosts = [
         imageText: 'Image Text',
     },
 ];
-
-const posts = [post1, post2, post3];
 
 const sidebar = {
     title: 'About',

@@ -1,9 +1,6 @@
-import React, { useState } from "react";
-import { useUsers, updateCaregiver, deleteCaregiver } from "../api";
-//import Loading from "../components/Loading";
-import Button from "../components/Button/Button";
-//import ReactStars from "react-rating-stars-component";
-//import Upload from "../components/Upload";
+import React from "react";
+import {useUsers} from "../api";
+
 
 export default function Users() {
     if(!window.sessionStorage.getItem("userid")){
@@ -17,7 +14,6 @@ export default function Users() {
     if (error) {
         return <p>Something went wrong: {error.message}</p>;
     }
-    // Display a list of the caregivers
     return (
         <div>
             <div className={"list_style"}>
@@ -27,7 +23,6 @@ export default function Users() {
                 <div id="careGiverList">
                     {users.map(user => {
                         if(user.userid===window.sessionStorage.getItem("userid")){
-                        //console.log(caregiver);
                         return <div>
                                 <div id="name">
                                     {user.first_name} {user.last_name}<br/><br/>
@@ -40,7 +35,6 @@ export default function Users() {
                                     introduction : {user.introduction}
                                 </div>
                                 </div>
-
                     }
                     })}
                 </div>

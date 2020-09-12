@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-// TODO - update this to be your url
 const BASE_URL = "https://geniusolio.herokuapp.com";
 
 function getUsers() {
@@ -9,8 +8,6 @@ function getUsers() {
     console.log(res);
     return res.json();
   });
-  // TODO
-  // return fetch call that gets author list
 }
 
 export function getUser(id) {
@@ -19,8 +16,6 @@ export function getUser(id) {
     console.log(res);
     return res.json();
   });
-  // TODO
-  // return fetch statement to get an author by the id
 }
 
 export function getUserAndCreat(id) {
@@ -31,8 +26,6 @@ export function getUserAndCreat(id) {
       createUser(user);
     }
   });
-  // TODO
-  // return fetch statement to get an author by the id
 }
 
 
@@ -63,7 +56,7 @@ export function useUsers() {
 
 export function updateUserProfile(user) {
   const { userid, first_name, last_name, gender, introduction, age} = user;
-  var reg=/^[0-9]+.?[0-9]*$/;
+  let reg=/^[0-9]+.?[0-9]*$/;
   // if(!reg.test(age)){
   //   alert("age must be number!");
   //   return;
@@ -122,7 +115,7 @@ function createUser(user){
   const { userid, first_name, last_name, gender, introduction, email_address, image, resume, age} = user;
   const endpoint = BASE_URL + `/user`;
   //console.log(contact_information.value);
-  // return fetch query to update an author
+
   return fetch(endpoint, {
     method: "POST",
     headers: {
@@ -139,8 +132,5 @@ function createUser(user){
       // image,
       // resume
     })
-  }).then(res =>{
-    //window.location.assign(`https://healthnextdoor.herokuapp.com/user-management/${window.sessionStorage.getItem("username")}`)
-
-  });
+  }).then();
 }

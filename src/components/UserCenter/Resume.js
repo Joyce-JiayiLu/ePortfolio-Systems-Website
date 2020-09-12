@@ -238,18 +238,6 @@ export default function Dashboard() {
                             </Paper>
 
                         </Grid>
-                        {/* Recent Deposits */}
-                        {/*{<Grid item xs={12} md={4} lg={3}>*/}
-                        {/*    <Paper className={fixedHeightPaperImage}>*/}
-                        {/*        <p>*/}
-                        {/*            <Avatar className={classes.imagePosition} alt="Jiayi Lu" src="/static/images/avatar/1.jpg" />*/}
-                        {/*        </p>*/}
-                        {/*        <p className={classes.buttonBottom}>*/}
-                        {/*            <UploadImageButton />*/}
-                        {/*        </p>*/}
-                        {/*    </Paper>*/}
-                        {/*</Grid>}*/}
-                        {/* Recent Orders */}
                         <Grid item xs={12} >
                             <Paper className={classes.paper}>
                                 <FileUpload />
