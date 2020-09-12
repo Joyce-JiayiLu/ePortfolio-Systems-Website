@@ -3,6 +3,7 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import Button from '@material-ui/core/Button';
 import {makeStyles} from "@material-ui/core/styles";
 import axios from 'axios';
+import {uploadFile} from "react-s3";
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -14,14 +15,20 @@ export default function SaveButton({ className, children, onClick, ...props }) {
 
     const classes = useStyles();
 
-    function onClickHandler() {
-        const data = new FormData();
-        data.append('file', this.state.selectedFile);
-        axios.post("http://localhost:3000/upload", data, {
-        }).then(res => {
-            console.log(res.statusText)
-        })
-    }
+    const config = {
+        bucketName: 'itproject',
+        dirName: 'file', /* optional */
+        region: 'ap-southeast-2',
+        accessKeyId: 'AKIAJ6JITOOOA3AF5QWA',
+        secretAccessKey: '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',
+    };
+
+    const upload = async e => {
+        console.log(e.target.files[0]);
+        uploadFile(e.target.files[0], config)
+            .then(data => console.log(data))
+            .catch(err => console.error(err))
+    };
 
     return (
         <Button
@@ -29,7 +36,7 @@ export default function SaveButton({ className, children, onClick, ...props }) {
             color="default"
             className={classes.button}
             startIcon={<CloudUploadIcon />}
-            onClick={onClickHandler}
+            onClick={upload}
         >
             Upload
         </Button>
