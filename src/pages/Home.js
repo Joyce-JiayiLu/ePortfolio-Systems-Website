@@ -9,7 +9,7 @@ import UploadButton from "../components/UploadButton";
 import LoginButton from "../components/LoginButton";
 import LogoutButton from "../components/LogoutButton";
 import {useAuth0} from "@auth0/auth0-react";
-
+import FileUpload from "../components/FileUpload";
 const useStyles = makeStyles((theme) => ({
     button: {
         margin: theme.spacing(1),
@@ -28,7 +28,6 @@ export default function IconLabelButtons() {
         //window.sessionStorage.setItem("userid",user_id);
         //getUserAndCreat(user_id);
     }
-
     return (
 
         <div>
@@ -50,6 +49,7 @@ export default function IconLabelButtons() {
                 WELCOME TO THE WAREHOUSE OF PORTFOLIO.
 
             </div>
+            <FileUpload/>
         </div>
     );
 }
