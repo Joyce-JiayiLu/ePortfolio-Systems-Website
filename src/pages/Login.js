@@ -135,6 +135,11 @@ export default function SignInSide() {
                                 <LoginButton />
                             </Button>
                             <Grid container>
+                                <Grid item >
+                                    <Link href="#" variant="body2" onClick={() => loginWithRedirect()}>
+                                        {"Forgot password?"}
+                                    </Link>
+                                </Grid>
                                 <Grid item xs>
                                     <Link href="#" variant="body2">
 
