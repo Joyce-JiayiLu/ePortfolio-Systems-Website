@@ -72,7 +72,9 @@ const sidebar = {
 
 export default function Blog() {
     const classes = useStyles();
-
+    console.log(localStorage.getItem("access_token"))
+    console.log("id")
+    console.log(localStorage.getItem("id_token"))
     return (
         <React.Fragment>
             <CssBaseline />

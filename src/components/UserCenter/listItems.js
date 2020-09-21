@@ -54,8 +54,8 @@ export const secondaryListItems = (
             </ListItemIcon>
             <ListItemText primary="Friends" />
         </ListItem>
+        <LogoutButton/>
 
-        <LogoutButton />
     </div>
 );
 

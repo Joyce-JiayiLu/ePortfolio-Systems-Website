@@ -1,6 +1,5 @@
-import React from 'react';
+import React,{Component} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import { useAuth0} from "@auth0/auth0-react";
 
 const useStyles = makeStyles((theme) => ({
@@ -11,20 +10,21 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function LogoutButton() {
-    const classes = useStyles();
-    //const { logout } = useAuth0();
+export default function LogoutButton(){
+        return (
+            <div className={useStyles.root}>
+                <div variant="contained" color="primary" onClick={logout}>
+                    Log Out
+                </div>
+            </div>
+        );
 
-    return (
-        <div className={classes.root}>
-            <Button variant="contained" color="primary" onClick={() => logout()}>
-                Log Out
-            </Button>
-        </div>
-    );
 }
 
 function logout() {
-    window.sessionStorage.removeItem("usersub")
+    //window.sessionStorage.removeItem("usersub");
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("id_token");
+    localStorage.removeItem("expires_at");
     window.location.assign('http://localhost:3000');
 }
