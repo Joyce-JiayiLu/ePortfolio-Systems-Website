@@ -88,7 +88,9 @@ export function updateUserProfile(user) {
       gender,
     })
   }).then(res =>{
+    console.log("success!")
     window.location.assign(`http://localhost:3000/usercenter`)
+
 
   });
 }

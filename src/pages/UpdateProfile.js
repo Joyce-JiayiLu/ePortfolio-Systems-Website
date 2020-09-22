@@ -9,6 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
+import jwt_decode from "jwt-decode";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -115,8 +116,10 @@ export default function UpdateProfile() {
 
 function onSubmit(gender) {
 
+    var user_token = localStorage.getItem("id_token");
+    var user_sub = jwt_decode(user_token).sub;
     let userid;
-    userid = window.sessionStorage.getItem("usersub");
+    userid = user_sub
     console.log(userid);
     var first_name = document.getElementById("first_name").value;
     var last_name = document.getElementById("last_name").value;

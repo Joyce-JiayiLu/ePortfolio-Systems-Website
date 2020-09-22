@@ -12,6 +12,7 @@
     "clsx": "^1.1.1",
     "dotenv": "8.2.0",
     "express-jwt": "^6.0.0",
+    "jwt-decode": "^3.0.0-beta.2",
     "markdown-to-jsx": "^7.0.0",
     "prop-types": "latest",
     "react": "16.12.0",

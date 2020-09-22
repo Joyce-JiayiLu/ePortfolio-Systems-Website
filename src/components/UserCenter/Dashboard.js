@@ -27,6 +27,7 @@ import Avatar from "@material-ui/core/Avatar";
 import {getUserAndCreat, useUsers} from "../../api";
 import UpdateProfileButton from "../Button/UpdateProfileButton";
 import UploadImageButton from "../Button/UploadImageButton";
+import jwt_decode from "jwt-decode";
 
 function Copyright() {
     return (
@@ -146,7 +147,14 @@ export default function Dashboard() {
     index = username.lastIndexOf('/');
     let userid;
     userid = username.slice(index+1);
-    getUserAndCreat(window.sessionStorage.getItem("usersub"));
+
+    var user_token = localStorage.getItem("id_token");
+    var user_sub = jwt_decode(user_token).sub;
+    console.log(jwt_decode(user_token))
+
+    // getUserAndCreat(window.sessionStorage.getItem("usersub"));
+    getUserAndCreat(user_sub);
+
 
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
@@ -174,8 +182,10 @@ export default function Dashboard() {
     let age;
 
     {users.map(user => {
-        if(user.userid===window.sessionStorage.getItem("usersub")){
+        if(user.userid===user_sub){
             first_name = user.first_name;
+            console.log(first_name);
+            console.log(user.userid);
             last_name  = user.last_name;
             introduction = user.introduction;
             gender = user.gender;
