@@ -134,7 +134,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Dashboard() {
-    if(!window.sessionStorage.getItem("usersub")){
+    if(!window.localStorage.getItem("id_token")){
 
         window.location.assign("http://localhost:3000/login")
     }
