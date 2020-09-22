@@ -180,7 +180,7 @@ export default function Dashboard() {
     let introduction;
     let gender;
     let age;
-
+    let image;
     {users.map(user => {
         if(user.userid===user_sub){
             first_name = user.first_name;
@@ -190,6 +190,7 @@ export default function Dashboard() {
             introduction = user.introduction;
             gender = user.gender;
             age = user.age;
+            image = user.image;
         }})}
      //console.log(first_name);
 
@@ -265,11 +266,11 @@ export default function Dashboard() {
                         <Grid item xs={12} md={4} lg={3}>
                             <Paper className={fixedHeightPaperImage}>
                                 <p>
-                                    <Avatar className={classes.imagePosition} alt="Jiayi Lu" src="/static/images/avatar/1.jpg" />
+                                    <Avatar className={classes.imagePosition} alt="Jiayi Lu" src={image} />
                                 </p>
-                                <p className={classes.buttonBottom}>
+                                <div className={classes.buttonBottom}>
                                     <UploadImageButton />
-                                </p>
+                                </div>
                             </Paper>
                         </Grid>
                         {/* Recent Orders */}
