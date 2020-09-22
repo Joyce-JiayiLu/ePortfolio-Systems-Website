@@ -20,14 +20,11 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import HomeIcon from '@material-ui/icons/Home';
 import { mainListItems, secondaryListItems } from './listItems';
-import Chart from './Chart';
-import Deposits from './Deposits';
-import Orders from './Orders';
 import Avatar from "@material-ui/core/Avatar";
 import {getUserAndCreat, useUsers} from "../../api";
 import UpdateProfileButton from "../Button/UpdateProfileButton";
-import UploadImageButton from "../Button/UploadImageButton";
 import jwt_decode from "jwt-decode";
+import Upload from "../Upload";
 
 function Copyright() {
     return (
@@ -131,7 +128,16 @@ const useStyles = makeStyles((theme) => ({
 
     imagePosition: {
         marginLeft: 90,
-    }
+        marginTop: 700,
+    },
+    small: {
+        width: theme.spacing(3),
+        height: theme.spacing(3),
+    },
+    large: {
+        width: theme.spacing(35),
+        height: theme.spacing(35),
+    },
 
 }));
 
@@ -221,7 +227,7 @@ export default function Dashboard() {
                         </Badge>
                     </IconButton>
                     <IconButton color="inherit">
-                    <Avatar alt="Jiayi Lu" src="/static/images/avatar/1.jpg" />
+                    <Avatar alt="/static/images/avatar/1.jpg" src={image} />
                     </IconButton>
                 </Toolbar>
             </AppBar>
@@ -264,14 +270,16 @@ export default function Dashboard() {
                         </Grid>
                         {/* Recent Deposits */}
                         <Grid item xs={12} md={4} lg={3}>
-                            <Paper className={fixedHeightPaperImage}>
+                            {/*<Paper className={fixedHeightPaperImage}>*/}
                                 <p>
-                                    <Avatar className={classes.imagePosition} alt="Jiayi Lu" src={image} />
+                                    <IconButton color="inherit">
+                                    <Avatar className={classes.imagePosition} alt="" src={image} className={classes.large}/>
+                                    </IconButton>
                                 </p>
                                 <div className={classes.buttonBottom}>
-                                    <UploadImageButton />
+                                    <Upload/>
                                 </div>
-                            </Paper>
+                            {/*</Paper>*/}
                         </Grid>
                         {/* Recent Orders */}
                         <Grid item xs={12}>
