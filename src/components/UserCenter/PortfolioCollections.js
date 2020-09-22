@@ -135,10 +135,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Dashboard() {
     if(!window.localStorage.getItem("id_token")){
-
         window.location.assign("http://localhost:3000/login")
     }
-
     let username;
     username = window.location.pathname;
     let index;
