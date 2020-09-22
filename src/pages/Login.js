@@ -130,11 +130,18 @@ class Login extends Component {
                                 >
                                     Log In
                                 </Button>
+                                <Button
+                                    //type="submit"
+                                    fullWidth
+                                    variant="contained"
+                                    color="primary">
+                                    Sign Up
+                                </Button>
 
                                 <Grid container>
                                     <Grid item>
                                         <Link href="#" variant="body2" >
-                                            {"Forgot password?"}
+                                            {"Forgot password? Reset"}
                                         </Link>
                                     </Grid>
                                     <Grid item xs>
