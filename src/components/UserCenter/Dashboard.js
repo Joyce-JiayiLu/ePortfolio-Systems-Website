@@ -123,7 +123,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     buttonBottom: {
-        marginTop: 70,
+        marginTop: 50,
     },
 
     imagePosition: {
@@ -271,11 +271,11 @@ export default function Dashboard() {
                         {/* Recent Deposits */}
                         <Grid item xs={12} md={4} lg={3}>
                             {/*<Paper className={fixedHeightPaperImage}>*/}
-                                <p>
-                                    <IconButton color="inherit">
-                                    <Avatar className={classes.imagePosition} alt="" src={image} className={classes.large}/>
-                                    </IconButton>
-                                </p>
+                            {/*    <p>*/}
+                            {/*        <IconButton color="inherit">*/}
+                            {/*        <Avatar className={classes.imagePosition} alt="" src={image} className={classes.large}/>*/}
+                            {/*        </IconButton>*/}
+                            {/*    </p>*/}
                                 <div className={classes.buttonBottom}>
                                     <Upload/>
                                 </div>
