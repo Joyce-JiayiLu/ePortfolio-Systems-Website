@@ -95,6 +95,26 @@ export function updateUserProfile(user) {
   });
 }
 
+export function uploadResume(user) {
+  const { userid, resume} = user;
+  const endpoint = BASE_URL + `/user/${userid}`;
+  //console.log(contact_information.value);
+  // return fetch query to update an author
+  return fetch(endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      userid,
+      resume
+    })
+  }).then(res =>{
+    console.log("success!")
+    window.location.assign(`http://localhost:3000/usercenter`)
+  });
+}
+
 export function checkUser(user) {
   const endpoint = BASE_URL + `/user/${user.userid}`;
   return fetch(endpoint).then(res => {

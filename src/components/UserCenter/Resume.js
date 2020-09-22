@@ -28,6 +28,8 @@ import {getUserAndCreat, useUsers} from "../../api";
 import UpdateProfileButton from "../Button/UpdateProfileButton";
 import UploadImageButton from "../Button/UploadImageButton";
 import FileUpload from "../FileUpload";
+import jwt_decode from "jwt-decode";
+import ResumeUpload from "../ResumeUpload";
 
 function Copyright() {
     return (
@@ -141,13 +143,12 @@ export default function Dashboard() {
         //window.location.assign("http://localhost:3000/login")
     }
 
-    let username;
-    username = window.location.pathname;
-    let index;
-    index = username.lastIndexOf('/');
+    var user_token = localStorage.getItem("id_token");
+    var user_sub = jwt_decode(user_token).sub;
     let userid;
-    userid = username.slice(index+1);
-    getUserAndCreat(window.sessionStorage.getItem("usersub"));
+    userid = user_sub
+    getUserAndCreat(window.sessionStorage.getItem("userid"));
+
 
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
@@ -167,14 +168,10 @@ export default function Dashboard() {
     if (error) {
         return <p>Something went wrong: {error.message}</p>;
     }
-    let first_name;
-    let last_name;
-    let introduction;
+    let resume;
     {users.map(user => {
-        if(user.userid===window.sessionStorage.getItem("usersub")){
-            first_name = user.first_name;
-            last_name  = user.last_name;
-            introduction = user.introduction;
+        if(user.userid===userid){
+            resume = user.resume;
         }})}
     //console.log(first_name);
 
@@ -242,7 +239,7 @@ export default function Dashboard() {
                         </Grid>
                         <Grid item xs={12} >
                             <Paper className={classes.paper}>
-                                <FileUpload />
+                                <ResumeUpload />
                             </Paper>
                         </Grid>
 
