@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import {useEffect, useState} from "react";
+import jwt_decode from "jwt-decode";
 
 const BASE_URL = "https://geniusolio.herokuapp.com";
 
@@ -135,4 +136,27 @@ function createUser(user){
       // resume
     })
   }).then();
+}
+
+
+export function updateimage(url) {
+  var user_token = localStorage.getItem("id_token");
+  var userid = jwt_decode(user_token).sub;
+  const endpoint = BASE_URL + `/user/${userid}`;
+  return fetch(endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      "username":userid,
+      "image": url
+
+    })
+  }).then(res =>{
+    if(res.ok){
+      window.location.assign(`http://localhost:3000/usercenter`)
+      //window.location.href = `CaregiverInformation/${username}`;
+    }
+  });
 }
