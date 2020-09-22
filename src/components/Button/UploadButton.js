@@ -4,6 +4,8 @@ import Button from '@material-ui/core/Button';
 import {makeStyles} from "@material-ui/core/styles";
 import axios from 'axios';
 import {uploadFile} from "react-s3";
+import jwt_decode from "jwt-decode";
+import {uploadResume} from "../../api";
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -41,4 +43,16 @@ export default function UploadButton({ className, children, onClick, ...props })
             Upload
         </Button>
     );
+}
+
+function upload(data) {
+    var user_token = localStorage.getItem("id_token");
+    var user_sub = jwt_decode(user_token).sub;
+    let userid;
+    userid = user_sub
+    let resume = data;
+    uploadResume({
+        userid,
+        resume,
+    });
 }

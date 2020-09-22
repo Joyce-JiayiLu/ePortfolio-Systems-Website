@@ -54,10 +54,5 @@ function upload(data) {
     uploadResume({
         userid,
         resume,
-        // username,
-        // age,
-        // address,
-        // working_experience,
-        // contact_information,
     });
 }
