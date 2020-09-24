@@ -30,6 +30,7 @@ import UploadImageButton from "../Button/UploadImageButton";
 import FileUpload from "../FileUpload";
 import jwt_decode from "jwt-decode";
 import ResumeUpload from "../ResumeUpload";
+import DocView from "../DocView";
 
 function Copyright() {
     return (
@@ -230,11 +231,20 @@ export default function Dashboard() {
                         {/* Chart */}
                         <Grid item xs={12}>
                             {/*{md={8} lg={9}}*/}
-                            <Paper className={fixedHeightPaper}>
-                                <p>Resume</p>
+                            {/*<Paper className={fixedHeightPaper}>*/}
 
+                            <div>
+                                <DocView
+                                    style = {{
+                                        width:"600px",
+                                        height:"780px",
+                                        border: 'none',
+                                    }}
+                                    // change src to show the pdf you want
+                                    src="http://web.mit.edu/15.053/www/AMP-Chapter-04.pdf"/>
+                            </div>
 
-                            </Paper>
+                            {/*</Paper>*/}
 
                         </Grid>
                         <Grid item xs={12} >
