@@ -28,6 +28,7 @@ import {getUserAndCreat, useUsers} from "../../api";
 import UpdateProfileButton from "../Button/UpdateProfileButton";
 import UploadImageButton from "../Button/UploadImageButton";
 import FileUpload from "../FileUpload";
+import DocEditor from "../DocEditor";
 
 function Copyright() {
     return (
@@ -229,12 +230,9 @@ export default function Dashboard() {
                         {/* Chart */}
                         <Grid item xs={12}>
                             {/*{md={8} lg={9}}*/}
-                            <Paper className={fixedHeightPaper}>
-                                <p>Portfolio</p>
-                                <p>Portfolio</p>
-
-
-                            </Paper>
+                            {/*<Paper className={fixedHeightPaper}>*/}
+                                <DocEditor />
+                            {/*</Paper>*/}
 
                         </Grid>
                         <Grid item xs={12} >
