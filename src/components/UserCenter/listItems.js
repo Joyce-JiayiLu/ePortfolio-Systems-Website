@@ -13,8 +13,10 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ResumeIcon from '@material-ui/icons/AccountBox';
 import PortfolioIcon from '@material-ui/icons/Collections';
 import BookmarkIcon from '@material-ui/icons/CollectionsBookmark';
+import LogoutIcon from '@material-ui/icons/ExitToApp';
 import UpdateProfileButton from "../Button/UpdateProfileButton";
 import LogoutButton from "../Button/LogoutButton";
+
 
 export const mainListItems = (
     <div>
@@ -54,8 +56,19 @@ export const secondaryListItems = (
             </ListItemIcon>
             <ListItemText primary="Friends" />
         </ListItem>
-        <LogoutButton/>
+    </div>
+);
 
+export const thirdListItems = (
+    <div>
+        <ListSubheader inset></ListSubheader>
+
+        <ListItem button>
+            <ListItemIcon>
+                <LogoutIcon />
+            </ListItemIcon>
+            <ListItemText primary="Logout" />
+        </ListItem>
     </div>
 );
 

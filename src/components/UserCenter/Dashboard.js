@@ -19,7 +19,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import HomeIcon from '@material-ui/icons/Home';
-import { mainListItems, secondaryListItems } from './listItems';
+import {mainListItems, secondaryListItems, thirdListItems} from './listItems';
 import Avatar from "@material-ui/core/Avatar";
 import {getUserAndCreat, useUsers} from "../../api";
 import UpdateProfileButton from "../Button/UpdateProfileButton";
@@ -246,7 +246,8 @@ export default function Dashboard() {
                 <Divider />
                 <List>{mainListItems}</List>
                 <Divider />
-                <List>{secondaryListItems}</List>
+                <List>{secondaryListItems}</List><Divider />
+                <List>{thirdListItems}</List>
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
