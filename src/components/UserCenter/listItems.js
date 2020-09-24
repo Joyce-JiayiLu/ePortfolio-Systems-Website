@@ -16,6 +16,8 @@ import BookmarkIcon from '@material-ui/icons/CollectionsBookmark';
 import LogoutIcon from '@material-ui/icons/ExitToApp';
 import UpdateProfileButton from "../Button/UpdateProfileButton";
 import LogoutButton from "../Button/LogoutButton";
+import { useAuth0} from "@auth0/auth0-react";
+
 
 
 export const mainListItems = (
@@ -60,16 +62,7 @@ export const secondaryListItems = (
 );
 
 export const thirdListItems = (
-    <div>
-        <ListSubheader inset></ListSubheader>
-
-        <ListItem button>
-            <ListItemIcon>
-                <LogoutIcon />
-            </ListItemIcon>
-            <ListItemText primary="Logout" />
-        </ListItem>
-    </div>
+    <LogoutButton/>
 );
 
 function toPortfolioCollections(){
@@ -83,3 +76,4 @@ function toResume(){
 function toUserInformation(){
     window.location.assign(`http://localhost:3000/usercenter`);
 }
+
