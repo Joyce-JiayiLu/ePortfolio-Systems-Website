@@ -130,7 +130,6 @@ export default class App extends Component {
         return (
 
             <Router>
-
                 <div className="App">
                     <Switch>
                         <Route exact path="/">
