@@ -28,7 +28,7 @@ export default class DocEditor extends React.Component {
 
     setEditorContentAsync = () => {
         this.isLivinig && this.setState({
-            editorState: BraftEditor.createEditorState('<p>你好，<b>世界!</b><p>')
+            editorState: BraftEditor.createEditorState('<p>Hello，<b>World!</b><p>')
         })
     }
 
@@ -110,7 +110,7 @@ export default class DocEditor extends React.Component {
             {
                 key: 'custom-button',
                 type: 'button',
-                text: '预览',
+                text: 'Preview',
                 onClick: this.preview
             }
         ]
@@ -123,9 +123,10 @@ export default class DocEditor extends React.Component {
                         onChange={this.handleChange}
                         extendControls={extendControls}
                         contentStyle={{height: 400}}
+                        language="en"
                     />
                 </div>
-                {/*<h5>输出内容</h5>*/}
+                {/*<h5>output</h5>*/}
                 {/*<div className="output-content">{outputHTML}</div>*/}
             </div>
         )
