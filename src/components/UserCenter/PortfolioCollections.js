@@ -144,7 +144,6 @@ export default function Dashboard() {
     index = username.lastIndexOf('/');
     let userid;
     userid = username.slice(index+1);
-    getUserAndCreat(window.sessionStorage.getItem("usersub"));
 
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
@@ -164,6 +163,7 @@ export default function Dashboard() {
     if (error) {
         return <p>Something went wrong: {error.message}</p>;
     }
+    /*
     let first_name;
     let last_name;
     let introduction;
@@ -172,7 +172,7 @@ export default function Dashboard() {
             first_name = user.first_name;
             last_name  = user.last_name;
             introduction = user.introduction;
-        }})}
+        }})}*/
     //console.log(first_name);
 
     return (
