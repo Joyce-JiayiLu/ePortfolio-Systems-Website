@@ -1,12 +1,27 @@
 import 'braft-editor/dist/index.css'
-import React from 'react'
+import React, {Component} from 'react'
 import BraftEditor from 'braft-editor'
+import {convertToRaw, convertFromRaw, EditorState} from 'draft-js';
 
-export default class DocEditor extends React.Component {
+export default class DocEditor extends Component {
 
     state = {
         editorState: BraftEditor.createEditorState('<p>Hello <b>World!</b></p>'), // set initial contents for the editor
-        outputHTML: '<p></p>'
+        // outputHTML: '<p></p>'
+    }
+
+    saveContent = (content) => {
+        window.localStorage.setItem('content', JSON.stringify(convertToRaw(content)));
+    }
+
+    handleChange = (editorState) => {
+        const contentState = editorState.getCurrentContent();
+        console.log('content state', convertToRaw(contentState));
+        this.saveContent(contentState);
+        this.setState({
+            editorState: editorState,
+            outputHTML: editorState.toHTML()
+        })
     }
 
     componentDidMount () {
@@ -19,17 +34,19 @@ export default class DocEditor extends React.Component {
         this.isLivinig = false
     }
 
-    handleChange = (editorState) => {
-        this.setState({
-            editorState: editorState,
-            outputHTML: editorState.toHTML()
-        })
-    }
-
     setEditorContentAsync = () => {
-        this.isLivinig && this.setState({
-            editorState: BraftEditor.createEditorState('<p>Hello，<b>World!</b><p>')
-        })
+        const content = window.localStorage.getItem('content');
+
+        if (content) {
+            console.log("content exist")
+            this.isLivinig && this.setState({
+                editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(content)))
+            })
+        } else {
+            this.isLivinig && this.setState({
+                editorState: BraftEditor.createEditorState('<p>Hello，<b>World!</b><p>')
+            })
+        }
     }
 
     preview = () => {
