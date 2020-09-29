@@ -32,13 +32,7 @@ export default function Footer(props) {
         <div className={classes.left}>
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
-              <a
-                href="https://www.creative-tim.com/license?ref=mkr-footer"
-                className={classes.block}
-                target="_blank"
-              >
-                Licenses
-              </a>
+              
             </ListItem>
           </List>
         </div>
@@ -50,7 +44,7 @@ export default function Footer(props) {
             className={aClasses}
             target="_blank"
           >
-            Unitee
+            UNITEE
           </a>{" "}
           for a better tomorrow.
         </div>

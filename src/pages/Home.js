@@ -1,8 +1,10 @@
-import React from "react";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import {useAuth0} from "@auth0/auth0-react";
+import FileUpload from "../components/FileUpload";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
 
@@ -22,14 +24,23 @@ import WorkSection from "../components/Sections/WorkSection";
 import SecondSection from "../components/Sections/SecondSection";
 import ThirdSectioon from "../components/Sections/ThirdSectioon";
 
-const dashboardRoutes = [];
-
 const useStyles = makeStyles(styles);
 
-export default function LandingPage(props) {
+export default function IconLabelButtons(props) {
     const classes = useStyles();
     const { ...rest } = props;
+
+    //check if user login
+    const { user, isAuthenticated }  = useAuth0();
+    if (isAuthenticated){
+        console.log("yes is authenticated");
+        window.sessionStorage.setItem("usersub",user.sub);
+        window.location.assign(`http://localhost:3000/usercenter/${user.sub}`);
+        //window.sessionStorage.setItem("userid",user_id);
+        //getUserAndCreat(user_id);
+    }
     return (
+
         <div>
 
             <Parallax filter image={require("./LandingPage/247touch.jpg")}>
@@ -57,3 +68,4 @@ export default function LandingPage(props) {
         </div>
     );
 }
+
