@@ -13,6 +13,8 @@ import classNames from "classnames";
 import Footer from "./Footer/Footer.js";
 import GridContainer from "./Grid/GridContainer.js";
 import GridItem from "./Grid/GridItem.js";
+import Header from "../components/Header/Header";
+import HeaderLinks from "../components/Header/HeaderLinks";
 
 import Parallax from "./Parallax/Parallax.js";
 
@@ -23,8 +25,11 @@ import styles from "./LandingPage/landingPage";
 import WorkSection from "../components/Sections/WorkSection";
 import SecondSection from "../components/Sections/SecondSection";
 import ThirdSectioon from "../components/Sections/ThirdSectioon";
+import Button from "../components/CustomButtons/CustomButton";
+import Nav from "../components/Nav";
 
 const useStyles = makeStyles(styles);
+const dashboardRoutes = [];
 
 export default function IconLabelButtons(props) {
     const classes = useStyles();
@@ -42,16 +47,27 @@ export default function IconLabelButtons(props) {
     return (
 
         <div>
+            <Nav/>
 
-            <Parallax filter image={require("./LandingPage/247touch.jpg")}>
+            <Parallax filter image={require("./LandingPage/portfolioorange.jpeg")}>
                 <div className={classes.container}>
                     <GridContainer>
                         <GridItem xs={12} sm={12} md={6}>
-                            <h1 className={classes.title}>PANDEMICHAT</h1>
+                            <h1 className={classes.title}>GeniusSolio Collections</h1>
                             <h3>
-                                Best Care For You During the Epidemics
+                                Show What You Have Learn
                             </h3>
                             <br />
+                            <Button
+                                color="danger"
+                                size="lg"
+                                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ref=creativetim"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i className="fas fa-play" />
+                                Watch video
+                            </Button>
 
                         </GridItem>
                     </GridContainer>

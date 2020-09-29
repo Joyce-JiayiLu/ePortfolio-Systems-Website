@@ -19,13 +19,10 @@ export default function WorkSection() {
     <div className={classes.section}>
       <GridContainer justify="center">
         <GridItem cs={12} sm={12} md={8}>
-          <h2 className={classes.title}>The Greatest Threat for Humans in Decades</h2>
+          <h2 className={classes.title}>Why we are here...</h2>
           <h4 className={classes.description}>
-            Coronaviruses are a large family of viruses that are known to cause illness ranging from the common cold to more severe diseases such as Middle East Respiratory Syndrome (MERS) and Severe Acute Respiratory Syndrome (SARS).
-
-            A novel coronavirus (COVID-19) was identified in 2019 in Wuhan, China. This is a new coronavirus that has not been previously identified in humans.
-
-            The coronavirus COVID-19 pandemic is the defining global health crisis of our time and the greatest challenge we have faced since World War Two. Since its emergence in Asia late last year, the virus has spread to every continent except Antarctica.
+            With the key objectives of nurturing engaged and reflective learners, ePortfolio has been implemented to
+            offer a platform for students to document, manage and reflect upon their own learning during their study.
           </h4>
           <form>
             <GridContainer>
