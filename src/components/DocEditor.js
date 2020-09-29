@@ -1,12 +1,27 @@
 import 'braft-editor/dist/index.css'
-import React from 'react'
+import React, {Component} from 'react'
 import BraftEditor from 'braft-editor'
+import {convertToRaw, convertFromRaw, EditorState} from 'draft-js';
 
-export default class DocEditor extends React.Component {
+export default class DocEditor extends Component {
 
     state = {
         editorState: BraftEditor.createEditorState('<p>Hello <b>World!</b></p>'), // set initial contents for the editor
-        outputHTML: '<p></p>'
+        // outputHTML: '<p></p>'
+    }
+
+    saveContent = (content) => {
+        window.localStorage.setItem('content', JSON.stringify(convertToRaw(content)));
+    }
+
+    handleChange = (editorState) => {
+        const contentState = editorState.getCurrentContent();
+        console.log('content state', convertToRaw(contentState));
+        this.saveContent(contentState);
+        this.setState({
+            editorState: editorState,
+            outputHTML: editorState.toHTML()
+        })
     }
 
     componentDidMount () {
@@ -19,17 +34,19 @@ export default class DocEditor extends React.Component {
         this.isLivinig = false
     }
 
-    handleChange = (editorState) => {
-        this.setState({
-            editorState: editorState,
-            outputHTML: editorState.toHTML()
-        })
-    }
-
     setEditorContentAsync = () => {
-        this.isLivinig && this.setState({
-            editorState: BraftEditor.createEditorState('<p>你好，<b>世界!</b><p>')
-        })
+        const content = window.localStorage.getItem('content');
+
+        if (content) {
+            console.log("content exist")
+            this.isLivinig && this.setState({
+                editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(content)))
+            })
+        } else {
+            this.isLivinig && this.setState({
+                editorState: BraftEditor.createEditorState('<p>Hello，<b>World!</b><p>')
+            })
+        }
     }
 
     preview = () => {
@@ -110,7 +127,7 @@ export default class DocEditor extends React.Component {
             {
                 key: 'custom-button',
                 type: 'button',
-                text: '预览',
+                text: 'Preview',
                 onClick: this.preview
             }
         ]
@@ -123,9 +140,10 @@ export default class DocEditor extends React.Component {
                         onChange={this.handleChange}
                         extendControls={extendControls}
                         contentStyle={{height: 400}}
+                        language="en"
                     />
                 </div>
-                {/*<h5>输出内容</h5>*/}
+                {/*<h5>output</h5>*/}
                 {/*<div className="output-content">{outputHTML}</div>*/}
             </div>
         )
