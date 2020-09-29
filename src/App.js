@@ -132,8 +132,10 @@ export default class App extends Component {
             <Router>
                 <div className="App">
                     <Switch>
+
                         <Route exact path="/">
                             <Nav/>
+                            <Route exact path="/" component={Home} />
                         </Route>
                         <Route path="/login">
                             <Nav/>
@@ -163,7 +165,7 @@ export default class App extends Component {
                         </Route>
                     </Switch>
                 </div>
-                <Ap/>
+
             </Router>
 
         );

@@ -23,7 +23,8 @@
     "react-scripts": "^3.4.3",
     "recharts": "^1.8.5",
     "react-three-fiber": "4.1.1",
-    "three": "0.115.0"
+    "three": "0.115.0",
+    "classnames": "latest"
   },
   "devDependencies": {
     "@material-ui/icons": "^4.9.1",
