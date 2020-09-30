@@ -27,7 +27,7 @@ export default class DocEditor extends Component {
     componentDidMount () {
         this.isLivinig = true
         // contents change in editor after 3 seconds
-        setTimeout(this.setEditorContentAsync, 3000)
+        setTimeout(this.setEditorContentAsync, 300)
     }
 
     componentWillUnmount () {
