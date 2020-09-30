@@ -236,9 +236,10 @@ export default function Dashboard() {
                             <div>
                                 <DocView
                                     style = {{
-                                        width:"600px",
+                                        width:"1200px",
                                         height:"780px",
                                         border: 'none',
+                                        position: 'relative'
                                     }}
                                     // change src to show the pdf you want
                                     src="http://web.mit.edu/15.053/www/AMP-Chapter-04.pdf"/>
@@ -248,9 +249,9 @@ export default function Dashboard() {
 
                         </Grid>
                         <Grid item xs={12} >
-                            <Paper className={classes.paper}>
+                            {/*<Paper className={classes.paper}>*/}
                                 <ResumeUpload />
-                            </Paper>
+                            {/*</Paper>*/}
                         </Grid>
 
                     </Grid>

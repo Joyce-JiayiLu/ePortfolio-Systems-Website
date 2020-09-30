@@ -1,10 +1,5 @@
 import React, {useState} from 'react';
-import ReactDom from 'react-dom';
-import ReactS3, {uploadFile} from 'react-s3';
-import S3FileUpload from 'react-s3';
-import BackupIcon from '@material-ui/icons/Backup';
 import '../views/FileUpload.css'
-import UploadButton from "./Button/UploadButton";
 import ResumeUploadButton from "./Button/ResumeUploadButton";
 
 export default function ResumeUpload () {
