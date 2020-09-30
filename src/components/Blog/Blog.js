@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
@@ -14,7 +15,10 @@ import Footer from './Footer';
 import HomeIcon from "@material-ui/icons/Home";
 import IconButton from "@material-ui/core/IconButton";
 import {useCollections, useUsers} from "../../api";
-
+import Nav from "../Nav";
+import SearchBar from "material-ui-search-bar";
+import InputBase from "@material-ui/core/InputBase";
+import SearchIcon from '@material-ui/icons/Search';
 const useStyles = makeStyles((theme) => ({
     mainGrid: {
         marginTop: theme.spacing(3),
@@ -34,7 +38,7 @@ const mainFeaturedPost = {
     imgText: 'main image description',
     linkText: 'Continue reading…',
 };
-
+/*
 const featuredPosts = [
     {
         title: 'Featured post',
@@ -52,7 +56,7 @@ const featuredPosts = [
         image: 'https://images.unsplash.com/photo-1496284045406-d3e0b918d7ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
         imageText: 'Image Text',
     },
-];
+];*/
 
 const sidebar = {
     title: 'About',
@@ -71,23 +75,53 @@ const sidebar = {
     ],
 };
 
+
+
 export default function Blog() {
     const classes = useStyles();
     const { loading, collections, error } = useCollections();
-    console.log(collections);
+    //console.log(collections);
+    const [query, setQuery] = useState("");
     if (loading) {
         return <p>Loading...</p>;
     }
     if (error) {
         return <p>Something went wrong: {error.message}</p>;
     }
+
+
+    function searching() {
+        console.log(query);
+    }
+
     return (
         <React.Fragment>
             <CssBaseline />
             <Container maxWidth="lg">
-                <Header title="Design Square" sections={sections} />
+                <Nav />
                 <main>
                     <MainFeaturedPost post={mainFeaturedPost} />
+                    <div className={classes.search} >
+                        <InputBase
+                            id="Testing"
+                            placeholder="Search…"
+                            classes={{
+                                root: classes.inputRoot,
+                                input: classes.inputInput,
+                            }}
+                            inputProps={{ 'aria-label': 'search' }}
+                            onChange={(e) => setQuery(e.target.value)}
+                        />
+                        <IconButton
+                            edge="start"
+                            className={classes.menuButton}
+                            color="inherit"
+                            aria-label="open drawer"
+                            onClick={() => searching()}
+                        >
+                            <SearchIcon />
+                        </IconButton>
+                    </div>
                     <Grid container spacing={4}>
                         {collections.map((post) => (
                             <FeaturedPost key={post.userid} post={post} />

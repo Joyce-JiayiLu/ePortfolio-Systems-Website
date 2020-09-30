@@ -143,7 +143,8 @@ export function uploadResume(user) {
     })
   }).then(res =>{
     console.log("success!")
-    //window.location.assign(`http://localhost:3000/usercenter`)
+    window.location.assign(`http://localhost:3000/resume/`)
+
   });
 }
 
