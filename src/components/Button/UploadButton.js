@@ -27,9 +27,15 @@ export default function UploadButton({ className, children, onClick, ...props })
 
     function onClickHandler() {
         console.log(props.data);
-        uploadFile(props.data, config)
-            .then(data => console.log(data))
-            .catch(err => console.error(err))
+        const maxsize = 10485760;
+        if(props.data.size>=maxsize){
+            alert("This file has exceeded 10Mib！Please choose a smaller file and try again!")
+        }
+        else {
+            uploadFile(props.data, config)
+                .then(data => console.log(data))
+                .catch(err => console.error(err))
+        }
     }
 
     return (
