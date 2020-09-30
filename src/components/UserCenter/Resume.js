@@ -148,7 +148,7 @@ export default function Dashboard() {
     var user_sub = jwt_decode(user_token).sub;
     let userid;
     userid = user_sub
-    getUserAndCreat(window.sessionStorage.getItem("userid"));
+    // getUserAndCreat(window.sessionStorage.getItem("userid"));
 
 
     const classes = useStyles();
@@ -242,7 +242,7 @@ export default function Dashboard() {
                                         position: 'relative'
                                     }}
                                     // change src to show the pdf you want
-                                    src="http://web.mit.edu/15.053/www/AMP-Chapter-04.pdf"/>
+                                    src={resume}/>
                             </div>
 
                             {/*</Paper>*/}
