@@ -11,6 +11,14 @@ function getUsers() {
   });
 }
 
+export function getCollections() {
+  const endpoint = BASE_URL + `/collection`;
+  return fetch(endpoint).then(res => {
+    console.log(res);
+    return res.json();
+  });
+}
+
 export function getUser(id) {
   const endpoint = BASE_URL + `/user/${id}`;
   return fetch(endpoint).then(res => {
@@ -55,6 +63,31 @@ export function useUsers() {
   };
 }
 
+export function useCollections() {
+  const [loading, setLoading] = useState(true);
+  const [collections, setCollections] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    getCollections()
+        .then(users => {
+          setCollections(users);
+          setLoading(false);
+        })
+        .catch(e => {
+          console.log(e);
+          setError(e);
+          setLoading(false);
+        });
+  }, []);
+
+  return {
+    loading,
+    collections,
+    error
+  };
+}
+
 export function updateUserProfile(user) {
   const { userid, first_name, last_name, gender, introduction, age} = user;
   let reg=/^[0-9]+.?[0-9]*$/;
@@ -91,8 +124,6 @@ export function updateUserProfile(user) {
   }).then(res =>{
     console.log("success!")
     window.location.assign(`http://localhost:3000/usercenter`)
-
-
   });
 }
 
@@ -137,8 +168,6 @@ export function checkUser(user) {
 function createUser(user){
   const { userid, first_name, last_name, gender, introduction, email_address, image, resume, age} = user;
   const endpoint = BASE_URL + `/user`;
-  //console.log(contact_information.value);
-
   return fetch(endpoint, {
     method: "POST",
     headers: {

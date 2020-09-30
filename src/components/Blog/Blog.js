@@ -13,6 +13,7 @@ import Sidebar from './Sidebar';
 import Footer from './Footer';
 import HomeIcon from "@material-ui/icons/Home";
 import IconButton from "@material-ui/core/IconButton";
+import {useCollections, useUsers} from "../../api";
 
 const useStyles = makeStyles((theme) => ({
     mainGrid: {
@@ -72,9 +73,14 @@ const sidebar = {
 
 export default function Blog() {
     const classes = useStyles();
-    console.log(localStorage.getItem("access_token"))
-    console.log("id")
-    console.log(localStorage.getItem("id_token"))
+    const { loading, collections, error } = useCollections();
+    console.log(collections);
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+    if (error) {
+        return <p>Something went wrong: {error.message}</p>;
+    }
     return (
         <React.Fragment>
             <CssBaseline />
@@ -83,8 +89,8 @@ export default function Blog() {
                 <main>
                     <MainFeaturedPost post={mainFeaturedPost} />
                     <Grid container spacing={4}>
-                        {featuredPosts.map((post) => (
-                            <FeaturedPost key={post.title} post={post} />
+                        {collections.map((post) => (
+                            <FeaturedPost key={post.userid} post={post} />
                         ))}
                     </Grid>
                     <Grid container spacing={5} className={classes.mainGrid}>
