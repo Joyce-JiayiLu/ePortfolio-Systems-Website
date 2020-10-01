@@ -162,6 +162,9 @@ export default class App extends Component {
                         <Route path='/user'>
                             <Users/>
                         </Route>
+                        <Route path='/user'>
+                            <Users/>
+                        </Route>
                     </Switch>
                 </div>
 

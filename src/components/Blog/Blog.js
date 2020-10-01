@@ -123,7 +123,7 @@ export default function Blog() {
                             <SearchIcon />
                         </IconButton>
                     </div>
-                    <Grid container spacing={4}>
+                    <Grid container spacing={4} onClick={backHomePage}>
                         {collections.map((post) => (
                             <FeaturedPost key={post.userid} post={post} />
                         ))}
@@ -147,3 +147,6 @@ export default function Blog() {
     );
 }
 
+function backHomePage(){
+    window.location.assign(`http://localhost:3000/`);
+}
