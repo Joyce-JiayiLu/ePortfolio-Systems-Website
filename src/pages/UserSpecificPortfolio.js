@@ -29,6 +29,7 @@ import work4 from "./UserPortfolio/examples/mariya-georgieva.jpg";
 import work5 from "./UserPortfolio/examples/clem-onojegaw.jpg";
 
 import styles from "./UserPortfolio/profilePage";
+import {useCollections, useUsers} from "../api";
 
 const useStyles = makeStyles(styles);
 
@@ -41,6 +42,30 @@ export default function ProfilePage(props) {
         classes.imgFluid
     );
     const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
+    const { loading, collections, error } = useCollections();
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+    if (error) {
+        return <p>Something went wrong: {error.message}</p>;
+    }
+    let user_sub = window.sessionStorage.getItem("spec_userid");
+    let first_name;
+    let last_name;
+    let title;
+    let description;
+    let cover;
+    let file;
+    {collections.map(collection => {
+        if(collection.userid===user_sub){
+            first_name = collection.first_name;
+            last_name  = collection.last_name;
+            title = collection.title;
+            description = collection.description;
+            cover = collection["cover"];
+            file = collection.file;
+        }})}
+    console.log(title);
     return (
         <div>
             <Parallax small filter image={require("./UserPortfolio/profile-bg.jpg")} />
@@ -51,11 +76,11 @@ export default function ProfilePage(props) {
                             <GridItem xs={12} sm={12} md={6}>
                                 <div className={classes.profile}>
                                     <div>
-                                        <img src={profile} alt="..." className={imageClasses} />
+                                        <img src={cover} alt="..." className={imageClasses} />
                                     </div>
                                     <div className={classes.name}>
-                                        <h3 className={classes.title}>Christian Louboutin</h3>
-                                        <h6>DESIGNER</h6>
+                                        <h3 className={classes.title}>{first_name} {last_name}</h3>
+                                        <h2>{title}</h2>
                                         <Button justIcon link className={classes.margin5}>
                                             <i className={"fab fa-twitter"} />
                                         </Button>
@@ -71,10 +96,7 @@ export default function ProfilePage(props) {
                         </GridContainer>
                         <div className={classes.description}>
                             <p>
-                                An artist of considerable range, Chet Faker — the name taken by
-                                Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs
-                                and records all of his own music, giving it a warm, intimate
-                                feel with a solid groove structure.{" "}
+                                {description}
                             </p>
                         </div>
                         <GridContainer justify="center">

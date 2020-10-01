@@ -24,8 +24,11 @@ const useStyles = makeStyles({
 export default function FeaturedPost(props) {
     const classes = useStyles();
     const { post } = props;
+    console.log(props);
 
     function toUserPortfolio() {
+        //console.log(post.userid);
+        window.sessionStorage.setItem("spec_userid", post.userid);
         window.location.assign(`http://localhost:3000/userportfolio`);
     }
 

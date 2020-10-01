@@ -3,8 +3,10 @@ import { NavLink } from "react-router-dom";
 import HomeIcon from "@material-ui/icons/Home";
 import PortfolioIcon from "@material-ui/icons/Collections";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import {withRouter} from "react-router";
 
-export default function Nav() {
+const Nav = (props) => {
+    console.log(props);
     return (
         <nav>
             <NavLink exact to="/">
@@ -24,3 +26,4 @@ export default function Nav() {
 function backHomePage(){
     window.location.assign(`http://localhost:3000/`);
 }
+export default withRouter(Nav)
