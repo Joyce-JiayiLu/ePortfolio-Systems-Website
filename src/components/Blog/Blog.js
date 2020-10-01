@@ -14,10 +14,10 @@ import Footer from './Footer';
 import HomeIcon from "@material-ui/icons/Home";
 import IconButton from "@material-ui/core/IconButton";
 import Nav from "../Nav";
-import SearchBar from "material-ui-search-bar";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from '@material-ui/icons/Search';
 import { withRouter } from "react-router-dom";
+import SearchBar from "../SearchBar";
 
 
 const sections = [
@@ -140,6 +140,7 @@ class Blog extends Component {
                     <Nav />
                     <main>
                         <MainFeaturedPost post={mainFeaturedPost} />
+                        <SearchBar />
                         <Grid container spacing={4}>
                             {items.map((post) => (
                                 <FeaturedPost key={post.userid} post={post} />
