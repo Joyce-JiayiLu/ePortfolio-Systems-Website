@@ -125,7 +125,7 @@ export default function Blog() {
                             <SearchIcon />
                         </IconButton>
                     </div>
-                    <Grid container spacing={4}>
+                    <Grid container spacing={4} onClick={toUserPortfolio}>
                         {collections.map((post) => (
                             <FeaturedPost key={post.userid} post={post} />
                         ))}
@@ -149,3 +149,6 @@ export default function Blog() {
     );
 }
 
+function toUserPortfolio(){
+    window.location.assign(`http://localhost:3000/userportfolio`);
+}

@@ -23,6 +23,7 @@ import BackfaceMaterial from "./backface-material";
 import RefractionMaterial from "./refraction-material";
 import "./views/Homepage.css";
 import Search from "./pages/Search";
+import UserSpecificPortfolio from "./pages/UserSpecificPortfolio";
 
 
 function Background() {
@@ -163,7 +164,13 @@ export default class App extends Component {
                         <Route path='/user'>
                             <Users/>
                         </Route>
+
                         <Route path="/search" component={Search} />
+
+                        
+                        <Route path='/userportfolio'>
+                            <UserSpecificPortfolio />
+                        </Route>
                     </Switch>
                 </div>
             </Router>
