@@ -19,6 +19,7 @@ import Nav from "../Nav";
 import SearchBar from "material-ui-search-bar";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from '@material-ui/icons/Search';
+import PortfolioCard from "./PortfolioCard";
 const useStyles = makeStyles((theme) => ({
     mainGrid: {
         marginTop: theme.spacing(3),
@@ -82,13 +83,13 @@ export default function Blog() {
     const { loading, collections, error } = useCollections();
     //console.log(collections);
     const [query, setQuery] = useState("");
+
     if (loading) {
         return <p>Loading...</p>;
     }
     if (error) {
         return <p>Something went wrong: {error.message}</p>;
     }
-
 
     function searching() {
         console.log(query);
@@ -126,6 +127,9 @@ export default function Blog() {
                         {collections.map((post) => (
                             <FeaturedPost key={post.userid} post={post} />
                         ))}
+                    </Grid>
+                    <Grid container spacing={4}>
+                        <PortfolioCard />
                     </Grid>
                     <Grid container spacing={5} className={classes.mainGrid}>
                         {/*<Main title="From the firehose" posts={posts} />*/}

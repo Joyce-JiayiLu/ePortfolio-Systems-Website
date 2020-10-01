@@ -5,8 +5,8 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Paper from "@material-ui/core/Paper";
-import FileUpload from "../FileUpload";
 import {makeStyles} from "@material-ui/core/styles";
+import CoverUpload from "../CoverUpload";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -15,20 +15,21 @@ const useStyles = makeStyles((theme) => ({
         overflow: 'auto',
         flexDirection: 'column',
     },
-
-
 }));
 
 export default function AddressForm() {
     const classes = useStyles();
+
+    const handleChangeTitle = (event) => {
+        window.sessionStorage.setItem("title", event.target.value);
+    };
+
     return (
         <React.Fragment>
             <Typography variant="h6" gutterBottom>
                 Submit Your Title
             </Typography>
             <Grid container spacing={3}>
-
-
                 <Grid item xs={12}>
                     <TextField
                         required
@@ -37,23 +38,20 @@ export default function AddressForm() {
                         label="Portfolio Title"
                         fullWidth
                         autoComplete="portfolio title"
+                        onChange={handleChangeTitle}
                     />
                 </Grid>
-
             </Grid>
             <br/>
             <Typography variant="h6" gutterBottom>
-                Submit Your Cover Picture
+                Choose Your Cover
             </Typography>
             <Grid container spacing={3}>
-
-
                 <Grid item xs={12} >
                     <Paper className={classes.paper}>
-                        <FileUpload />
+                        <CoverUpload />
                     </Paper>
                 </Grid>
-
                 {/*{<Grid item xs={12}>*/}
                 {/*    <FormControlLabel*/}
                 {/*        control={<Checkbox color="secondary" name="saveAddress" value="yes" />}*/}

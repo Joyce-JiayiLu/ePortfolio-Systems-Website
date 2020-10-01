@@ -5,6 +5,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
+import FileUpload from "../FileUpload";
+import Paper from "@material-ui/core/Paper";
 
 const products = [
     { name: 'Product 1', desc: 'A nice thing', price: '$9.99' },
@@ -40,29 +42,34 @@ export default function Review() {
     return (
         <React.Fragment>
             <Typography variant="h6" gutterBottom>
-                Symptoms
+                Select the Masterwork you want to show
             </Typography>
-            <List disablePadding>
-                {symptoms.map((symptom) => (
-                    <ListItem className={classes.listItem} key={symptom.title}>
-                        {symptom.title}
-                    </ListItem>
-                ))}
+            {/*<List disablePadding>*/}
+                {/*{symptoms.map((symptom) => (*/}
+                {/*    <ListItem className={classes.listItem} key={symptom.title}>*/}
+                {/*        {symptom.title}*/}
+                {/*    </ListItem>*/}
+                {/*))}*/}
 
-            </List>
-            <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                    <Typography variant="h6" gutterBottom className={classes.title}>
-                        Personal Information
-                    </Typography>
-                    <Typography gutterBottom>{sessionStorage.getItem("firstName_inquiry")}</Typography>
-                    <Typography gutterBottom>{sessionStorage.getItem("lastName_inquiry")}</Typography>
-                    <Typography gutterBottom>{sessionStorage.getItem("age_inquiry")}</Typography>
-                    <Typography gutterBottom>{sessionStorage.getItem("gender_inquiry")}</Typography>
-                    <Typography gutterBottom>{sessionStorage.getItem("contact_number_inquiry")}</Typography>
-                    <Typography gutterBottom>{sessionStorage.getItem("city_inquiry")}</Typography>
-                </Grid>
+            {/*</List>*/}
+            <Grid item xs={12} >
+                <Paper className={classes.paper}>
+                    <FileUpload />
+                </Paper>
             </Grid>
+            {/*<Grid container spacing={2}>*/}
+            {/*    <Grid item xs={12} sm={6}>*/}
+            {/*        <Typography variant="h6" gutterBottom className={classes.title}>*/}
+            {/*            Personal Information*/}
+            {/*        </Typography>*/}
+            {/*        <Typography gutterBottom>{sessionStorage.getItem("firstName_inquiry")}</Typography>*/}
+            {/*        <Typography gutterBottom>{sessionStorage.getItem("lastName_inquiry")}</Typography>*/}
+            {/*        <Typography gutterBottom>{sessionStorage.getItem("age_inquiry")}</Typography>*/}
+            {/*        <Typography gutterBottom>{sessionStorage.getItem("gender_inquiry")}</Typography>*/}
+            {/*        <Typography gutterBottom>{sessionStorage.getItem("contact_number_inquiry")}</Typography>*/}
+            {/*        <Typography gutterBottom>{sessionStorage.getItem("city_inquiry")}</Typography>*/}
+            {/*    </Grid>*/}
+            {/*</Grid>*/}
         </React.Fragment>
     );
 }

@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function UploadButton({ className, children, onClick, ...props }) {
+export default function CoverUploadButton({ className, children, onClick, ...props }) {
 
     const classes = useStyles();
 
@@ -31,8 +31,8 @@ export default function UploadButton({ className, children, onClick, ...props })
         else {
             uploadFile(props.data, config)
                 .then(data => {
-                    console.log(data)
-                    window.sessionStorage.setItem("fileUrl", data.location)
+                    console.log(data);
+                    window.sessionStorage.setItem("coverUrl", data.location)
                 })
                 .catch(err => console.error(err))
         }

@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import '../views/FileUpload.css'
-import UploadButton from "./Button/UploadButton";
+import CoverUploadButton from "./Button/CoverUploadButton";
 
-export default function FileUpload () {
+export default function CoverFileUpload () {
 
     const [selectedFile, setSelectedFile] = useState(null);
 
@@ -18,7 +18,7 @@ export default function FileUpload () {
                     </form>
                 </div>
             </div>
-            <UploadButton data={selectedFile} />
+            <CoverUploadButton data={selectedFile} />
         </div>
     );
 };
