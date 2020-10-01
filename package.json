@@ -26,7 +26,8 @@
     "react-three-fiber": "4.1.1",
     "recharts": "^1.8.5",
     "styled-components": "^5.2.0",
-    "three": "0.115.0"
+    "three": "0.115.0",
+    "@material-ui/lab": "latest"
   },
   "devDependencies": {
     "@material-ui/icons": "^4.9.1",

@@ -29,6 +29,7 @@ import UpdateProfileButton from "../Button/UpdateProfileButton";
 import UploadImageButton from "../Button/UploadImageButton";
 import FileUpload from "../FileUpload";
 import DocEditor from "../DocEditor";
+import Checkout from "../Survey/Checkout";
 
 function Copyright() {
     return (
@@ -231,8 +232,9 @@ export default function Dashboard() {
                         <Grid item xs={12}>
                             {/*{md={8} lg={9}}*/}
                             {/*<Paper className={fixedHeightPaper}>*/}
-                                <DocEditor />
+                            {/*    {<DocEditor />}*/}
                             {/*</Paper>*/}
+                            <Checkout/>
 
                         </Grid>
                         <Grid item xs={12} >
