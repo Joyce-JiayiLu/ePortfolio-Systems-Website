@@ -247,3 +247,34 @@ export function updateimage(url) {
     }
   });
 }
+
+export function createCollection(){
+    var user_token = localStorage.getItem("id_token");
+    var userid = jwt_decode(user_token).sub;
+    const title = sessionStorage.getItem("title");
+    const coverUrl = sessionStorage.getItem("coverUrl");
+    const tags = sessionStorage.getItem("portfolio_value");
+    const description = sessionStorage.getItem("description");
+    const fileUrl = sessionStorage.getItem("fileUrl");
+    const endpoint = BASE_URL + `/collection/`;
+    return fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        "userid":userid,
+        "title": title,
+        "description": description,
+        "tag": tags,
+        "cover": coverUrl,
+        "file": fileUrl
+
+      })
+    }).then(res =>{
+      if(res.ok){
+        window.location.assign(`http://localhost:3000/usercenter`)
+        //window.location.href = `CaregiverInformation/${username}`;
+      }
+    });
+}

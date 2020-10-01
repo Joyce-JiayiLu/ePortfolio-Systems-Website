@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
+import {createCollection} from "../../api";
 
 function Copyright() {
     return (
@@ -88,6 +89,7 @@ export default function Checkout() {
     const handleNext = () => {
         setActiveStep(activeStep + 1);
         if (activeStep === steps.length - 1) {
+            createCollection();
             removeSessionStorage();
         }
     };
