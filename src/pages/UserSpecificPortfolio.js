@@ -30,6 +30,7 @@ import work5 from "./UserPortfolio/examples/clem-onojegaw.jpg";
 
 import styles from "./UserPortfolio/profilePage";
 import {useCollections, useUsers} from "../api";
+import Nav from "../components/Nav";
 
 const useStyles = makeStyles(styles);
 
@@ -68,6 +69,7 @@ export default function ProfilePage(props) {
     console.log(title);
     return (
         <div>
+            <Nav />
             <Parallax small filter image={require("./UserPortfolio/profile-bg.jpg")} />
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div>
