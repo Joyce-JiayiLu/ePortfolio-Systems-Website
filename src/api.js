@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import jwt_decode from "jwt-decode";
-
+import axios from "./axios";
 const BASE_URL = "https://geniusolio.herokuapp.com";
 
 function getUsers() {
@@ -187,7 +187,44 @@ function createUser(user){
     })
   }).then();
 }
+/*
+export async function search(title) {
+  const {query} = title;
+  let response = await axios.post(
+      "/search",
+      null,
+      {params: {
+          name: query,
+        }}
+  );
+  const result = JSON.stringify(response);
+  console.log(result)
+  return result;
+}*/
 
+export function search(title){
+  const {name} = title;
+  console.log(name);
+  const endpoint = BASE_URL + `/search`;
+  return fetch(endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      name
+    })
+  }).then(res => {
+    //console.log(res.json());
+    return res.json();
+  }).then(data => {
+    if(data){
+      console.log(data);
+      window.sessionStorage.setItem("result", data);
+      window.location.assign("http://localhost:3000/search");
+    }
+  });
+}
 
 export function updateimage(url) {
   var user_token = localStorage.getItem("id_token");

@@ -7,15 +7,14 @@ import Container from '@material-ui/core/Container';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
-import Header from './BlogHeader';
-import MainFeaturedPost from './MainFeaturedPost';
-import FeaturedPost from './FeaturedPost';
-import Sidebar from './Sidebar';
-import Footer from './Footer';
+import MainFeaturedPost from '../components/Blog/MainFeaturedPost';
+import FeaturedPost from '../components/Blog/FeaturedPost';
+import Sidebar from '../components/Blog/Sidebar';
+import Footer from '../components/Blog/Footer';
 import HomeIcon from "@material-ui/icons/Home";
 import IconButton from "@material-ui/core/IconButton";
-import {search, updateUserProfile, useCollections, useSearch, useUsers} from "../../api";
-import Nav from "../Nav";
+import {search, updateUserProfile, useCollections, useSearch, useUsers} from "../api";
+import Nav from "../../src/components/Nav";
 import SearchBar from "material-ui-search-bar";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from '@material-ui/icons/Search';
@@ -78,23 +77,41 @@ const sidebar = {
 
 
 
-export default function Blog() {
+export default function Result() {
     const classes = useStyles();
-    const { loading, collections, error } = useCollections();
-    console.log(collections);
+    var collections = search();
+    //console.log(JSON.parse(collections));
     const [query, setQuery] = useState("");
-    if (loading) {
-        return <p>Loading...</p>;
-    }
-    if (error) {
-        return <p>Something went wrong: {error.message}</p>;
-    }
 
 
     function searching() {
         window.sessionStorage.setItem("keyword", query);
         window.location.assign("http://localhost:3000/search");
     }
+
+    function search(){
+        var name = window.sessionStorage.getItem("keyword");
+        console.log(name);
+        const endpoint = "https://geniusolio.herokuapp.com/search";
+        return fetch(endpoint, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name
+            })
+        }).then(res => {
+            //console.log(res.json());
+            return res.json();
+        }).then(data => {
+            if(data){
+                console.log(data);
+                return data;
+            }
+        });
+    }
+
 
     return (
         <React.Fragment>

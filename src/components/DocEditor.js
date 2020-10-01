@@ -62,7 +62,7 @@ export default class DocEditor extends Component {
     }
 
     buildPreviewHtml () {
-
+        console.log(this.state.editorState.toHTML());
         return `
       <!Doctype html>
       <html>
