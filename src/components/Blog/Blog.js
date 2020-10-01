@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, {Component, useState} from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
@@ -7,25 +7,18 @@ import Container from '@material-ui/core/Container';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
-import Header from './BlogHeader';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
 import HomeIcon from "@material-ui/icons/Home";
 import IconButton from "@material-ui/core/IconButton";
-import {search, updateUserProfile, useCollections, useSearch, useUsers} from "../../api";
 import Nav from "../Nav";
 import SearchBar from "material-ui-search-bar";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from '@material-ui/icons/Search';
+import { withRouter } from "react-router-dom";
 
-import PortfolioCard from "./PortfolioCard";
-const useStyles = makeStyles((theme) => ({
-    mainGrid: {
-        marginTop: theme.spacing(3),
-    },
-}));
 
 const sections = [
     // { title: 'Technology', url: '#' },
@@ -79,76 +72,97 @@ const sidebar = {
 
 
 
-export default function Blog() {
-    const classes = useStyles();
-    const { loading, collections, error } = useCollections();
-    console.log(collections);
-    const [query, setQuery] = useState("");
+class Blog extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            items:[],
+        };
 
-    if (loading) {
-        return <p>Loading...</p>;
-    }
-    if (error) {
-        return <p>Something went wrong: {error.message}</p>;
-    }
-
-    function searching() {
-        window.sessionStorage.setItem("keyword", query);
-        window.location.assign("http://localhost:3000/search");
+        // This binding is necessary to make `this` work in the callback
+        //this.updateSelected = this.updateSelected.bind(this);
+        this.doSomething = this.doSomething.bind(this);
     }
 
-    return (
-        <React.Fragment>
-            <CssBaseline />
-            <Container maxWidth="lg">
-                <Nav />
-                <main>
-                    <MainFeaturedPost post={mainFeaturedPost} />
-                    <div className={classes.search} >
-                        <InputBase
-                            id="Testing"
-                            placeholder="Search…"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            inputProps={{ 'aria-label': 'search' }}
-                            onChange={(e) => setQuery(e.target.value)}
-                        />
-                        <IconButton
-                            edge="start"
-                            className={classes.menuButton}
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={() => searching()}
-                        >
-                            <SearchIcon />
-                        </IconButton>
-                    </div>
-                    <Grid container spacing={4} onClick={toUserPortfolio}>
-                        {collections.map((post) => (
-                            <FeaturedPost key={post.userid} post={post} />
-                        ))}
-                    </Grid>
-                    <Grid container spacing={4}>
-                        <PortfolioCard />
-                    </Grid>
-                    <Grid container spacing={5} className={classes.mainGrid}>
-                        {/*<Main title="From the firehose" posts={posts} />*/}
-                        <Sidebar
-                            title={sidebar.title}
-                            description={sidebar.description}
-                            archives={sidebar.archives}
-                            social={sidebar.social}
-                        />
-                    </Grid>
-                </main>
-            </Container>
-            <Footer title="GeniuSolio" description="Endorse your own works." />
-        </React.Fragment>
-    );
+    async componentDidMount() {
+        this.doSomething();
+
+    }
+
+    async componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevState.selected !== this.state.selected) {
+            this.doSomething();
+        }
+    }
+
+    async doSomething() {
+        let result = await this.search();
+        console.log(result);
+        this.setState({items: result})
+        return result;
+    }
+
+
+
+    search(){
+        var name = window.sessionStorage.getItem("keyword");
+        console.log(name);
+        const endpoint = "https://geniusolio.herokuapp.com/collection";
+        return fetch(endpoint).then(res => {
+            console.log(res);
+            return res.json();
+        }).then(data => {
+            if(data){
+                console.log(data);
+                return data;
+            }
+        });
+    }
+    render() {
+
+
+
+        const classes = makeStyles((theme) => ({
+            mainGrid: {
+                marginTop: theme.spacing(3),
+            },
+        }));
+        const items = this.state.items;
+        //console.log(JSON.parse(collections));
+
+
+        function toUserPortfolio() {
+            window.location.assign(`http://localhost:3000/userportfolio`);
+        }
+
+        return (
+            <React.Fragment>
+                <CssBaseline />
+                <Container maxWidth="lg">
+                    <Nav />
+                    <main>
+                        <MainFeaturedPost post={mainFeaturedPost} />
+
+                        <Grid container spacing={4} onClick={() => toUserPortfolio()}>
+                            {items.map((post) => (
+                                <FeaturedPost key={post.userid} post={post} />
+                            ))}
+                        </Grid>
+                        <Grid container spacing={5} className={classes.mainGrid}>
+                            {/*<Main title="From the firehose" posts={posts} />*/}
+                            <Sidebar
+                                title={sidebar.title}
+                                description={sidebar.description}
+                                archives={sidebar.archives}
+                                social={sidebar.social}
+                            />
+                        </Grid>
+                    </main>
+                </Container>
+                <Footer title="GeniuSolio" description="Endorse your own works." />
+            </React.Fragment>
+        );
+    }
 }
 
-function toUserPortfolio(){
-    window.location.assign(`http://localhost:3000/userportfolio`);
-}
+export default withRouter(Blog);
