@@ -21,7 +21,8 @@ import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import diamondUrl from "./assets/diamond.glb";
 import BackfaceMaterial from "./backface-material";
 import RefractionMaterial from "./refraction-material";
-import "./views/Homepage.css"
+import "./views/Homepage.css";
+import Search from "./pages/Search";
 
 
 function Background() {
@@ -162,8 +163,8 @@ export default class App extends Component {
                         <Route path='/user'>
                             <Users/>
                         </Route>
-                        <Route path='/user'>
-                            <Users/>
+                        <Route path='/search'>
+                            <Search />
                         </Route>
                     </Switch>
                 </div>
