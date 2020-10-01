@@ -237,11 +237,11 @@ export default function Dashboard() {
                             <Checkout/>
 
                         </Grid>
-                        <Grid item xs={12} >
-                            <Paper className={classes.paper}>
-                                <FileUpload />
-                            </Paper>
-                        </Grid>
+                        {/*<Grid item xs={12} >*/}
+                        {/*    <Paper className={classes.paper}>*/}
+                        {/*        <FileUpload />*/}
+                        {/*    </Paper>*/}
+                        {/*</Grid>*/}
 
                     </Grid>
 

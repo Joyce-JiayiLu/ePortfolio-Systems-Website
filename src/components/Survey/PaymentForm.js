@@ -6,6 +6,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import Chip from "@material-ui/core/Chip";
+import DocEditor from "../DocEditor";
 
 
 export default function PaymentForm() {
@@ -31,25 +32,45 @@ export default function PaymentForm() {
                     />
                 )}
             />
+            <br />
+            <Typography variant="h6" gutterBottom>
+                Description
+            </Typography>
+            <Grid>add description to your beloved project</Grid>
+            <br />
+            <Grid>
+                <TextField
+                    id="outlined-multiline-dynamic"
+                    label="Description"
+                    multiline
+                    rows={4}
+                    defaultValue="This project......"
+                    variant="outlined"
+                    onChange={event => sessionStorage.setItem("description",event.target.value)}
+                />
+            </Grid>
         </React.Fragment>
     );
 }
 
 const portfolioTags = [
-    { title: 'Fever (≥38 °C)'},
-    { title: 'Sore throat'},
-    { title: 'Runny nose'},
-    { title: 'Dry Cough'},
-    { title: 'Shortness of Breath'},
-    { title: "Vomiting"},
-    { title: 'Nausea'},
-    { title: 'Diarrhea'},
-    { title: 'Tiredness'},
-    { title: 'Conjunctivitis'},
-    { title: 'Loss of Taste'},
-    { title: 'Loss of Smell'},
-    { title: 'Rash on Skin'},
-    { title: 'Discolouration of Fingers or Toes'},
-    { title: 'Chest Pain or Pressure'},
+    { title: 'Art'},
+    { title: 'Chemistry'},
+    { title: 'Physics'},
+    { title: 'Architecture'},
+    { title: 'Business'},
+    { title: "Law"},
+    { title: 'Politics'},
+    { title: 'Education'},
+    { title: 'Health'},
+    { title: 'Biochemical Medicine'},
+    { title: 'Computer Science'},
+    { title: 'Mathematics & Statistics'},
+    { title: 'Gaming'},
+    { title: 'Technology'},
+    { title: 'Philosophy'},
+    { title: 'Marxism'},
+    { title: 'Religion'},
+    { title: 'History'},
 ];
 console.log(document.getElementById("symptoms"))
