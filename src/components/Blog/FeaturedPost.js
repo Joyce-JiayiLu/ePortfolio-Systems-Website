@@ -25,8 +25,12 @@ export default function FeaturedPost(props) {
     const classes = useStyles();
     const { post } = props;
 
+    function toUserPortfolio() {
+        window.location.assign(`http://localhost:3000/userportfolio`);
+    }
+
     return (
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} onClick={() => toUserPortfolio()}>
             <CardActionArea component="a" href="#">
                 <Card className={classes.card}>
                     <div className={classes.cardDetails}>

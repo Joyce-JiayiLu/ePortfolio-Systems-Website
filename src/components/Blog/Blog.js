@@ -131,9 +131,7 @@ class Blog extends Component {
         //console.log(JSON.parse(collections));
 
 
-        function toUserPortfolio() {
-            window.location.assign(`http://localhost:3000/userportfolio`);
-        }
+
 
         return (
             <React.Fragment>
@@ -142,8 +140,7 @@ class Blog extends Component {
                     <Nav />
                     <main>
                         <MainFeaturedPost post={mainFeaturedPost} />
-
-                        <Grid container spacing={4} onClick={() => toUserPortfolio()}>
+                        <Grid container spacing={4}>
                             {items.map((post) => (
                                 <FeaturedPost key={post.userid} post={post} />
                             ))}
