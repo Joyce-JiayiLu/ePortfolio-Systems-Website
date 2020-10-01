@@ -32,11 +32,23 @@ export default function PaymentForm() {
                     />
                 )}
             />
+            <br />
             <Typography variant="h6" gutterBottom>
                 Description
             </Typography>
-            <Grid>add your description to your beloved project ()</Grid>
-            <Grid><DocEditor /></Grid>
+            <Grid>add description to your beloved project</Grid>
+            <br />
+            <Grid>
+                <TextField
+                    id="outlined-multiline-dynamic"
+                    label="Description"
+                    multiline
+                    rows={4}
+                    defaultValue="This project......"
+                    variant="outlined"
+                    onChange={event => sessionStorage.setItem("description",event.target.value)}
+                />
+            </Grid>
         </React.Fragment>
     );
 }

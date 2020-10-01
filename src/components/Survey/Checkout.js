@@ -81,11 +81,36 @@ function getStepContent(step) {
 
 export default function Checkout() {
     const classes = useStyles();
+    let title, description, coverUrl, fileUrl, portfolio_value;
+
     const [activeStep, setActiveStep] = React.useState(0);
 
     const handleNext = () => {
         setActiveStep(activeStep + 1);
+        if (activeStep === steps.length - 1) {
+            removeSessionStorage();
+        }
     };
+
+    function removeSessionStorage() {
+        title = sessionStorage.getItem("title")
+        description = sessionStorage.getItem("description")
+        coverUrl = sessionStorage.getItem("coverUrl")
+        fileUrl = sessionStorage.getItem("fileUrl")
+        portfolio_value = sessionStorage.getItem("portfolio_value")
+
+        console.log("title: ", title)
+        console.log("description: ", description)
+        console.log("coverUrl: ", coverUrl)
+        console.log("fileUrl: ", fileUrl)
+        console.log("portfolio_value: ", portfolio_value)
+
+        sessionStorage.removeItem("title")
+        sessionStorage.removeItem("description")
+        sessionStorage.removeItem("portfolio_value")
+        sessionStorage.removeItem("coverUrl")
+        sessionStorage.removeItem("fileUrl")
+    }
 
     const handleBack = () => {
         setActiveStep(activeStep - 1);
