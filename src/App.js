@@ -163,12 +163,9 @@ export default class App extends Component {
                         <Route path='/user'>
                             <Users/>
                         </Route>
-                        <Route path='/search'>
-                            <Search />
-                        </Route>
+                        <Route path="/search" component={Search} />
                     </Switch>
                 </div>
-
             </Router>
 
         );

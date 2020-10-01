@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, {Component, useState} from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
@@ -13,17 +13,12 @@ import Sidebar from '../components/Blog/Sidebar';
 import Footer from '../components/Blog/Footer';
 import HomeIcon from "@material-ui/icons/Home";
 import IconButton from "@material-ui/core/IconButton";
-import {search, updateUserProfile, useCollections, useSearch, useUsers} from "../api";
 import Nav from "../../src/components/Nav";
 import SearchBar from "material-ui-search-bar";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from '@material-ui/icons/Search';
+import { withRouter } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
-    mainGrid: {
-        marginTop: theme.spacing(3),
-    },
-}));
 
 const sections = [
     // { title: 'Technology', url: '#' },
@@ -77,19 +72,39 @@ const sidebar = {
 
 
 
-export default function Result() {
-    const classes = useStyles();
-    var collections = search();
-    //console.log(JSON.parse(collections));
-    const [query, setQuery] = useState("");
+class Result extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            items:[],
+        };
 
-
-    function searching() {
-        window.sessionStorage.setItem("keyword", query);
-        window.location.assign("http://localhost:3000/search");
+        // This binding is necessary to make `this` work in the callback
+        //this.updateSelected = this.updateSelected.bind(this);
+        this.doSomething = this.doSomething.bind(this);
     }
 
-    function search(){
+    async componentDidMount() {
+        this.doSomething();
+
+    }
+
+    async componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevState.selected !== this.state.selected) {
+            this.doSomething();
+        }
+    }
+
+    async doSomething() {
+        let result = await this.search();
+        console.log(result);
+        this.setState({items: result})
+        return result;
+    }
+
+
+
+    search(){
         var name = window.sessionStorage.getItem("keyword");
         console.log(name);
         const endpoint = "https://geniusolio.herokuapp.com/search";
@@ -111,6 +126,17 @@ export default function Result() {
             }
         });
     }
+    render() {
+
+
+
+    const classes = makeStyles((theme) => ({
+        mainGrid: {
+            marginTop: theme.spacing(3),
+        },
+    }));
+    const items = this.state.items;
+    //console.log(JSON.parse(collections));
 
 
     return (
@@ -120,29 +146,9 @@ export default function Result() {
                 <Nav />
                 <main>
                     <MainFeaturedPost post={mainFeaturedPost} />
-                    <div className={classes.search} >
-                        <InputBase
-                            id="Testing"
-                            placeholder="Search…"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            inputProps={{ 'aria-label': 'search' }}
-                            onChange={(e) => setQuery(e.target.value)}
-                        />
-                        <IconButton
-                            edge="start"
-                            className={classes.menuButton}
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={() => searching()}
-                        >
-                            <SearchIcon />
-                        </IconButton>
-                    </div>
+
                     <Grid container spacing={4}>
-                        {collections.map((post) => (
+                        {items.map((post) => (
                             <FeaturedPost key={post.userid} post={post} />
                         ))}
                     </Grid>
@@ -161,4 +167,6 @@ export default function Result() {
         </React.Fragment>
     );
 }
+}
 
+export default withRouter(Result);
