@@ -116,6 +116,13 @@ export default function Checkout() {
 
     const handleBack = () => {
         setActiveStep(activeStep - 1);
+        if (activeStep === 0){
+            sessionStorage.removeItem("title")
+        }
+        if (activeStep === 1){
+            sessionStorage.removeItem("portfolio_value")
+            sessionStorage.removeItem("description")
+        }
     };
 
     return (
