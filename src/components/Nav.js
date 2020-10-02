@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import HomeIcon from "@material-ui/icons/Home";
 import PortfolioIcon from "@material-ui/icons/Collections";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import {withRouter} from "react-router";
+import {withRouter} from "react-router-dom";
 
 const Nav = (props) => {
     console.log(props);
