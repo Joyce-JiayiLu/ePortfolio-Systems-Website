@@ -1,4 +1,3 @@
-
 import React, {Component, useState} from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -18,6 +17,7 @@ import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from '@material-ui/icons/Search';
 import { withRouter } from "react-router-dom";
 import SearchBar from "../SearchBar";
+import Chips from "./Tag";
 
 
 const sections = [
@@ -77,11 +77,13 @@ class Blog extends Component {
         super(props);
         this.state = {
             items:[],
+            selected: [],
         };
 
         // This binding is necessary to make `this` work in the callback
         //this.updateSelected = this.updateSelected.bind(this);
         this.doSomething = this.doSomething.bind(this);
+        this.updateSelected = this.updateSelected.bind(this);
     }
 
     async componentDidMount() {
@@ -95,31 +97,58 @@ class Blog extends Component {
         }
     }
 
+    updateSelected(newSelected) {
+        this.setState({...this.state,
+            selected: newSelected
+        })
+    }
+
     async doSomething() {
         let result = await this.search();
-        console.log(result);
-        this.setState({items: result})
+        let res = [];
+        if (this.state.selected.length == 0){
+            this.setState({items: result});
+        }else{
+            result.map(discussion => {
+                const tags = discussion.tag.map(s => {
+                    return s;
+                });
+                console.log(this.state.selected);
+                const ta = JSON.parse(tags);
+                for (let i=0; i<ta.length; i++) {
+                    //console.log(ta);
+                    if (this.state.selected.includes(ta[i].title)) {
+                        if(!res.includes(discussion)) {
+                            res.push(discussion);
+                        }
+                        break;
+                    }
+                }
+
+            });
+            console.log(res)
+            this.setState({items: res})
+        }
+        //console.log(result);
+        //this.setState({items: result})
         return result;
     }
 
 
 
     search(){
-        var name = window.sessionStorage.getItem("keyword");
-        console.log(name);
         const endpoint = "https://geniusolio.herokuapp.com/collection";
         return fetch(endpoint).then(res => {
-            console.log(res);
+            //console.log(res);
             return res.json();
         }).then(data => {
             if(data){
-                console.log(data);
+                this.setState({items: data});
                 return data;
             }
         });
     }
     render() {
-
 
 
         const classes = makeStyles((theme) => ({
@@ -129,6 +158,8 @@ class Blog extends Component {
         }));
         const items = this.state.items;
         //console.log(JSON.parse(collections));
+        //console.log(this.state.selected);
+        console.log(items);
 
 
 
@@ -141,9 +172,10 @@ class Blog extends Component {
                     <main>
                         <MainFeaturedPost post={mainFeaturedPost} />
                         <SearchBar />
+                        <Chips selected={this.state.selected} onChange={this.updateSelected}/>
                         <Grid container spacing={4}>
                             {items.map((post) => (
-                                <FeaturedPost key={post.userid} post={post} />
+                                <FeaturedPost post={post} />
                             ))}
                         </Grid>
                         <Grid container spacing={5} className={classes.mainGrid}>

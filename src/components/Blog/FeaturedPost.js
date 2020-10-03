@@ -24,7 +24,6 @@ const useStyles = makeStyles({
 export default function FeaturedPost(props) {
     const classes = useStyles();
     const { post } = props;
-    console.log(props);
 
     function toUserPortfolio() {
         //console.log(post.userid);

@@ -113,7 +113,6 @@ export default function ProfilePage(props) {
                                 // change src to show the pdf you want
                                 src={file}/>
                         </div>
-
                     </div>
                 </div>
             </div>
