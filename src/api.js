@@ -123,7 +123,7 @@ export function updateUserProfile(user) {
     })
   }).then(res =>{
     console.log("success!")
-    window.location.assign(`http://localhost:3000/usercenter`)
+    window.location.assign(`https://genius-solio.herokuapp.com/usercenter`)
   });
 }
 
@@ -143,7 +143,7 @@ export function uploadResume(user) {
     })
   }).then(res =>{
     console.log("success!")
-    window.location.assign(`http://localhost:3000/resume/`)
+    window.location.assign(`https://genius-solio.herokuapp.com/resume/`)
 
   });
 }
@@ -221,7 +221,7 @@ export function search(title){
     if(data){
       console.log(data);
       window.sessionStorage.setItem("result", data);
-      window.location.assign("http://localhost:3000/search");
+      window.location.assign("https://genius-solio.herokuapp.com/search");
     }
   });
 }
@@ -242,7 +242,7 @@ export function updateimage(url) {
     })
   }).then(res =>{
     if(res.ok){
-      window.location.assign(`http://localhost:3000/usercenter`)
+      window.location.assign(`https://genius-solio.herokuapp.com/usercenter`)
       //window.location.href = `CaregiverInformation/${username}`;
     }
   });
@@ -273,7 +273,7 @@ export function createCollection(){
       })
     }).then(res =>{
       if(res.ok){
-        window.location.assign(`http://localhost:3000/usercenter`)
+        window.location.assign(`https://genius-solio.herokuapp.com/usercenter`)
         //window.location.href = `CaregiverInformation/${username}`;
       }
     });

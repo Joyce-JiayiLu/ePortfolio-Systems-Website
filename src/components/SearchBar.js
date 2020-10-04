@@ -14,7 +14,7 @@ export default function SearchBar() {
     const [query, setQuery] = useState("");
     function searching() {
         window.sessionStorage.setItem("keyword", query);
-        window.location.assign("http://localhost:3000/search");
+        window.location.assign("https://genius-solio.herokuapp.com/search");
     }
     const classes = useStyles();
     return (
@@ -43,5 +43,5 @@ export default function SearchBar() {
 }
 
 function backHomePage(){
-    window.location.assign(`http://localhost:3000/`);
+    window.location.assign(`https://genius-solio.herokuapp.com/`);
 }
