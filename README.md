@@ -1,6 +1,6 @@
 # IT-Project-Front-end
 
-Modern, open-source ePortfolio system built by unimelb students for capstone subject COMP30022.
+Modern, open-source ePortfolio system built by unimelb students for capstone subject COMP30022. You can check at https://genius-solio.herokuapp.com/ .
 
 ![Image text](https://raw.githubusercontent.com/Jiayi-Joyce-Lu/IT-Project-Front-end/master/src/picture/homepageshots.png?token=AOZXEAOZDF7EOHLPVP7IJIC7MYFD4)
 
