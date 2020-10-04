@@ -175,6 +175,11 @@ export default function Dashboard() {
             introduction = user.introduction;
         }})}*/
     //console.log(first_name);
+    let image;
+    {users.map(user => {
+        if(user.userid===user_sub){
+            image = user.image;
+        }})}
 
     return (
         <div className={classes.root}>
@@ -203,7 +208,7 @@ export default function Dashboard() {
                         </Badge>
                     </IconButton>
                     <IconButton color="inherit">
-                        <Avatar alt="Jiayi Lu" src="/static/images/avatar/1.jpg" />
+                        <Avatar alt="/static/images/avatar/1.jpg" src={image} />
                     </IconButton>
                 </Toolbar>
             </AppBar>

@@ -170,9 +170,11 @@ export default function Dashboard() {
         return <p>Something went wrong: {error.message}</p>;
     }
     let resume;
+    let image;
     {users.map(user => {
         if(user.userid===userid){
             resume = user.resume;
+            image = user.image;
         }})}
     //console.log(first_name);
 
@@ -203,7 +205,7 @@ export default function Dashboard() {
                         </Badge>
                     </IconButton>
                     <IconButton color="inherit">
-                        <Avatar alt="Jiayi Lu" src="/static/images/avatar/1.jpg" />
+                        <Avatar alt="/static/images/avatar/1.jpg" src={image} />
                     </IconButton>
                 </Toolbar>
             </AppBar>
