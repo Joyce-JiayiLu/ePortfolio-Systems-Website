@@ -30,6 +30,7 @@ import UploadImageButton from "../Button/UploadImageButton";
 import FileUpload from "../FileUpload";
 import DocEditor from "../DocEditor";
 import Checkout from "../Survey/Checkout";
+import jwt_decode from "jwt-decode";
 
 function Copyright() {
     return (
@@ -145,6 +146,10 @@ export default function Dashboard() {
     index = username.lastIndexOf('/');
     let userid;
     userid = username.slice(index + 1);
+
+    let user_token = localStorage.getItem("id_token");
+    let user_sub = jwt_decode(user_token).sub;
+
 
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);

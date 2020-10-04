@@ -144,8 +144,8 @@ export default function Dashboard() {
         //window.location.assign("http://localhost:3000/login")
     }
 
-    var user_token = localStorage.getItem("id_token");
-    var user_sub = jwt_decode(user_token).sub;
+    let user_token = localStorage.getItem("id_token");
+    let user_sub = jwt_decode(user_token).sub;
     let userid;
     userid = user_sub
     // getUserAndCreat(window.sessionStorage.getItem("userid"));
@@ -173,9 +173,10 @@ export default function Dashboard() {
     let image;
     {
         users.map(user => {
-            if (user.userid === userid) {
+            if (user.userid === user_sub) {
                 resume = user.resume;
                 image = user.image;
+                console.log("image: ", {image})
             }
         })
     }

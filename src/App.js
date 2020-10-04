@@ -24,6 +24,7 @@ import RefractionMaterial from "./refraction-material";
 import "./views/Homepage.css";
 import Search from "./pages/Search";
 import UserSpecificPortfolio from "./pages/UserSpecificPortfolio";
+import DocEditor from "./components/DocEditor";
 
 
 // function Background() {
@@ -175,6 +176,8 @@ export default class App extends Component {
                         <Route path='/userportfolio'>
                             <UserSpecificPortfolio/>
                         </Route>
+                        {/*test doc editor*/}
+                        <Route path='/DocEditor'><DocEditor/></Route>
                     </Switch>
                 </div>
             </Router>
