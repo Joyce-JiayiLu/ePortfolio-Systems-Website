@@ -60,7 +60,7 @@ export default function ProfilePage(props) {
     let file;
     {
         collections.map(collection => {
-            if (collection.userid === user_sub) {
+            if (collection["_id"] === user_sub) {
                 first_name = collection.first_name;
                 last_name = collection.last_name;
                 title = collection.title;
