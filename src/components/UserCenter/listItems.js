@@ -66,14 +66,14 @@ export const thirdListItems = (
 );
 
 function toPortfolioCollections(){
-    window.location.assign(`http://localhost:3000/portfoliocollections`);
+    window.location.assign(`https://genius-solio.herokuapp.com/portfoliocollections`);
 }
 
 function toResume(){
-    window.location.assign(`http://localhost:3000/resume`);
+    window.location.assign(`https://genius-solio.herokuapp.com/resume`);
 }
 
 function toUserInformation(){
-    window.location.assign(`http://localhost:3000/usercenter`);
+    window.location.assign(`https://genius-solio.herokuapp.com/usercenter`);
 }
 

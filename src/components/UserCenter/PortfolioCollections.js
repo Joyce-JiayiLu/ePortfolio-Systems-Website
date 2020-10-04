@@ -35,7 +35,7 @@ function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
-            <Link color="inherit" href="http://localhost:3000/usercenter">
+            <Link color="inherit" href="https://genius-solio.herokuapp.com/usercenter">
                 Your Website
             </Link>{' '}
             {new Date().getFullYear()}
@@ -137,7 +137,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Dashboard() {
     if(!window.localStorage.getItem("id_token")){
-        window.location.assign("http://localhost:3000/login")
+        window.location.assign("https://genius-solio.herokuapp.com/login")
     }
     let username;
     username = window.location.pathname;
@@ -255,5 +255,5 @@ export default function Dashboard() {
 }
 
 function backHomePage(){
-    window.location.assign(`http://localhost:3000/`);
+    window.location.assign(`https://genius-solio.herokuapp.com/`);
 }
