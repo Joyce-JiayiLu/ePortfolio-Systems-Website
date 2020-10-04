@@ -11,7 +11,9 @@ const useStyles = theme => ({
         },
     },
 });
+
 class LoginButton extends Component {
+
     render() {
         //const auth0 = new auth();
         return (

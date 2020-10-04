@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import {useAuth0} from "@auth0/auth0-react";
 import FileUpload from "../components/FileUpload";
 // nodejs library that concatenates classes
@@ -33,13 +33,13 @@ const dashboardRoutes = [];
 
 export default function IconLabelButtons(props) {
     const classes = useStyles();
-    const { ...rest } = props;
+    const {...rest} = props;
 
     //check if user login
-    const { user, isAuthenticated }  = useAuth0();
-    if (isAuthenticated){
+    const {user, isAuthenticated} = useAuth0();
+    if (isAuthenticated) {
         console.log("yes is authenticated");
-        window.sessionStorage.setItem("usersub",user.sub);
+        window.sessionStorage.setItem("usersub", user.sub);
         window.location.assign(`https://genius-solio.herokuapp.com/usercenter/${user.sub}`);
         //window.sessionStorage.setItem("userid",user_id);
         //getUserAndCreat(user_id);
@@ -57,7 +57,7 @@ export default function IconLabelButtons(props) {
                             <h3>
                                 Show What You Have Learn
                             </h3>
-                            <br />
+                            <br/>
                             <Button
                                 color="danger"
                                 size="lg"
@@ -65,7 +65,7 @@ export default function IconLabelButtons(props) {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <i className="fas fa-play" />
+                                <i className="fas fa-play"/>
                                 Watch video
                             </Button>
 
@@ -75,12 +75,12 @@ export default function IconLabelButtons(props) {
             </Parallax>
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div className={classes.container}>
-                    <WorkSection />
-                    <SecondSection />
-                    <ThirdSectioon />
+                    <WorkSection/>
+                    <SecondSection/>
+                    <ThirdSectioon/>
                 </div>
             </div>
-            <Footer />
+            <Footer/>
         </div>
     );
 }

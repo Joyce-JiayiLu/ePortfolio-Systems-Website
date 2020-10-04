@@ -3,11 +3,11 @@ import {useUsers} from "../api";
 
 
 export default function Users() {
-    if(!window.sessionStorage.getItem("userid")){
+    if (!window.sessionStorage.getItem("userid")) {
         alert("You are not logged in! Please Log in and try again!");
         window.location.assign("https://genius-solio.herokuapp.com/Login");
     }
-    const { loading, users, error } = useUsers();
+    const {loading, users, error} = useUsers();
     if (loading) {
         return <p>Loading...</p>;
     }
@@ -22,20 +22,20 @@ export default function Users() {
                 </div>
                 <div id="careGiverList">
                     {users.map(user => {
-                        if(user.userid===window.sessionStorage.getItem("userid")){
-                        return <div>
+                        if (user.userid === window.sessionStorage.getItem("userid")) {
+                            return <div>
                                 <div id="name">
                                     {user.first_name} {user.last_name}<br/><br/>
                                 </div>
-                            <div id="intro">
-                                gender : {user.gender}
-                            </div>
+                                <div id="intro">
+                                    gender : {user.gender}
+                                </div>
 
                                 <div id="intro">
                                     introduction : {user.introduction}
                                 </div>
-                                </div>
-                    }
+                            </div>
+                        }
                     })}
                 </div>
             </div>

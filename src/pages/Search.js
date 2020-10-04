@@ -1,6 +1,5 @@
-
 import React, {Component, useState} from "react";
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -17,7 +16,7 @@ import Nav from "../../src/components/Nav";
 import SearchBar from "material-ui-search-bar";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from '@material-ui/icons/Search';
-import { withRouter } from "react-router-dom";
+import {withRouter} from "react-router-dom";
 
 
 const sections = [
@@ -58,25 +57,24 @@ const sidebar = {
     description:
         '',
     archives: [
-        { title: 'September 2020', url: '#' },
-        { title: 'August 2020', url: '#' },
-        { title: 'July 2020', url: '#' },
-        { title: 'June 2020', url: '#' },
+        {title: 'September 2020', url: '#'},
+        {title: 'August 2020', url: '#'},
+        {title: 'July 2020', url: '#'},
+        {title: 'June 2020', url: '#'},
     ],
     social: [
-        { name: 'GitHub', icon: GitHubIcon },
-        { name: 'Twitter', icon: TwitterIcon },
-        { name: 'Facebook', icon: FacebookIcon },
+        {name: 'GitHub', icon: GitHubIcon},
+        {name: 'Twitter', icon: TwitterIcon},
+        {name: 'Facebook', icon: FacebookIcon},
     ],
 };
-
 
 
 class Result extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            items:[],
+            items: [],
         };
 
         // This binding is necessary to make `this` work in the callback
@@ -103,8 +101,7 @@ class Result extends Component {
     }
 
 
-
-    search(){
+    search() {
         var name = window.sessionStorage.getItem("keyword");
         console.log(name);
         const endpoint = "https://geniusolio.herokuapp.com/search";
@@ -120,53 +117,53 @@ class Result extends Component {
             //console.log(res.json());
             return res.json();
         }).then(data => {
-            if(data){
+            if (data) {
                 console.log(data);
                 return data;
             }
         });
     }
+
     render() {
 
 
+        const classes = makeStyles((theme) => ({
+            mainGrid: {
+                marginTop: theme.spacing(3),
+            },
+        }));
+        const items = this.state.items;
+        //console.log(JSON.parse(collections));
 
-    const classes = makeStyles((theme) => ({
-        mainGrid: {
-            marginTop: theme.spacing(3),
-        },
-    }));
-    const items = this.state.items;
-    //console.log(JSON.parse(collections));
 
+        return (
+            <React.Fragment>
+                <CssBaseline/>
+                <Container maxWidth="lg">
+                    <Nav/>
+                    <main>
+                        <MainFeaturedPost post={mainFeaturedPost}/>
 
-    return (
-        <React.Fragment>
-            <CssBaseline />
-            <Container maxWidth="lg">
-                <Nav />
-                <main>
-                    <MainFeaturedPost post={mainFeaturedPost} />
-
-                    <Grid container spacing={4}>
-                        {items.map((post) => (
-                            <FeaturedPost key={post.userid} post={post} />
-                        ))}
-                    </Grid>
-                    <Grid container spacing={5} className={classes.mainGrid}>
-                        {/*<Main title="From the firehose" posts={posts} />*/}
-                        <Sidebar
-                            title={sidebar.title}
-                            description={sidebar.description}
-                            archives={sidebar.archives}
-                            social={sidebar.social}
-                        />
-                    </Grid>
-                </main>
-            </Container>
-            <Footer title="GeniuSolio" description="Endorse your own works." />
-        </React.Fragment>
-    );
-}
+                        <Grid container spacing={4}>
+                            {items.map((post) => (
+                                <FeaturedPost key={post.userid} post={post}/>
+                            ))}
+                        </Grid>
+                        <Grid container spacing={5} className={classes.mainGrid}>
+                            {/*<Main title="From the firehose" posts={posts} />*/}
+                            <Sidebar
+                                title={sidebar.title}
+                                description={sidebar.description}
+                                archives={sidebar.archives}
+                                social={sidebar.social}
+                            />
+                        </Grid>
+                    </main>
+                </Container>
+                <Footer title="GeniuSolio" description="Endorse your own works."/>
+            </React.Fragment>
+        );
+    }
 }
 
 export default withRouter(Result);

@@ -1,5 +1,5 @@
 /*eslint no-restricted-globals : 0 */
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,10 +12,10 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import {makeStyles, withStyles} from '@material-ui/core/styles';
 import LoginButton from "../components/Button/LoginButton";
 
-import { useAuth0} from "@auth0/auth0-react";
+import {useAuth0} from "@auth0/auth0-react";
 
 import LogoutButton from "../components/Button/LogoutButton";
 
@@ -69,6 +69,7 @@ class Login extends Component {
                 </Typography>
             );
         }
+
         const {classes} = this.props;
 
         //const {loginWithRedirect} = useAuth0();
@@ -140,7 +141,7 @@ class Login extends Component {
 
                                 <Grid container>
                                     <Grid item>
-                                        <Link href="#" variant="body2" >
+                                        <Link href="#" variant="body2">
                                             {"Forgot password? Reset"}
                                         </Link>
                                     </Grid>
@@ -156,7 +157,7 @@ class Login extends Component {
                                     </Grid>
                                 </Grid>
                                 <Box mt={5}>
-                                <Copyright/>
+                                    <Copyright/>
                                 </Box>
                             </form>
                         </div>

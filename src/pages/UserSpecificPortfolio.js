@@ -2,7 +2,7 @@ import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 // @material-ui/icons
 import Camera from "@material-ui/icons/Camera";
 import Palette from "@material-ui/icons/Palette";
@@ -37,14 +37,14 @@ const useStyles = makeStyles(styles);
 
 export default function ProfilePage(props) {
     const classes = useStyles();
-    const { ...rest } = props;
+    const {...rest} = props;
     const imageClasses = classNames(
         classes.imgRaised,
         classes.imgRoundedCircle,
         classes.imgFluid
     );
     const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
-    const { loading, collections, error } = useCollections();
+    const {loading, collections, error} = useCollections();
     if (loading) {
         return <p>Loading...</p>;
     }
@@ -58,20 +58,23 @@ export default function ProfilePage(props) {
     let description;
     let cover;
     let file;
-    {collections.map(collection => {
-        if(collection.userid===user_sub){
-            first_name = collection.first_name;
-            last_name  = collection.last_name;
-            title = collection.title;
-            description = collection.description;
-            cover = collection["cover"];
-            file = collection.file;
-        }})}
+    {
+        collections.map(collection => {
+            if (collection.userid === user_sub) {
+                first_name = collection.first_name;
+                last_name = collection.last_name;
+                title = collection.title;
+                description = collection.description;
+                cover = collection["cover"];
+                file = collection.file;
+            }
+        })
+    }
     console.log(title);
     return (
         <div>
-            <Nav />
-            <Parallax small filter image={require("./UserPortfolio/profile-bg.jpg")} />
+            <Nav/>
+            <Parallax small filter image={require("./UserPortfolio/profile-bg.jpg")}/>
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div>
                     <div className={classes.container}>
@@ -79,19 +82,19 @@ export default function ProfilePage(props) {
                             <GridItem xs={12} sm={12} md={6}>
                                 <div className={classes.profile}>
                                     <div>
-                                        <img src={cover} alt="..." className={imageClasses} />
+                                        <img src={cover} alt="..." className={imageClasses}/>
                                     </div>
                                     <div className={classes.name}>
                                         <h3 className={classes.title}>{first_name} {last_name}</h3>
                                         <h2>{title}</h2>
                                         <Button justIcon link className={classes.margin5}>
-                                            <i className={"fab fa-twitter"} />
+                                            <i className={"fab fa-twitter"}/>
                                         </Button>
                                         <Button justIcon link className={classes.margin5}>
-                                            <i className={"fab fa-instagram"} />
+                                            <i className={"fab fa-instagram"}/>
                                         </Button>
                                         <Button justIcon link className={classes.margin5}>
-                                            <i className={"fab fa-facebook"} />
+                                            <i className={"fab fa-facebook"}/>
                                         </Button>
                                     </div>
                                 </div>
@@ -104,9 +107,9 @@ export default function ProfilePage(props) {
                         </div>
                         <div>
                             <DocView
-                                style = {{
-                                    width:"1200px",
-                                    height:"780px",
+                                style={{
+                                    width: "1200px",
+                                    height: "780px",
                                     border: 'none',
                                     position: 'relative'
                                 }}
@@ -116,7 +119,7 @@ export default function ProfilePage(props) {
                     </div>
                 </div>
             </div>
-            <Footer />
+            <Footer/>
         </div>
     );
 }
