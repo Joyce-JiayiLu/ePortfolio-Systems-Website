@@ -7,8 +7,9 @@ export default class Callback extends Component {
         auth.handleAuthentication();
 
     }
-    render(){
-        return(
+
+    render() {
+        return (
             <div>
                 Loading...
             </div>

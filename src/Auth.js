@@ -7,8 +7,8 @@ export default class Auth {
     auth0 = new auth0.WebAuth({
         domain: process.env.REACT_APP_AUTH0_DOMAIN,
         clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
-        redirectUri : "https://genius-solio.herokuapp.com/callback",
-        audience : "https://dev-fjw5fjzf.au.auth0.com/api/v2/",
+        redirectUri: "https://genius-solio.herokuapp.com/callback",
+        audience: "https://dev-fjw5fjzf.au.auth0.com/api/v2/",
         responseType: "token id_token",
         scope: "openid profile"
     });

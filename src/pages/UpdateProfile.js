@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
 import {checkUser, updateUserProfile} from "../api";
 import {makeStyles} from '@material-ui/core/styles';
@@ -59,57 +59,60 @@ export default function UpdateProfile() {
 
     return (
         <div>
-        <form className={classes.root} noValidate autoComplete="off">
-            <div className={classes.divStyle}>
-            <TextField required id="first_name" label="firstname" variant="outlined" className={classes.textFieldStyle} />
+            <form className={classes.root} noValidate autoComplete="off">
+                <div className={classes.divStyle}>
+                    <TextField required id="first_name" label="firstname" variant="outlined"
+                               className={classes.textFieldStyle}/>
 
-            <TextField required id="last_name" label="lastname" variant="outlined" className={classes.textFieldStyle} />
-            <div>
-                <FormControl variant="outlined" className={classes.formControl}>
-                    <InputLabel id="genderInput">Gender</InputLabel>
-                    <Select
-                        labelId="genderSelect"
-                        name="gender"
-                        value={gender}
-                        onChange={handleChangeGender}
-                        label="gender(male/female)"
+                    <TextField required id="last_name" label="lastname" variant="outlined"
+                               className={classes.textFieldStyle}/>
+                    <div>
+                        <FormControl variant="outlined" className={classes.formControl}>
+                            <InputLabel id="genderInput">Gender</InputLabel>
+                            <Select
+                                labelId="genderSelect"
+                                name="gender"
+                                value={gender}
+                                onChange={handleChangeGender}
+                                label="gender(male/female)"
+                            >
+                                <MenuItem value={'male'}>Male</MenuItem>
+                                <MenuItem value={'female'}>Female</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </div>
+                    <div>
+                        <form className={classes.container} noValidate>
+                            <TextField
+                                id="age"
+                                label="Birthday"
+                                type="date"
+                                defaultValue="2000-05-24"
+                                className={classes.textFieldStyle}
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                variant="outlined"
+                            />
+                        </form>
+                    </div>
+                    <div>
+                        <TextField required multiline rows={5} id="introduction" label="introduction" variant="outlined"
+                                   className={classes.textFieldStyle}/>
+                    </div>
+                </div>
+                <div className={classes.divStyle}>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        className={classes.button}
+                        startIcon={<SaveIcon/>}
+                        onClick={() => onSubmit(gender)}
                     >
-                        <MenuItem value={'male'}>Male</MenuItem>
-                        <MenuItem value={'female'}>Female</MenuItem>
-                    </Select>
-                </FormControl>
-            </div>
-            <div>
-                <form className={classes.container} noValidate>
-                    <TextField
-                        id="age"
-                        label="Birthday"
-                        type="date"
-                        defaultValue="2000-05-24"
-                        className={classes.textFieldStyle}
-                        InputLabelProps={{
-                            shrink: true,
-                        }}
-                        variant="outlined"
-                    />
-                </form>
-            </div>
-            <div>
-                <TextField required multiline rows={5} id="introduction" label="introduction" variant="outlined" className={classes.textFieldStyle} />
-            </div>
-            </div>
-            <div className={classes.divStyle}>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.button}
-                    startIcon={<SaveIcon />}
-                    onClick={() => onSubmit(gender)}
-                >
-                    Save
-                </Button>
-            </div>
-        </form>
+                        Save
+                    </Button>
+                </div>
+            </form>
         </div>
     );
 }
