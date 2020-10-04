@@ -16,29 +16,28 @@ import BookmarkIcon from '@material-ui/icons/CollectionsBookmark';
 import LogoutIcon from '@material-ui/icons/ExitToApp';
 import UpdateProfileButton from "../Button/UpdateProfileButton";
 import LogoutButton from "../Button/LogoutButton";
-import { useAuth0} from "@auth0/auth0-react";
-
+import {useAuth0} from "@auth0/auth0-react";
 
 
 export const mainListItems = (
     <div>
         <ListItem button onClick={() => toUserInformation()}>
             <ListItemIcon>
-                <AccountCircleIcon />
+                <AccountCircleIcon/>
             </ListItemIcon>
-            <ListItemText primary="User Information" />
+            <ListItemText primary="User Information"/>
         </ListItem>
         <ListItem button onClick={() => toResume()}>
             <ListItemIcon>
-                <ResumeIcon />
+                <ResumeIcon/>
             </ListItemIcon>
-            <ListItemText primary="Resume" />
+            <ListItemText primary="Resume"/>
         </ListItem>
         <ListItem button onClick={() => toPortfolioCollections()}>
             <ListItemIcon>
-                <PortfolioIcon />
+                <PortfolioIcon/>
             </ListItemIcon>
-            <ListItemText primary="Portfolio Collections" />
+            <ListItemText primary="Portfolio Collections"/>
         </ListItem>
     </div>
 );
@@ -48,15 +47,15 @@ export const secondaryListItems = (
         <ListSubheader inset></ListSubheader>
         <ListItem button>
             <ListItemIcon>
-                <BookmarkIcon />
+                <BookmarkIcon/>
             </ListItemIcon>
-            <ListItemText primary="Bookmarks" />
+            <ListItemText primary="Bookmarks"/>
         </ListItem>
         <ListItem button>
             <ListItemIcon>
-                <PeopleIcon />
+                <PeopleIcon/>
             </ListItemIcon>
-            <ListItemText primary="Friends" />
+            <ListItemText primary="Friends"/>
         </ListItem>
     </div>
 );
@@ -65,15 +64,15 @@ export const thirdListItems = (
     <LogoutButton/>
 );
 
-function toPortfolioCollections(){
+function toPortfolioCollections() {
     window.location.assign(`https://genius-solio.herokuapp.com/portfoliocollections`);
 }
 
-function toResume(){
+function toResume() {
     window.location.assign(`https://genius-solio.herokuapp.com/resume`);
 }
 
-function toUserInformation(){
+function toUserInformation() {
     window.location.assign(`https://genius-solio.herokuapp.com/usercenter`);
 }
 

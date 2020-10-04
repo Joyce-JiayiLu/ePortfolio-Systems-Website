@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import Box from '@material-ui/core/Box';
@@ -142,7 +142,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Dashboard() {
-    if(!window.localStorage.getItem("access_token")){
+    if (!window.localStorage.getItem("access_token")) {
 
         window.location.assign("https://genius-solio.herokuapp.com/login")
     }
@@ -152,7 +152,7 @@ export default function Dashboard() {
     let index;
     index = username.lastIndexOf('/');
     let userid;
-    userid = username.slice(index+1);
+    userid = username.slice(index + 1);
 
     var user_token = localStorage.getItem("id_token");
     var user_sub = jwt_decode(user_token).sub;
@@ -174,7 +174,7 @@ export default function Dashboard() {
     const fixedHeightPaperImage = clsx(classes.paper, classes.fixedHeightImage);
 
 
-    const { loading, users, error } = useUsers();
+    const {loading, users, error} = useUsers();
     if (loading) {
         return <p>Loading...</p>;
     }
@@ -187,22 +187,25 @@ export default function Dashboard() {
     let gender;
     let age;
     let image;
-    {users.map(user => {
-        if(user.userid===user_sub){
-            first_name = user.first_name;
-            console.log(first_name);
-            console.log(user.userid);
-            last_name  = user.last_name;
-            introduction = user.introduction;
-            gender = user.gender;
-            age = user.age;
-            image = user.image;
-        }})}
-     //console.log(first_name);
+    {
+        users.map(user => {
+            if (user.userid === user_sub) {
+                first_name = user.first_name;
+                console.log(first_name);
+                console.log(user.userid);
+                last_name = user.last_name;
+                introduction = user.introduction;
+                gender = user.gender;
+                age = user.age;
+                image = user.image;
+            }
+        })
+    }
+    //console.log(first_name);
 
     return (
         <div className={classes.root}>
-            <CssBaseline />
+            <CssBaseline/>
             <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
                 <Toolbar className={classes.toolbar}>
                     <IconButton
@@ -212,10 +215,10 @@ export default function Dashboard() {
                         onClick={handleDrawerOpen}
                         className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
                     >
-                        <MenuIcon />
+                        <MenuIcon/>
                     </IconButton>
                     <IconButton color="inherit" onClick={() => backHomePage()}>
-                        <HomeIcon />
+                        <HomeIcon/>
                     </IconButton>
 
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
@@ -223,11 +226,11 @@ export default function Dashboard() {
                     </Typography>
                     <IconButton color="inherit">
                         <Badge badgeContent={4} color="secondary">
-                            <NotificationsIcon />
+                            <NotificationsIcon/>
                         </Badge>
                     </IconButton>
                     <IconButton color="inherit">
-                    <Avatar alt="/static/images/avatar/1.jpg" src={image} />
+                        <Avatar alt="/static/images/avatar/1.jpg" src={image}/>
                     </IconButton>
                 </Toolbar>
             </AppBar>
@@ -240,31 +243,31 @@ export default function Dashboard() {
             >
                 <div className={classes.toolbarIcon}>
                     <IconButton onClick={handleDrawerClose}>
-                        <ChevronLeftIcon />
+                        <ChevronLeftIcon/>
                     </IconButton>
                 </div>
-                <Divider />
+                <Divider/>
                 <List>{mainListItems}</List>
-                <Divider />
-                <List>{secondaryListItems}</List><Divider />
+                <Divider/>
+                <List>{secondaryListItems}</List><Divider/>
                 <List>{thirdListItems}</List>
             </Drawer>
             <main className={classes.content}>
-                <div className={classes.appBarSpacer} />
+                <div className={classes.appBarSpacer}/>
                 <Container maxWidth="lg" className={classes.container}>
                     <Grid container spacing={3}>
                         {/* Chart */}
                         <Grid item xs={12} md={8} lg={9}>
                             <Paper className={fixedHeightPaper}>
                                 <p>firstname: {first_name}</p>
-                                <p>lastname:  {last_name}</p>
-                                <p>gender:  {gender}</p>
-                                <p>birthday:  {age}</p>
-                                <p>introduction:  {introduction}</p>
+                                <p>lastname: {last_name}</p>
+                                <p>gender: {gender}</p>
+                                <p>birthday: {age}</p>
+                                <p>introduction: {introduction}</p>
                                 <p></p>
                                 <p></p>
                                 <p></p>
-                                <p className={classes.buttonBottom}><UpdateProfileButton /></p>
+                                <p className={classes.buttonBottom}><UpdateProfileButton/></p>
 
                             </Paper>
 
@@ -277,9 +280,9 @@ export default function Dashboard() {
                             {/*        <Avatar className={classes.imagePosition} alt="" src={image} className={classes.large}/>*/}
                             {/*        </IconButton>*/}
                             {/*    </p>*/}
-                                <div className={classes.buttonBottom}>
-                                    <Upload/>
-                                </div>
+                            <div className={classes.buttonBottom}>
+                                <Upload/>
+                            </div>
                             {/*</Paper>*/}
                         </Grid>
                         {/* Recent Orders */}
@@ -288,7 +291,7 @@ export default function Dashboard() {
                         </Grid>
                     </Grid>
                     <Box pt={4} className={classes.buttonBottom}>
-                        <Copyright />
+                        <Copyright/>
                     </Box>
                 </Container>
             </main>
@@ -297,6 +300,6 @@ export default function Dashboard() {
     );
 }
 
-function backHomePage(){
+function backHomePage() {
     window.location.assign(`https://genius-solio.herokuapp.com/`);
 }
