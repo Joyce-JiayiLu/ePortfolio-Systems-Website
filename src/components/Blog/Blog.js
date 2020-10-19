@@ -105,6 +105,13 @@ class Blog extends Component {
 
     async doSomething() {
         let result = await this.search();
+        for (let i=0; i<result.length; i++){
+            let user = await this.link_to_user(result[i].userid);
+            result[i].firstname = user.first_name;
+            result[i].lastname = user.last_name;
+            result[i].image = user.image;
+            //console.log(result[i]);
+        }
         let res = [];
         if (this.state.selected.length == 0){
             this.setState({items: result});
@@ -143,7 +150,19 @@ class Blog extends Component {
             return res.json();
         }).then(data => {
             if(data){
-                this.setState({items: data});
+                //this.setState({items: data});
+                return data;
+            }
+        });
+    }
+
+    link_to_user(id){
+        const endpoint = `https://geniusolio.herokuapp.com/user/${id}`;
+        return fetch(endpoint).then(res => {
+            //console.log(res);
+            return res.json();
+        }).then(data => {
+            if(data){
                 return data;
             }
         });

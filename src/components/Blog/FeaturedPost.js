@@ -30,7 +30,7 @@ export default function FeaturedPost(props) {
         window.sessionStorage.setItem("spec_userid", post["_id"]);
         window.location.assign(`https://genius-solio.herokuapp.com/userportfolio`);
     }
-
+    console.log(post.userid);
     return (
         <Grid item xs={12} md={6} onClick={() => toUserPortfolio()}>
             <CardActionArea component="a" href="#">
@@ -44,7 +44,7 @@ export default function FeaturedPost(props) {
                                 {post.date}
                             </Typography>
                             <Typography variant="subtitle1" paragraph>
-                                {post.description}
+                                {post.firstname} {post.lastname}
                             </Typography>
                             <Typography variant="subtitle1" color="primary">
                                 Continue reading...
