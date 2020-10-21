@@ -24,13 +24,14 @@ import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
 import Avatar from "@material-ui/core/Avatar";
-import {getUserAndCreat, useUsers} from "../../api";
+import {getUserAndCreat, useCollections, useUsers} from "../../api";
 import UpdateProfileButton from "../Button/UpdateProfileButton";
 import UploadImageButton from "../Button/UploadImageButton";
 import FileUpload from "../FileUpload";
 import DocEditor from "../DocEditor";
 import Checkout from "../Survey/Checkout";
 import jwt_decode from "jwt-decode";
+import FeaturedPost from "../Blog/FeaturedPost";
 
 function Copyright() {
     return (
@@ -163,12 +164,22 @@ export default function Dashboard() {
 
 
     const {loading, users, error} = useUsers();
-    if (loading) {
+    const {loadingg, collections, errorr} = useCollections();
+    if (loading||loadingg) {
         return <p>Loading...</p>;
     }
-    if (error) {
+    if (error||errorr) {
         return <p>Something went wrong: {error.message}</p>;
     }
+    let items = [];
+    console.log(collections);
+    collections.map(collect => {
+        if (collect.userid === user_sub) {
+            items.push(collect);
+        }
+    });
+
+    //console.log(items);
     /*
     let first_name;
     let last_name;
@@ -181,13 +192,26 @@ export default function Dashboard() {
         }})}*/
     //console.log(first_name);
     let image;
-    {
+    let firstname;
+    let lastname;
+
         users.map(user => {
             if (user.userid === user_sub) {
                 image = user.image;
+                firstname = user.first_name;
+                lastname = user.last_name;
             }
-        })
+        });
+
+    for (let i=0; i<items.length; i++){
+        items[i].firstname = firstname;
+        items[i].lastname = lastname;
+        items[i].image = image;
+        //console.log(result[i]);
     }
+
+
+
 
     return (
         <div className={classes.root}>
@@ -243,11 +267,15 @@ export default function Dashboard() {
                     <Grid container spacing={3} justify={"center"}>
                         {/* Chart */}
                         <Grid item xs={12}>
+                            {items.map((post) => (
+                                <FeaturedPost post={post} />
+                            ))}
+
                             {/*{md={8} lg={9}}*/}
                             {/*<Paper className={fixedHeightPaper}>*/}
                             {/*    {<DocEditor />}*/}
                             {/*</Paper>*/}
-                            <Checkout/>
+                            {/*<Checkout/>*/}
 
                         </Grid>
                         {/*<Grid item xs={12} >*/}
@@ -270,3 +298,4 @@ export default function Dashboard() {
 function backHomePage() {
     window.location.assign(`https://genius-solio.herokuapp.com/`);
 }
+
