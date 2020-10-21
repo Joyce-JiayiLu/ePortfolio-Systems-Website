@@ -45,10 +45,11 @@ export default function ProfilePage(props) {
     );
     const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
     const {loading, collections, error} = useCollections();
-    if (loading) {
+    const {loadingg, users, errorr} = useUsers();
+    if (loading||loadingg) {
         return <p>Loading...</p>;
     }
-    if (error) {
+    if (error||errorr) {
         return <p>Something went wrong: {error.message}</p>;
     }
     let user_sub = window.sessionStorage.getItem("spec_userid");
@@ -58,23 +59,33 @@ export default function ProfilePage(props) {
     let description;
     let cover;
     let file;
+    let image;
+    let userid;
     {
         collections.map(collection => {
             if (collection["_id"] === user_sub) {
-                first_name = collection.first_name;
-                last_name = collection.last_name;
                 title = collection.title;
                 description = collection.description;
                 cover = collection["cover"];
                 file = collection.file;
+                userid = collection.userid;
+            }
+        })
+        users.map(user => {
+            if (user.userid === userid) {
+
+                first_name = user.first_name;
+                last_name = user.last_name;
+                image = user.image;
+                console.log(image);
             }
         })
     }
-    console.log(title);
+    console.log(image);
     return (
         <div>
             <Nav/>
-            <Parallax small filter image={require("./UserPortfolio/profile-bg.jpg")}/>
+            <Parallax small filter image={cover}/>
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div>
                     <div className={classes.container}>
@@ -82,7 +93,7 @@ export default function ProfilePage(props) {
                             <GridItem xs={12} sm={12} md={6}>
                                 <div className={classes.profile}>
                                     <div>
-                                        <img src={cover} alt="..." className={imageClasses}/>
+                                        <img src={image} alt="..." className={imageClasses}/>
                                     </div>
                                     <div className={classes.name}>
                                         <h3 className={classes.title}>{first_name} {last_name}</h3>
