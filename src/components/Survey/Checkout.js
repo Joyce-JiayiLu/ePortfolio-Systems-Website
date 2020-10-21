@@ -63,6 +63,11 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(3),
         marginLeft: theme.spacing(1),
     },
+    buttonLeft: {
+        justifyContent: 'flex-front',
+        marginTop: theme.spacing(3),
+        marginLeft: theme.spacing(1),
+    }
 }));
 
 const steps = ['Enter Your Title', 'Choose Your Tag', 'Upload Your File'];
@@ -125,6 +130,10 @@ export default function Checkout() {
         }
     };
 
+    const cancel = () => {
+        window.location.assign("http://localhost:3000/portfoliocollections")
+    }
+
     return (
         <React.Fragment>
             <CssBaseline />
@@ -166,6 +175,14 @@ export default function Checkout() {
                                             Back
                                         </Button>
                                     )}
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        onClick={cancel}
+                                        className={classes.buttonLeft}
+                                    >
+                                        {'Cancel'}
+                                    </Button>
                                     <Button
                                         variant="contained"
                                         color="primary"
