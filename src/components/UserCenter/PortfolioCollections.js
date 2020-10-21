@@ -216,6 +216,11 @@ export default function Dashboard() {
     }
 
     let contentDisplay;
+
+    function toUserPortfolio() {
+
+    }
+
     if (isAddingNew) {
         contentDisplay = <Grid item xs={12}>
             <Checkout/>
@@ -227,6 +232,20 @@ export default function Dashboard() {
             {items.map((post) => (
                 <FeaturedPost post={post} />
             ))}
+            <Grid item xs={12} md={6} onClick={() => addNewPortfolio()}>
+                <CardActionArea component="a" href="#">
+                    <Card className={classes.card}>
+                        <div className={classes.cardDetails}>
+                            <CardContent>
+
+                            </CardContent>
+                        </div>
+                        <Hidden xsDown>
+                            <CardMedia className={classes.cardMedia} />
+                        </Hidden>
+                    </Card>
+                </CardActionArea>
+            </Grid>
 
             <button onClick={() => addNewPortfolio()} />
         </Grid>
