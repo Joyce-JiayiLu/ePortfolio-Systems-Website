@@ -28,7 +28,7 @@ export default function FeaturedPost(props) {
     function toUserPortfolio() {
         //console.log(post.userid);
         window.sessionStorage.setItem("spec_userid", post["_id"]);
-        window.location.assign(`http://genius-solio.herokuapp.com/userportfolio`);
+        window.location.assign(`https://genius-solio.herokuapp.com/userportfolio`);
     }
     console.log(post.userid);
     return (
