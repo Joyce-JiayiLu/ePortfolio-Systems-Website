@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import clsx from 'clsx';
 import {makeStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -32,6 +32,11 @@ import DocEditor from "../DocEditor";
 import Checkout from "../Survey/Checkout";
 import jwt_decode from "jwt-decode";
 import FeaturedPost from "../Blog/FeaturedPost";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Hidden from "@material-ui/core/Hidden";
+import CardMedia from "@material-ui/core/CardMedia";
 
 function Copyright() {
     return (
@@ -126,18 +131,18 @@ const useStyles = makeStyles((theme) => ({
         height: 350,
         align: "center",
     },
-
     buttonBottom: {
         marginTop: 70,
     },
 
     imagePosition: {
         marginLeft: 90,
-    }
-
+    },
 }));
 
 export default function Dashboard() {
+    const [isAddingNew, setIsAddingNew] = React.useState(false);
+
     if (!window.localStorage.getItem("id_token")) {
         window.location.assign("https://genius-solio.herokuapp.com/login")
     }
@@ -210,8 +215,30 @@ export default function Dashboard() {
         //console.log(result[i]);
     }
 
+    let contentDisplay;
+    if (isAddingNew) {
+        contentDisplay = <Grid item xs={12}>
+            <Checkout/>
+        <button onClick={() => backToMyPortfolio()} />
+        </Grid>
+    }
+    else {
+        contentDisplay = <Grid item xs={12} container spacing={4}>
+            {items.map((post) => (
+                <FeaturedPost post={post} />
+            ))}
 
+            <button onClick={() => addNewPortfolio()} />
+        </Grid>
+    }
 
+    const addNewPortfolio = () => {
+        setIsAddingNew(true);
+    }
+
+    const backToMyPortfolio = () => {
+        setIsAddingNew(false);
+    }
 
     return (
         <div className={classes.root}>
@@ -265,25 +292,7 @@ export default function Dashboard() {
                 <div className={classes.appBarSpacer}/>
                 <Container maxWidth="lg" className={classes.container}>
                     <Grid container spacing={3} justify={"center"}>
-                        {/* Chart */}
-                        <Grid item xs={12}>
-                            {items.map((post) => (
-                                <FeaturedPost post={post} />
-                            ))}
-
-                            {/*{md={8} lg={9}}*/}
-                            {/*<Paper className={fixedHeightPaper}>*/}
-                            {/*    {<DocEditor />}*/}
-                            {/*</Paper>*/}
-                            {/*<Checkout/>*/}
-
-                        </Grid>
-                        {/*<Grid item xs={12} >*/}
-                        {/*    <Paper className={classes.paper}>*/}
-                        {/*        <FileUpload />*/}
-                        {/*    </Paper>*/}
-                        {/*</Grid>*/}
-
+                        {contentDisplay}
                     </Grid>
 
                     <Box pt={4} className={classes.buttonBottom}>
