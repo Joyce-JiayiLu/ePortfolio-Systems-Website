@@ -131,7 +131,7 @@ export default function Checkout() {
     };
 
     const cancel = () => {
-        window.location.assign("http://localhost:3000/portfoliocollections")
+        window.location.assign("https://genius-solio.herokuapp.com/portfoliocollections")
     }
 
     return (
