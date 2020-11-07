@@ -181,6 +181,7 @@ function createUser(user) {
             introduction,
             userid,
             age,
+            "image":"https://portal.staralliance.com/cms/aux-pictures/prototype-images/avatar-default.png/@@images/image.png",
             // email_address,
             // image,
             // resume
