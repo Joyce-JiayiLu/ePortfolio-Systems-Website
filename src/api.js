@@ -279,3 +279,23 @@ export function createCollection() {
         }
     });
 }
+
+export function deleteCollection(id){
+    console.log("keep running");
+    const endpoint = BASE_URL + `/collection/`;
+    return fetch(endpoint, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            "_id":id
+
+        })
+    }).then(res => {
+        if (res.ok) {
+            window.location.assign(`https://genius-solio.herokuapp.com/portfoliocollections`)
+            //window.location.href = `CaregiverInformation/${username}`;
+        }
+    });
+}

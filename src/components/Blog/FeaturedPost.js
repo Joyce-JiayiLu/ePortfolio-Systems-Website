@@ -8,6 +8,9 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
+import Button from "../Button/Button";
+import jwt_decode from "jwt-decode";
+import {deleteCollection} from "../../api";
 
 const useStyles = makeStyles({
     card: {
@@ -30,6 +33,7 @@ export default function FeaturedPost(props) {
         window.sessionStorage.setItem("spec_userid", post["_id"]);
         window.location.assign(`https://genius-solio.herokuapp.com/userportfolio`);
     }
+
     console.log(post.userid);
     return (
         <Grid item xs={12} md={6} onClick={() => toUserPortfolio()}>
@@ -50,6 +54,7 @@ export default function FeaturedPost(props) {
                                 Continue reading...
                             </Typography>
                         </CardContent>
+                        {deleteEnable(post)}
                     </div>
                     <Hidden xsDown>
                         <CardMedia className={classes.cardMedia} image={post.cover} title={post.imageTitle} />
@@ -63,3 +68,13 @@ export default function FeaturedPost(props) {
 FeaturedPost.propTypes = {
     post: PropTypes.object,
 };
+
+function deleteEnable(post){
+    var user_token = localStorage.getItem("id_token");
+    var userid = jwt_decode(user_token).sub;
+    if(post.userid===userid){
+        return(
+            <Button onClick={()=>deleteCollection(post._id)}>delete</Button>
+        )
+    }
+}
