@@ -54,13 +54,13 @@ export default function FeaturedPost(props) {
                                 Continue reading...
                             </Typography>
                         </CardContent>
-                        {deleteEnable(post)}
                     </div>
                     <Hidden xsDown>
                         <CardMedia className={classes.cardMedia} image={post.cover} title={post.imageTitle} />
                     </Hidden>
                 </Card>
             </CardActionArea>
+            {deleteEnable(post)}
         </Grid>
     );
 }
