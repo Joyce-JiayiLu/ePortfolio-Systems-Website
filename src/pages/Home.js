@@ -40,7 +40,8 @@ export default function IconLabelButtons(props) {
     if (isAuthenticated) {
         console.log("yes is authenticated");
         window.sessionStorage.setItem("usersub", user.sub);
-        window.location.assign(`https://genius-solio.herokuapp.com/usercenter/${user.sub}`);
+        //window.location.assign(`https://genius-solio.herokuapp.com/usercenter/${user.sub}`);
+        window.location.assign(`http://localhost:3000/usercenter/${user.sub}`);
         //window.sessionStorage.setItem("userid",user_id);
         //getUserAndCreat(user_id);
     }

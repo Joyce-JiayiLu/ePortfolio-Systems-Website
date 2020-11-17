@@ -2,7 +2,8 @@ import {useEffect, useState} from "react";
 import jwt_decode from "jwt-decode";
 import axios from "./axios";
 
-const BASE_URL = "https://geniusolio.herokuapp.com";
+//const BASE_URL = "https://geniusolio.herokuapp.com";
+const BASE_URL = "http://localhost:3000/";
 
 function getUsers() {
     const endpoint = BASE_URL + `/user`;
@@ -124,7 +125,8 @@ export function updateUserProfile(user) {
         })
     }).then(res => {
         console.log("success!")
-        window.location.assign(`https://genius-solio.herokuapp.com/usercenter`)
+        //window.location.assign(`https://genius-solio.herokuapp.com/usercenter`)
+        window.location.assign(`http://localhost:3000/usercenter`);
     });
 }
 
@@ -144,7 +146,8 @@ export function uploadResume(user) {
         })
     }).then(res => {
         console.log("success!")
-        window.location.assign(`https://genius-solio.herokuapp.com/resume/`)
+        //window.location.assign(`https://genius-solio.herokuapp.com/resume/`)
+        window.location.assign(`http://localhost:3000/resume`);
 
     });
 }
@@ -223,7 +226,8 @@ export function search(title) {
         if (data) {
             console.log(data);
             window.sessionStorage.setItem("result", data);
-            window.location.assign("https://genius-solio.herokuapp.com/search");
+            //window.location.assign("https://genius-solio.herokuapp.com/search");
+            window.location.assign(`http://localhost:3000/search`);
         }
     });
 }
@@ -244,7 +248,8 @@ export function updateimage(url) {
         })
     }).then(res => {
         if (res.ok) {
-            window.location.assign(`https://genius-solio.herokuapp.com/usercenter`)
+            //window.location.assign(`https://genius-solio.herokuapp.com/usercenter`)
+            window.location.assign(`http://localhost:3000/usercenter`);
             //window.location.href = `CaregiverInformation/${username}`;
         }
     });
@@ -275,7 +280,8 @@ export function createCollection() {
         })
     }).then(res => {
         if (res.ok) {
-            window.location.assign(`https://genius-solio.herokuapp.com/usercenter`)
+            //window.location.assign(`https://genius-solio.herokuapp.com/usercenter`)
+            window.location.assign(`http://localhost:3000/usercenter`);
             //window.location.href = `CaregiverInformation/${username}`;
         }
     });
@@ -295,7 +301,8 @@ export function deleteCollection(id){
         })
     }).then(res => {
         if (res.ok) {
-            window.location.assign(`https://genius-solio.herokuapp.com/portfoliocollections`)
+            //window.location.assign(`https://genius-solio.herokuapp.com/portfoliocollections`)
+            window.location.assign(`http://localhost:3000/portfoliocollections`);
             //window.location.href = `CaregiverInformation/${username}`;
         }
     });

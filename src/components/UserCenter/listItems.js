@@ -65,14 +65,17 @@ export const thirdListItems = (
 );
 
 function toPortfolioCollections() {
-    window.location.assign(`https://genius-solio.herokuapp.com/portfoliocollections`);
+    // window.location.assign(`https://genius-solio.herokuapp.com/portfoliocollections`);
+    window.location.assign(`http://localhost:3000/portfoliocollections`);
 }
 
 function toResume() {
-    window.location.assign(`https://genius-solio.herokuapp.com/resume`);
+    // window.location.assign(`https://genius-solio.herokuapp.com/resume`);
+    window.location.assign(`http://localhost:3000/resume`);
 }
 
 function toUserInformation() {
-    window.location.assign(`https://genius-solio.herokuapp.com/usercenter`);
+    // window.location.assign(`https://genius-solio.herokuapp.com/usercenter`);
+    window.location.assign(`http://localhost:3000/usercenter`);
 }
 

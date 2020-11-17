@@ -36,7 +36,8 @@ function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
-            <Link color="inherit" href="https://genius-solio.herokuapp.com/usercenter">
+            {/*<Link color="inherit" href="https://genius-solio.herokuapp.com/usercenter">*/}
+            <Link color="inherit" href="http://localhost:3000/usercenter">
                 Your Website
             </Link>{' '}
             {new Date().getFullYear()}
@@ -272,5 +273,6 @@ export default function Dashboard() {
 }
 
 function backHomePage() {
-    window.location.assign(`https://genius-solio.herokuapp.com/`);
+    // window.location.assign(`https://genius-solio.herokuapp.com/`);
+    window.location.assign(`http://localhost:3000/`);
 }
