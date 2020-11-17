@@ -2,8 +2,8 @@ import {useEffect, useState} from "react";
 import jwt_decode from "jwt-decode";
 import axios from "./axios";
 
-//const BASE_URL = "https://geniusolio.herokuapp.com";
-const BASE_URL = "http://localhost:3000/";
+const BASE_URL = "https://geniusolio.herokuapp.com";
+//const BASE_URL = "http://localhost:3000/";
 
 function getUsers() {
     const endpoint = BASE_URL + `/user`;
