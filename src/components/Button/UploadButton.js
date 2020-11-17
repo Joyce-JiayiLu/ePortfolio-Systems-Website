@@ -33,6 +33,7 @@ export default function UploadButton({ className, children, onClick, ...props })
                 .then(data => {
                     console.log(data)
                     window.sessionStorage.setItem("fileUrl", data.location)
+
                 })
                 .catch(err => console.error(err))
         }

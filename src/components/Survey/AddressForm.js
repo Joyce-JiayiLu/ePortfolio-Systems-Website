@@ -7,7 +7,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Paper from "@material-ui/core/Paper";
 import {makeStyles} from "@material-ui/core/styles";
 import CoverUpload from "../CoverUpload";
-
+import { Alert } from 'antd';
 const useStyles = makeStyles((theme) => ({
     paper: {
         padding: theme.spacing(2),
@@ -51,6 +51,7 @@ export default function AddressForm() {
                     <Paper className={classes.paper}>
                         <CoverUpload />
                     </Paper>
+                    <Alert message="Success Tips" type="success" showIcon />
                 </Grid>
                 {/*{<Grid item xs={12}>*/}
                 {/*    <FormControlLabel*/}

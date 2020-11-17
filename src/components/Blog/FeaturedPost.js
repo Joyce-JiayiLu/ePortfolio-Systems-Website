@@ -71,11 +71,13 @@ FeaturedPost.propTypes = {
 };
 
 function deleteEnable(post){
-    var user_token = localStorage.getItem("id_token");
-    var userid = jwt_decode(user_token).sub;
-    if(post.userid===userid){
-        return(
-            <Button onClick={()=>deleteCollection(post._id)}>delete</Button>
-        )
+    if (localStorage.getItem("id_token")) {
+        var user_token = localStorage.getItem("id_token");
+        var userid = jwt_decode(user_token).sub;
+        if (post.userid === userid) {
+            return (
+                <Button onClick={() => deleteCollection(post._id)}>delete</Button>
+            )
+        }
     }
 }

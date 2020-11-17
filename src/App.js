@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import Nav from "./components/Nav";
 import Header from "./components/Header/Header";
-
+import Aler from "./Aler"
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import "./views/styles.css";
@@ -169,7 +169,9 @@ export default class App extends Component {
                         <Route path='/user'>
                             <Users/>
                         </Route>
-
+                        <Route path='/testing'>
+                            <Aler />
+                        </Route>
                         <Route path="/search" component={Search}/>
 
 
