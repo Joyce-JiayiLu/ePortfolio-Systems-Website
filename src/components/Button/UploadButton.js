@@ -35,7 +35,8 @@ export default function UploadButton({ className, children, onClick, ...props })
         else {
             uploadFile(props.data, config)
                 .then(data => {
-                    console.log(data)
+                    console.log(data);
+                    props.onChange(data.location);
                     window.sessionStorage.setItem("fileUrl", data.location)
 
                 })
@@ -54,12 +55,4 @@ export default function UploadButton({ className, children, onClick, ...props })
             Upload
         </Button>
     );
-}
-
-function success(){
-    if (window.sessionStorage.getItem("fileUrl")){
-        return(
-            <Alert message="Success Tips" type="success" showIcon />
-        );
-    }
 }

@@ -25,7 +25,7 @@ class CoverFileUpload extends Component {
         if (this.state.urL){
             console.log(this.state.urL);
             return(
-                <Alert message="Success Tips" type="success" showIcon />
+                <Alert message="Upload successful" type="success" showIcon />
             );
         }
     }

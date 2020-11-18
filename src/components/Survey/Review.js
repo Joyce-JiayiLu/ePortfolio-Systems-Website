@@ -38,7 +38,6 @@ export default function Review() {
             <Grid item xs={12} >
                 <Paper className={classes.paper}>
                     <FileUpload />
-                    {success()}
                 </Paper>
             </Grid>
             {/*<Grid container spacing={2}>*/}
@@ -58,10 +57,3 @@ export default function Review() {
     );
 }
 
-function success(){
-    if (window.sessionStorage.getItem("fileUrl")){
-        return(
-            <Alert message="Success Tips" type="success" showIcon />
-        );
-    }
-}
