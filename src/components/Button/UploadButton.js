@@ -25,7 +25,10 @@ export default function UploadButton({ className, children, onClick, ...props })
     function onClickHandler() {
         console.log(props.data);
         const maxsize = 10485760;
-        if(props.data.size >= maxsize){
+        if(props.data==null){
+            alert("Please select a file to upload")
+        }
+        else if(props.data.size >= maxsize){
             alert("This file has exceeded 10Mib！Please choose a smaller file and try again!")
         }
         else {
