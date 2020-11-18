@@ -32,11 +32,13 @@ export default function CoverUploadButton({ className, children, onClick, ...pro
             uploadFile(props.data, config)
                 .then(data => {
                     console.log(data);
+                    props.onChange(data.location);
                     window.sessionStorage.setItem("coverUrl", data.location)
                 })
                 .catch(err => console.error(err))
         }
     }
+
 
     return (
         <Button

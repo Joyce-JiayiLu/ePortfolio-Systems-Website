@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import FileUpload from "../FileUpload";
 import Paper from "@material-ui/core/Paper";
+import {Alert} from "antd";
 
 const useStyles = makeStyles((theme) => ({
     listItem: {
@@ -37,6 +38,7 @@ export default function Review() {
             <Grid item xs={12} >
                 <Paper className={classes.paper}>
                     <FileUpload />
+                    {success()}
                 </Paper>
             </Grid>
             {/*<Grid container spacing={2}>*/}
@@ -54,4 +56,12 @@ export default function Review() {
             {/*</Grid>*/}
         </React.Fragment>
     );
+}
+
+function success(){
+    if (window.sessionStorage.getItem("fileUrl")){
+        return(
+            <Alert message="Success Tips" type="success" showIcon />
+        );
+    }
 }
