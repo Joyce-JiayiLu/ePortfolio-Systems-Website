@@ -97,15 +97,7 @@ export default function ProfilePage(props) {
                                     <div className={classes.name}>
                                         <h3 className={classes.title}>{first_name} {last_name}</h3>
                                         <h2>{title}</h2>
-                                        <Button justIcon link className={classes.margin5}>
-                                            <i className={"fab fa-twitter"}/>
-                                        </Button>
-                                        <Button justIcon link className={classes.margin5}>
-                                            <i className={"fab fa-instagram"}/>
-                                        </Button>
-                                        <Button justIcon link className={classes.margin5}>
-                                            <i className={"fab fa-facebook"}/>
-                                        </Button>
+
                                     </div>
                                 </div>
                             </GridItem>
@@ -115,17 +107,113 @@ export default function ProfilePage(props) {
                                 {description}
                             </p>
                         </div>
-                        <div>
-                            <DocView
-                                style={{
-                                    width: "1200px",
-                                    height: "780px",
-                                    border: 'none',
-                                    position: 'relative'
-                                }}
-                                // change src to show the pdf you want
-                                src={file}/>
-                        </div>
+                        <GridContainer justify="center">
+                            <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
+                                <NavPills
+                                    alignCenter
+                                    color="primary"
+                                    tabs={[
+                                        {
+                                            tabButton: "Studio",
+                                            tabIcon: Camera,
+                                            tabContent: (
+                                                <GridContainer justify="center">
+
+                                                    
+                                                        <div>
+                                                            <DocView
+                                                                style={{
+                                                                    width: "1200px",
+                                                                    height: "780px",
+                                                                    border: 'none',
+                                                                    position: 'relative'
+                                                                }}
+                                                                // change src to show the pdf you want
+                                                                src={file}/>
+                                                        </div>
+
+                                                </GridContainer>
+                                            )
+                                        },
+                                        {
+                                            tabButton: "Work",
+                                            tabIcon: Palette,
+                                            tabContent: (
+                                                <GridContainer justify="center">
+                                                    <GridItem xs={12} sm={12} md={4}>
+                                                        <img
+                                                            alt="..."
+                                                            src={work1}
+                                                            className={navImageClasses}
+                                                        />
+                                                        <img
+                                                            alt="..."
+                                                            src={work2}
+                                                            className={navImageClasses}
+                                                        />
+                                                        <img
+                                                            alt="..."
+                                                            src={work3}
+                                                            className={navImageClasses}
+                                                        />
+                                                    </GridItem>
+                                                    <GridItem xs={12} sm={12} md={4}>
+                                                        <img
+                                                            alt="..."
+                                                            src={work4}
+                                                            className={navImageClasses}
+                                                        />
+                                                        <img
+                                                            alt="..."
+                                                            src={work5}
+                                                            className={navImageClasses}
+                                                        />
+                                                    </GridItem>
+                                                </GridContainer>
+                                            )
+                                        },
+                                        {
+                                            tabButton: "Favorite",
+                                            tabIcon: Favorite,
+                                            tabContent: (
+                                                <GridContainer justify="center">
+                                                    <GridItem xs={12} sm={12} md={4}>
+                                                        <img
+                                                            alt="..."
+                                                            src={work4}
+                                                            className={navImageClasses}
+                                                        />
+                                                        <img
+                                                            alt="..."
+                                                            src={studio3}
+                                                            className={navImageClasses}
+                                                        />
+                                                    </GridItem>
+                                                    <GridItem xs={12} sm={12} md={4}>
+                                                        <img
+                                                            alt="..."
+                                                            src={work2}
+                                                            className={navImageClasses}
+                                                        />
+                                                        <img
+                                                            alt="..."
+                                                            src={work1}
+                                                            className={navImageClasses}
+                                                        />
+                                                        <img
+                                                            alt="..."
+                                                            src={studio1}
+                                                            className={navImageClasses}
+                                                        />
+                                                    </GridItem>
+                                                </GridContainer>
+                                            )
+                                        }
+                                    ]}
+                                />
+                            </GridItem>
+                        </GridContainer>
+
                     </div>
                 </div>
             </div>

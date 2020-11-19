@@ -3,6 +3,7 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import Button from '@material-ui/core/Button';
 import {makeStyles} from "@material-ui/core/styles";
 import {uploadFile} from "react-s3";
+import {Alert} from "antd";
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -34,7 +35,8 @@ export default function UploadButton({ className, children, onClick, ...props })
         else {
             uploadFile(props.data, config)
                 .then(data => {
-                    console.log(data)
+                    console.log(data);
+                    props.onChange(data.location);
                     window.sessionStorage.setItem("fileUrl", data.location)
 
                 })

@@ -37,6 +37,7 @@ export default function FeaturedPost(props) {
 
     console.log(post.userid);
     return (
+
         <Grid item xs={12} md={6} onClick={() => toUserPortfolio()}>
             <CardActionArea component="a" href="#">
                 <Card className={classes.card}>
