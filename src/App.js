@@ -26,7 +26,7 @@ import Search from "./pages/Search";
 import UserSpecificPortfolio from "./pages/UserSpecificPortfolio";
 import DocEditor from "./components/DocEditor";
 import UpdateCollection from "./pages/UpdateCollection";
-
+import Bookmark from "../src/components/UserCenter/Bookmark"
 
 // function Background() {
 //     const {viewport, aspect} = useThree()
@@ -159,6 +159,9 @@ export default class App extends Component {
                         </Route>
                         <Route path="/portfoliocollections">
                             <PortfolioCollections/>
+                        </Route>
+                        <Route path="/bookmarks">
+                            <Bookmark/>
                         </Route>
                         <Route path="/resume">
                             <Resume/>

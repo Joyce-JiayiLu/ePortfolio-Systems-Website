@@ -357,6 +357,9 @@ export function getBookmark(userid){
 
 export function addBookmark(userid,collectionid){
     const endpoint = BASE_URL + `/bookmark/`;
+    console.log(userid);
+    console.log(collectionid);
+    console.log("add bookmark successful");
     return fetch(endpoint, {
         method: "POST",
         headers: {
@@ -370,4 +373,28 @@ export function addBookmark(userid,collectionid){
         //console.log("success!")
         //window.location.assign(`https://genius-solio.herokuapp.com/`)
     });
+}
+export function useBookmark(userid) {
+    const [loading, setLoading] = useState(true);
+    const [bookmarks, setbookmarks] = useState([]);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        getBookmark(userid)
+            .then(bookmarks => {
+                setbookmarks(bookmarks);
+                setLoading(false);
+            })
+            .catch(e => {
+                console.log(e);
+                setError(e);
+                setLoading(false);
+            });
+    }, []);
+
+    return {
+        loading,
+        bookmarks,
+        error
+    };
 }

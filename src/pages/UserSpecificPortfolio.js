@@ -35,7 +35,7 @@ import work4 from "./UserPortfolio/examples/mariya-georgieva.jpg";
 import work5 from "./UserPortfolio/examples/clem-onojegaw.jpg";
 
 import styles from "./UserPortfolio/profilePage";
-import {deleteCollection, useCollections, useUsers} from "../api";
+import {addBookmark, deleteCollection, useCollections, useUsers} from "../api";
 import Nav from "../components/Nav";
 import DocView from "../components/DocView";
 import IconButton from "@material-ui/core/IconButton";
@@ -45,7 +45,6 @@ const useStyles = makeStyles(styles);
 
 export default function ProfilePage(props) {
     const classes = useStyles();
-    const {...rest} = props;
     const imageClasses = classNames(
         classes.imgRaised,
         classes.imgRoundedCircle,
@@ -69,6 +68,10 @@ export default function ProfilePage(props) {
     let file;
     let image;
     let userid;
+    var user_token = localStorage.getItem("id_token");
+    var myuserid = jwt_decode(user_token).sub;
+
+
     {
         collections.map(collection => {
             if (collection["_id"] === user_sub) {
@@ -111,7 +114,7 @@ export default function ProfilePage(props) {
                                         {/*</Button>*/}
 
 
-                                        <BookMarkFile className={classes.margin5} aria-label="Bookmark"/>
+                                        <BookMarkFile myuserid={myuserid} user_sub={user_sub} onClick={()=>addBookmark(myuserid,user_sub)} className={classes.margin5} aria-label="Bookmark"/>
 
 
 
