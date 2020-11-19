@@ -55,12 +55,12 @@ export const secondaryListItems = (
             </ListItemIcon>
             <ListItemText primary="Bookmarks"/>
         </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <PeopleIcon/>
-            </ListItemIcon>
-            <ListItemText primary="Friends"/>
-        </ListItem>
+        {/*<ListItem button>*/}
+        {/*    <ListItemIcon>*/}
+        {/*        <PeopleIcon/>*/}
+        {/*    </ListItemIcon>*/}
+        {/*    <ListItemText primary="Friends"/>*/}
+        {/*</ListItem>*/}
     </div>
 );
 
