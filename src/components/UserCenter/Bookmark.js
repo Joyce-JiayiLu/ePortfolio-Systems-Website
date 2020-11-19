@@ -219,9 +219,13 @@ export default function Dashboard() {
     });
 
     for (let i=0; i<items.length; i++){
-        items[i].firstname = firstname;
-        items[i].lastname = lastname;
-        items[i].image = image;
+        users.map(user => {
+            if (user.userid === items[i].userid) {
+
+                items[i].firstname = user.first_name;
+                items[i].lastname = user.last_name;
+            }
+        });
         //console.log(result[i]);
     }
 
