@@ -20,7 +20,7 @@ import {useAuth0} from "@auth0/auth0-react";
 import LogoutButton from "../components/Button/LogoutButton";
 
 import UpdateProfileButton from "../components/Button/UpdateProfileButton";
-
+import logo from '../assets/Ivory Bliss_T.png';
 import {getUserAndCreat} from "../api"
 
 const usestyles = theme => ({
@@ -85,20 +85,14 @@ class Login extends Component {
                 }
                 {!this.props.auth.isAuthenticated() && <Grid container component="main" className={classes.root}>
                     <CssBaseline/>
+
                     <Grid item xs={false} sm={4} md={7} className={this.props.classes.image}/>
                     <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-                        <div className={classes.paper}>
 
-                        </div>
                         <div className={classes.paper}>
-
+                            <img src = {logo}/>
                         </div>
-                        <div className={classes.paper}>
 
-                        </div>
-                        <div className={classes.paper}>
-
-                        </div>
                         <div className={classes.paper}>
                             {/*{<Avatar className={classes.avatar}>*/}
                             {/*    <LockOutlinedIcon />*/}
@@ -148,7 +142,7 @@ class Login extends Component {
                                 <Grid container>
                                     <Grid item>
                                         <Link href="#" variant="body2">
-                                            {"Forgot password? Reset"}
+                                            {/*"Forgot password? Reset"*/}
                                         </Link>
                                     </Grid>
                                     <Grid item xs>
@@ -158,7 +152,7 @@ class Login extends Component {
                                     </Grid>
                                     <Grid item>
                                         <Link href="#" variant="body2">
-                                            {"Don't have an account? Sign Up"}
+                                            {/*"Don't have an account? Sign Up"*/}
                                         </Link>
                                     </Grid>
                                 </Grid>
