@@ -5,7 +5,7 @@ import axios from "./axios";
 const BASE_URL = "https://geniusolio.herokuapp.com";
 //const BASE_URL = "http://localhost:3000/";
 
-function getUsers() {
+export function getUsers() {
     const endpoint = BASE_URL + `/user`;
     return fetch(endpoint).then(res => {
         console.log(res);
@@ -27,6 +27,18 @@ export function getUser(id) {
         console.log(res);
         return res.json();
     });
+}
+export function getCollection(id) {
+    const endpoint = BASE_URL + `/collection/${id}`;
+    return fetch(endpoint).then(res => {
+        console.log(res);
+        return res.json();
+    }).then(data=>{
+        if(data){
+            console.log(data);
+            return data;
+        }
+        });
 }
 
 export function getUserAndCreat(id) {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -32,206 +32,161 @@ import styles from "./UserPortfolio/profilePage";
 import {getCollectionId, updateCollection, useCollections, useUsers} from "../api";
 import Nav from "../components/Nav";
 import DocView from "../components/DocView";
-
+import {getUsers, getCollections,getCollection} from "../api";
+import {withRouter} from "react-router-dom";
+import jwt_decode from "jwt-decode";
 const useStyles = makeStyles(styles);
 
-export default function ProfileePage(props) {
-    var user_sub = window.sessionStorage.getItem("spec_collection");
-    var collection = getCollectionId(user_sub);
-    const [title, Settitle] = useState(collection.title);
-    const [description, Setdescription] = useState(collection.description);
-    const classes = useStyles();
-    const {...rest} = props;
-    const imageClasses = classNames(
-        classes.imgRaised,
-        classes.imgRoundedCircle,
-        classes.imgFluid
-    );
-    const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
-    const {loading, collections, error} = useCollections();
-    const {loadingg, users, errorr} = useUsers();
-    if (loading||loadingg) {
-        return <p>Loading...</p>;
-    }
-    if (error||errorr) {
-        return <p>Something went wrong: {error.message}</p>;
-    }
+class ProfileePage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            cover:"",
+            image: "",
+            description:"",
+            userid:"",
+            title:"",
+            file:"",
+            first_name:"",
+            last_name:"",
+        };
 
-    //var title = collection.title;
-    //var description = collection.description;
-    var cover = collection["cover"];
-    var file = collection.file;
-    var userid = collection.userid;
-
-    let first_name;
-    let last_name;
-    let image;
-    function onSubmit() {
-        // call upate author function
-        updateCollection(userid,title,description
-            );
+        // This binding is necessary to make `this` work in the callback
+        //this.updateSelected = this.updateSelected.bind(this);
+        this.doSomething = this.doSomething.bind(this);
+        //this.updateSelected = this.updateSelected.bind(this);
     }
-    {
-        users.map(user => {
-            if (user.userid === userid) {
-
-                first_name = user.first_name;
-                last_name = user.last_name;
-                image = user.image;
-                console.log("image: ", {image});
+    async componentDidMount() {
+        this.doSomething();
+    }
+    async doSomething(){
+        let result = await this.getCollection();
+        this.setState({userid: result.userid});
+        this.setState({cover: result.cover});
+        this.setState({description: result.description});
+        this.setState({title: result.title});
+        this.setState({file: result.file});
+        let user = await this.getUser();
+        this.setState({image: user.image});
+        this.setState({first_name: user.first_name});
+        this.setState({last_name: user.last_name});
+    }
+    getCollection(){
+        let id = window.sessionStorage.getItem("spec_collection");
+        const endpoint = `https://geniusolio.herokuapp.com/collection/${id}`;
+        return fetch(endpoint).then(res => {
+            console.log(res);
+            return res.json();
+        }).then(data=>{
+            if(data){
+                return data;
             }
-        })
+        });
     }
-    return (
-        <div>
-            <Nav/>
-            <Parallax small filter image={cover}/>
-            <div className={classNames(classes.main, classes.mainRaised)}>
-                <div>
-                    <div className={classes.container}>
-                        <GridContainer justify="center">
-                            <GridItem xs={12} sm={12} md={6}>
-                                <div className={classes.profile}>
-                                    <div>
-                                        <img src={image || "https://portal.staralliance.com/cms/aux-pictures/prototype-images/avatar-default.png/@@images/image.png"} alt="" className={imageClasses}/>
+    getUser(){
+        const endpoint = `https://geniusolio.herokuapp.com/user/${this.state.userid}`;
+        return fetch(endpoint).then(res => {
+            console.log(res);
+            return res.json();
+        }).then(data=>{
+            if(data){
+                return data;
+            }
+        });
+    }
+    onSubmit() {
+        let id = window.sessionStorage.getItem("spec_collection");
+        const endpoint = `https://geniusolio.herokuapp.com/collection/${id}`;
+        return fetch(endpoint, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "title": this.state.title,
+                "description": this.state.description,
+                "cover": this.state.cover,
+                "file": this.state.file,
+            })
+        }).then(res => {
+            if (res.ok) {
+                //window.location.assign(`https://genius-solio.herokuapp.com/usercenter`)
+                window.location.assign(`http://localhost:3000/usercenter`);
+                //window.location.href = `CaregiverInformation/${username}`;
+            }
+        });
+    }
+    render() {
+
+        const classes = makeStyles(styles);
+        const imageClasses = classNames(
+            classes.imgRaised,
+            classes.imgRoundedCircle,
+            classes.imgFluid
+        );
+        const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
+
+        //var title = collection.title;
+        //var description = collection.description;
+
+        return (
+            <div>
+                <Nav/>
+                <Parallax small filter image={this.state.cover}/>
+                <div className={classNames(classes.main, classes.mainRaised)}>
+                    <div>
+                        <div className={classes.container}>
+                            <GridContainer justify="center">
+                                <GridItem xs={12} sm={12} md={6}>
+                                    <div className={classes.profile}>
+                                        <div>
+                                            <img src={this.state.image||"https://portal.staralliance.com/cms/aux-pictures/prototype-images/avatar-default.png/@@images/image.png"} alt="" className={imageClasses}/>
+                                        </div>
+                                        <div className={classes.name}>
+                                            <h3 className={classes.title}></h3>
+                                            <input type="text"
+                                                   name="title"
+                                                   value = {this.state.title}
+                                                   onChange= {event => this.setState({...this.state,
+                                                       title: (event.target.value)})}
+                                            />
+
+                                        </div>
                                     </div>
-                                    <div className={classes.name}>
-                                        <h3 className={classes.title}>{first_name} {last_name}</h3>
-                                        <input type="text"
-                                               name="title"
-                                               value = {title}
-                                               onChange={event => {
-                                                   Settitle(event.target.value);
-                                               }}
-                                        />
-
-                                    </div>
-                                </div>
-                            </GridItem>
-                        </GridContainer>
-                        <div className={classes.description}>
-                            <input type="text"
-                                   name="description"
-                                   value = {description}
-                                   onChange={event => {
-                                       Setdescription(event.target.value);
-                                   }}
-                            />
-                        </div>
-                        <GridContainer justify="center">
-                            <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
-                                <NavPills
-                                    alignCenter
-                                    color="primary"
-                                    tabs={[
-                                        {
-                                            tabButton: "Studio",
-                                            tabIcon: Camera,
-                                            tabContent: (
-                                                <GridContainer justify="center">
-
-
-                                                    <div>
-                                                        <DocView
-                                                            style={{
-                                                                width: "1200px",
-                                                                height: "780px",
-                                                                border: 'none',
-                                                                position: 'relative'
-                                                            }}
-                                                            // change src to show the pdf you want
-                                                            src={file}/>
-                                                    </div>
-
-                                                </GridContainer>
-                                            )
-                                        },
-                                        {
-                                            tabButton: "Work",
-                                            tabIcon: Palette,
-                                            tabContent: (
-                                                <GridContainer justify="center">
-                                                    <GridItem xs={12} sm={12} md={4}>
-                                                        <img
-                                                            alt="..."
-                                                            src={work1}
-                                                            className={navImageClasses}
-                                                        />
-                                                        <img
-                                                            alt="..."
-                                                            src={work2}
-                                                            className={navImageClasses}
-                                                        />
-                                                        <img
-                                                            alt="..."
-                                                            src={work3}
-                                                            className={navImageClasses}
-                                                        />
-                                                    </GridItem>
-                                                    <GridItem xs={12} sm={12} md={4}>
-                                                        <img
-                                                            alt="..."
-                                                            src={work4}
-                                                            className={navImageClasses}
-                                                        />
-                                                        <img
-                                                            alt="..."
-                                                            src={work5}
-                                                            className={navImageClasses}
-                                                        />
-                                                    </GridItem>
-                                                </GridContainer>
-                                            )
-                                        },
-                                        {
-                                            tabButton: "Favorite",
-                                            tabIcon: Favorite,
-                                            tabContent: (
-                                                <GridContainer justify="center">
-                                                    <GridItem xs={12} sm={12} md={4}>
-                                                        <img
-                                                            alt="..."
-                                                            src={work4}
-                                                            className={navImageClasses}
-                                                        />
-                                                        <img
-                                                            alt="..."
-                                                            src={studio3}
-                                                            className={navImageClasses}
-                                                        />
-                                                    </GridItem>
-                                                    <GridItem xs={12} sm={12} md={4}>
-                                                        <img
-                                                            alt="..."
-                                                            src={work2}
-                                                            className={navImageClasses}
-                                                        />
-                                                        <img
-                                                            alt="..."
-                                                            src={work1}
-                                                            className={navImageClasses}
-                                                        />
-                                                        <img
-                                                            alt="..."
-                                                            src={studio1}
-                                                            className={navImageClasses}
-                                                        />
-                                                    </GridItem>
-                                                </GridContainer>
-                                            )
-                                        }
-                                    ]}
+                                </GridItem>
+                            </GridContainer>
+                            <div className={classes.description}>
+                                <input type="text"
+                                       name="description"
+                                       value ={this.state.description}
+                                       onChange={event => this.setState({...this.state,
+                                           description: (event.target.value)})}
                                 />
-                            </GridItem>
-                        </GridContainer>
+                            </div>
+                            <GridContainer justify="center">
+                                <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
+                                    <DocView
+                                        style={{
+                                            width: "1200px",
+                                            height: "780px",
+                                            border: 'none',
+                                            position: 'relative'
+                                        }}
+                                        // change src to show the pdf you want
+                                        src={this.state.file}/>
 
+                                </GridItem>
+                            </GridContainer>
+
+                        </div>
                     </div>
                 </div>
+                <Footer/>
+                <Button onClick={()=>this.onSubmit()}>
+                    Update
+                </Button>
             </div>
-            <Footer/>
-            <Button  onClick={onSubmit}>
-                Update
-            </Button>
-        </div>
-    );
+        );
+    }
 }
+export default withRouter(ProfileePage);
