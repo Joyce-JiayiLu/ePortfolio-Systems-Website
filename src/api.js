@@ -307,3 +307,22 @@ export function deleteCollection(id){
         }
     });
 }
+export function updateCollection(userid,title,describtion){
+    const endpoint = BASE_URL + `/collection/`;
+    //console.log(contact_information.value);
+    // return fetch query to update an author
+    return fetch(endpoint, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            userid,
+            title,
+            describtion
+        })
+    }).then(res => {
+        console.log("success!")
+        window.location.assign(`https://genius-solio.herokuapp.com/`)
+    });
+}
