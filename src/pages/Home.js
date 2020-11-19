@@ -25,6 +25,7 @@ import styles from "./LandingPage/landingPage";
 import WorkSection from "../components/Sections/WorkSection";
 import SecondSection from "../components/Sections/SecondSection";
 import ThirdSectioon from "../components/Sections/ThirdSectioon";
+import ProductSection from "../components/Sections/ProductSection";
 import Button from "../components/CustomButtons/CustomButton";
 import Nav from "../components/Nav";
 
@@ -77,7 +78,9 @@ export default function IconLabelButtons(props) {
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div className={classes.container}>
                     <WorkSection/>
-                    <SecondSection/>
+                    <ProductSection/>
+
+                    {/*<SecondSection/>*/}
                     <ThirdSectioon/>
                 </div>
             </div>

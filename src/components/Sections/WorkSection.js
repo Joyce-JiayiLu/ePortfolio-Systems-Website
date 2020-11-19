@@ -24,20 +24,6 @@ export default function WorkSection() {
             With the key objectives of nurturing engaged and reflective learners, ePortfolio has been implemented to
             offer a platform for students to document, manage and reflect upon their own learning during their study.
           </h4>
-          <form>
-            <GridContainer>
-              <GridItem xs={12} sm={12} md={6}>
-
-              </GridItem>
-              <GridItem xs={12} sm={12} md={6}>
-
-              </GridItem>
-
-              <GridItem xs={12} sm={12} md={4}>
-
-              </GridItem>
-            </GridContainer>
-          </form>
         </GridItem>
       </GridContainer>
     </div>
