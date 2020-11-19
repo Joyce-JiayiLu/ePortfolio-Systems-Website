@@ -25,6 +25,7 @@ import "./views/Homepage.css";
 import Search from "./pages/Search";
 import UserSpecificPortfolio from "./pages/UserSpecificPortfolio";
 import DocEditor from "./components/DocEditor";
+import UpdateCollection from "./pages/UpdateCollection";
 
 
 // function Background() {
@@ -177,6 +178,9 @@ export default class App extends Component {
 
                         <Route path='/userportfolio'>
                             <UserSpecificPortfolio/>
+                        </Route>
+                        <Route path='/userupadteportfolio'>
+                            <UpdateCollection/>
                         </Route>
                         {/*test doc editor*/}
                         <Route path='/DocEditor'><DocEditor/></Route>

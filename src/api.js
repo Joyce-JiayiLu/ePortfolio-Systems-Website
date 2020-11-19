@@ -302,7 +302,7 @@ export function deleteCollection(id){
     }).then(res => {
         if (res.ok) {
             //window.location.assign(`https://genius-solio.herokuapp.com/portfoliocollections`)
-            window.location.assign(`http://localhost:3000/portfoliocollections`);
+            //window.location.assign(`http://localhost:3000/portfoliocollections`);
             //window.location.href = `CaregiverInformation/${username}`;
         }
     });
@@ -324,5 +324,13 @@ export function updateCollection(userid,title,describtion){
     }).then(res => {
         console.log("success!")
         window.location.assign(`https://genius-solio.herokuapp.com/`)
+    });
+}
+
+export function getCollectionId(id){
+    const endpoint = BASE_URL + `/collection/`+ id;
+    return fetch(endpoint).then(res => {
+        console.log(res);
+        return res.json();
     });
 }
