@@ -232,7 +232,7 @@ export default function Dashboard() {
                         </Badge>
                     </IconButton>
                     <IconButton color="inherit">
-                        <Avatar alt="/static/images/avatar/1.jpg" src={image}/>
+                        <Avatar alt="/static/images/avatar/1.jpg" src={image} />
                     </IconButton>
                 </Toolbar>
             </AppBar>

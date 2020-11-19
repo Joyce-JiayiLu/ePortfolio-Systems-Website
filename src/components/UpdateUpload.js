@@ -5,7 +5,7 @@ import {Alert} from "antd";
 import {withRouter} from "react-router-dom";
 import CoverUploadButton from "./Button/CoverUploadButton";
 
-class FileUpload extends Component  {
+class UpdateUpload extends Component  {
     constructor(props) {
         super(props);
         this.state = {
@@ -21,6 +21,7 @@ class FileUpload extends Component  {
         this.setState({...this.state,
             urL: newSelected
         })
+        this.props.functionCallFromParent(this.state.urL);
     }
     success(){
         if (this.state.urL){
@@ -30,9 +31,8 @@ class FileUpload extends Component  {
             );
         }
     }
+
     render() {
-
-
         return(
             <div className="container">
                 <div className="row">
@@ -55,4 +55,4 @@ class FileUpload extends Component  {
 
 
 };
-export default withRouter(FileUpload);
+export default withRouter(UpdateUpload);

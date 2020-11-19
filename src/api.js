@@ -5,7 +5,7 @@ import axios from "./axios";
 const BASE_URL = "https://geniusolio.herokuapp.com";
 //const BASE_URL = "http://localhost:3000/";
 
-function getUsers() {
+export function getUsers() {
     const endpoint = BASE_URL + `/user`;
     return fetch(endpoint).then(res => {
         console.log(res);
@@ -27,6 +27,18 @@ export function getUser(id) {
         console.log(res);
         return res.json();
     });
+}
+export function getCollection(id) {
+    const endpoint = BASE_URL + `/collection/${id}`;
+    return fetch(endpoint).then(res => {
+        console.log(res);
+        return res.json();
+    }).then(data=>{
+        if(data){
+            console.log(data);
+            return data;
+        }
+        });
 }
 
 export function getUserAndCreat(id) {
@@ -302,8 +314,35 @@ export function deleteCollection(id){
     }).then(res => {
         if (res.ok) {
             //window.location.assign(`https://genius-solio.herokuapp.com/portfoliocollections`)
-            window.location.assign(`http://localhost:3000/portfoliocollections`);
+            //window.location.assign(`http://localhost:3000/portfoliocollections`);
             //window.location.href = `CaregiverInformation/${username}`;
         }
+    });
+}
+export function updateCollection(userid,title,describtion){
+    const endpoint = BASE_URL + `/collection/`;
+    //console.log(contact_information.value);
+    // return fetch query to update an author
+    return fetch(endpoint, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            userid,
+            title,
+            describtion
+        })
+    }).then(res => {
+        console.log("success!")
+        window.location.assign(`https://genius-solio.herokuapp.com/`)
+    });
+}
+
+export function getCollectionId(id){
+    const endpoint = BASE_URL + `/collection/`+ id;
+    return fetch(endpoint).then(res => {
+        console.log(res);
+        return res.json();
     });
 }
