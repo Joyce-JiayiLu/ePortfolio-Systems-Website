@@ -7,10 +7,15 @@ export default class DocView extends Component{
     }
 
     render(){
-        let url = "https://docs.google.com/viewerng/viewer?url="+this.props.src+"&embedded=true";
+        let url = this.props.src;
 
         return(
-            <iframe style={this.props.style} src={url}></iframe>
+            <embed style={{
+                width: "100vh",
+                height: "100vh",
+                border: 'none',
+                position: 'relative'
+            }} src={url}></embed>
         );
     }
 }
