@@ -30,6 +30,7 @@ export default function Favorite({ onClick, props }) {
             onClick={handleClick}
             className={cc([styles.root, { [styles.active]: active }])}
             {...props}
+            title="Add bookmark"
         >
             <svg width="18" height="16" viewBox="0 0 18 16">
                 <path
