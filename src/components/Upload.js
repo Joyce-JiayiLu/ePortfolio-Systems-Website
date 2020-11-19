@@ -75,7 +75,7 @@ export default function Upload() {
     // This allows users to upload or change their photo.
     return(
         <div>
-            <IconButton color="inherit" onClick={onClickHandler}>
+            <IconButton title="Change Profile Image" color="inherit" onClick={onClickHandler}>
             <Avatar className={classes.imagePosition} alt="" src={img} className={classes.large}/>
             </IconButton>
             <input ref={hiddenFileInput} type="file" name ="file" placeholder="Upload an image" onChange={fileSelectedHandler} style={{display:'none'}}/>
