@@ -4,9 +4,15 @@ import classNames from "classnames";
 // @material-ui/core components
 import {makeStyles} from "@material-ui/core/styles";
 // @material-ui/icons
-import Camera from "@material-ui/icons/Camera";
-import Palette from "@material-ui/icons/Palette";
+import BurstMode from "@material-ui/icons/BurstMode";
+import AccountBox from "@material-ui/icons/AccountBox";
 import Favorite from "@material-ui/icons/Favorite";
+import Comment from "@material-ui/icons/Comment";
+import Delete from "@material-ui/icons/Delete";
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+import BookMarkFile from "../components/Bookmark/Favorite";
+import DeletePost from "../components/Bookmark/DeletePost";
+
 // core components
 import Footer from "./Footer/Footer";
 import Button from "../components/CustomButtons/CustomButton";
@@ -32,6 +38,7 @@ import styles from "./UserPortfolio/profilePage";
 import {useCollections, useUsers} from "../api";
 import Nav from "../components/Nav";
 import DocView from "../components/DocView";
+import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles(styles);
 
@@ -97,7 +104,23 @@ export default function ProfilePage(props) {
                                     <div className={classes.name}>
                                         <h3 className={classes.title}>{first_name} {last_name}</h3>
                                         <h2>{title}</h2>
+                                        {/*<Button justIcon link className={classes.margin5}>*/}
+                                        {/*    <Favorite/>*/}
+                                        {/*</Button>*/}
+                                        <div justIcon link className={classes.margin5} title="Bookmark">
 
+                                        <BookMarkFile  aria-label="Bookmark"/>
+
+
+
+
+                                            <DeletePost  aria-label="Delete"/>
+                                        </div>
+                                        {/*<Button justIcon link className={classes.margin5} >*/}
+                                        {/*<IconButton aria-label="delete" justIcon link className={classes.margin5}>*/}
+                                        {/*    <Delete />*/}
+                                        {/*</IconButton>*/}
+                                        {/*</Button>*/}
                                     </div>
                                 </div>
                             </GridItem>
@@ -114,8 +137,8 @@ export default function ProfilePage(props) {
                                     color="primary"
                                     tabs={[
                                         {
-                                            tabButton: "Studio",
-                                            tabIcon: Camera,
+                                            tabButton: "Portfolio",
+                                            tabIcon: BurstMode,
                                             tabContent: (
                                                 <GridContainer justify="center">
 
@@ -136,8 +159,8 @@ export default function ProfilePage(props) {
                                             )
                                         },
                                         {
-                                            tabButton: "Work",
-                                            tabIcon: Palette,
+                                            tabButton: "Resume",
+                                            tabIcon: AccountBox,
                                             tabContent: (
                                                 <GridContainer justify="center">
                                                     <GridItem xs={12} sm={12} md={4}>
@@ -173,8 +196,8 @@ export default function ProfilePage(props) {
                                             )
                                         },
                                         {
-                                            tabButton: "Favorite",
-                                            tabIcon: Favorite,
+                                            tabButton: "Comment",
+                                            tabIcon: Comment,
                                             tabContent: (
                                                 <GridContainer justify="center">
                                                     <GridItem xs={12} sm={12} md={4}>

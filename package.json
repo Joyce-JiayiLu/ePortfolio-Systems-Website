@@ -35,9 +35,9 @@
   },
   "devDependencies": {
     "@material-ui/icons": "^4.9.1",
+    "classcat": "^4.1.0",
     "typescript": "3.8.3"
   },
-
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
