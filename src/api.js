@@ -346,3 +346,28 @@ export function getCollectionId(id){
         return res.json();
     });
 }
+
+export function getBookmark(userid){
+    const endpoint = BASE_URL + `/bookmark/` + userid;
+    return fetch(endpoint).then(res => {
+        console.log(res);
+        return res.json();
+    });
+}
+
+export function addBookmark(userid,collectionid){
+    const endpoint = BASE_URL + `/bookmark/`;
+    return fetch(endpoint, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            "userid":userid,
+            "collectionid":collectionid,
+        })
+    }).then(res => {
+        //console.log("success!")
+        //window.location.assign(`https://genius-solio.herokuapp.com/`)
+    });
+}

@@ -37,7 +37,7 @@ export default function FeaturedPost(props) {
 
     console.log(post.userid);
     return (
-
+        <div>
         <Grid item xs={12} md={6} onClick={() => toUserPortfolio()}>
             <CardActionArea component="a" href="#">
                 <Card className={classes.card}>
@@ -65,7 +65,8 @@ export default function FeaturedPost(props) {
 
         </Grid>
     // {deleteEnable(post)}
-    // {update(post)}
+     {update(post)}
+     </div>
 
     );
 }
@@ -87,12 +88,16 @@ function deleteEnable(post){
 }
 function update(post){
     if (localStorage.getItem("id_token")) {
-        window.sessionStorage.setItem("spec_collection", post["_id"]);
+        console.log("The postttttttttttttttttttt_id is"+post["_id"]);
         var user_token = localStorage.getItem("id_token");
         var userid = jwt_decode(user_token).sub;
         if (post.userid === userid) {
+
             return (
-                <Button onClick={() => {window.location.assign(`http://localhost:3000/userupadteportfolio`);}}>update</Button>
+                <Button onClick={() => {
+                    window.sessionStorage.setItem("spec_collection", post["_id"]);
+                    window.location.assign(`http://localhost:3000/userupadteportfolio`);
+                }}>update</Button>
             )
         }
 
