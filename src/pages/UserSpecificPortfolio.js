@@ -35,10 +35,11 @@ import work4 from "./UserPortfolio/examples/mariya-georgieva.jpg";
 import work5 from "./UserPortfolio/examples/clem-onojegaw.jpg";
 
 import styles from "./UserPortfolio/profilePage";
-import {useCollections, useUsers} from "../api";
+import {deleteCollection, useCollections, useUsers} from "../api";
 import Nav from "../components/Nav";
 import DocView from "../components/DocView";
 import IconButton from "@material-ui/core/IconButton";
+import jwt_decode from "jwt-decode";
 
 const useStyles = makeStyles(styles);
 
@@ -107,15 +108,15 @@ export default function ProfilePage(props) {
                                         {/*<Button justIcon link className={classes.margin5}>*/}
                                         {/*    <Favorite/>*/}
                                         {/*</Button>*/}
-                                        <div justIcon link className={classes.margin5} title="Bookmark">
-
-                                        <BookMarkFile  aria-label="Bookmark"/>
 
 
+                                        <BookMarkFile className={classes.margin5} aria-label="Bookmark"/>
 
 
-                                            <DeletePost  aria-label="Delete"/>
-                                        </div>
+
+
+
+
                                         {/*<Button justIcon link className={classes.margin5} >*/}
                                         {/*<IconButton aria-label="delete" justIcon link className={classes.margin5}>*/}
                                         {/*    <Delete />*/}
@@ -236,6 +237,9 @@ export default function ProfilePage(props) {
                                 />
                             </GridItem>
                         </GridContainer>
+                        {/*{deleteEnable(post)}*/}
+                        {/*{update(post)}*/}
+
 
                     </div>
                 </div>
@@ -244,3 +248,28 @@ export default function ProfilePage(props) {
         </div>
     );
 }
+
+// function deleteEnable(post){
+//     if (localStorage.getItem("id_token")) {
+//         var user_token = localStorage.getItem("id_token");
+//         var userid = jwt_decode(user_token).sub;
+//         if (post.userid === userid) {
+//             return (
+//                 <Button onClick={() => deleteCollection(post._id)}>delete</Button>
+//             )
+//         }
+//     }
+// }
+// function update(post){
+//     if (localStorage.getItem("id_token")) {
+//         window.sessionStorage.setItem("spec_collection", post["_id"]);
+//         var user_token = localStorage.getItem("id_token");
+//         var userid = jwt_decode(user_token).sub;
+//         if (post.userid === userid) {
+//             return (
+//                 <Button onClick={() => {window.location.assign(`http://localhost:3000/userupadteportfolio`);}}>update</Button>
+//             )
+//         }
+//
+//     }
+// }
