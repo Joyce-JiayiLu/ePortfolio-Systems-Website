@@ -237,10 +237,8 @@ export default function ProfilePage(props) {
                                 />
                             </GridItem>
                         </GridContainer>
-                        {/*{deleteEnable(post)}*/}
-                        {/*{update(post)}*/}
-
-
+                        {deleteEnable(userid,user_sub)}
+                        {update(userid,user_sub)}
                     </div>
                 </div>
             </div>
@@ -249,27 +247,28 @@ export default function ProfilePage(props) {
     );
 }
 
-// function deleteEnable(post){
-//     if (localStorage.getItem("id_token")) {
-//         var user_token = localStorage.getItem("id_token");
-//         var userid = jwt_decode(user_token).sub;
-//         if (post.userid === userid) {
-//             return (
-//                 <Button onClick={() => deleteCollection(post._id)}>delete</Button>
-//             )
-//         }
-//     }
-// }
-// function update(post){
-//     if (localStorage.getItem("id_token")) {
-//         window.sessionStorage.setItem("spec_collection", post["_id"]);
-//         var user_token = localStorage.getItem("id_token");
-//         var userid = jwt_decode(user_token).sub;
-//         if (post.userid === userid) {
-//             return (
-//                 <Button onClick={() => {window.location.assign(`http://localhost:3000/userupadteportfolio`);}}>update</Button>
-//             )
-//         }
-//
-//     }
-// }
+function deleteEnable(userid, postid){
+     if (localStorage.getItem("id_token")) {
+         var user_token = localStorage.getItem("id_token");
+         var user = jwt_decode(user_token).sub;
+         if (user === userid) {
+             return (
+                 <Button onClick={() => deleteCollection(postid)}>delete</Button>
+             )
+         }
+     }
+ }
+ function update(userid, postid){
+     if (localStorage.getItem("id_token")) {
+         var user_token = localStorage.getItem("id_token");
+         var user = jwt_decode(user_token).sub;
+         if (user === userid) {
+             return (
+                 <Button onClick={() => {
+                     window.sessionStorage.setItem("spec_collection", postid);
+                     window.location.assign(`http://localhost:3000/userupadteportfolio`);}}>update</Button>
+             )
+         }
+
+     }
+ }
