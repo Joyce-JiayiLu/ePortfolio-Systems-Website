@@ -19,7 +19,7 @@ export default function WorkSection() {
     <div className={classes.section}>
       <GridContainer justify="center">
         <GridItem cs={12} sm={12} md={8}>
-          <h2 className={classes.title}>Why we are here...</h2>
+          <h2 className={classes.title}>Why We Are Here...</h2>
           <h4 className={classes.description}>
             With the key objectives of nurturing engaged and reflective learners, ePortfolio has been implemented to
             offer a platform for students to document, manage and reflect upon their own learning during their study.

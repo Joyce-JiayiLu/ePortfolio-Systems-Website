@@ -19,22 +19,22 @@ export default function WorkSection() {
         <div className={classes.section}>
             <GridContainer justify="center">
                 <GridItem cs={12} sm={12} md={8}>
-                    <h2 className={classes.title}>What to Do If You Are Sick</h2>
+                    <h2 className={classes.title}>What You Can Do With Our Platform...</h2>
                     <h4 className={classes.description}>
                         <p>
-                            If you have a fever, cough or other symptoms, you might have COVID-19. Most people have mild illness and are able to recover at home.
+                            Show others your talents!
                         </p>
                         <p>
-                            Stay home. Most people with COVID-19 have mild illness and can recover at home without medical care. Do not leave your home, except to get medical care. Do not visit public areas.
+                            Find another safety place for your files!
                         </p>
                         <p>
-                            Take care of yourself. Get rest and stay hydrated. Take over-the-counter medicines, such as acetaminophen, to help you feel better.
+                            Browse through great works created by others like you!
+                        </p>
+                        <p>
+                            Meet job recruiters with opportunities!
                         </p>
                         <p>
                             Stay in touch with US!
-                        </p>
-                        <p>
-                            Post your symptoms before you get medical care. Be sure to get care if you have trouble breathing, or have any other emergency warning signs, or if you think it is an emergency.
                         </p>
                     </h4>
                     <form>
