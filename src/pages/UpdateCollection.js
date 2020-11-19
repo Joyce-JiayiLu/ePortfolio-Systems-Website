@@ -35,6 +35,10 @@ import DocView from "../components/DocView";
 import {getUsers, getCollections,getCollection} from "../api";
 import {withRouter} from "react-router-dom";
 import jwt_decode from "jwt-decode";
+import Paper from "@material-ui/core/Paper";
+import FileUpload from "../components/FileUpload";
+import Grid from "@material-ui/core/Grid";
+import UpdateUpload from "../components/UpdateUpload";
 const useStyles = makeStyles(styles);
 
 class ProfileePage extends Component {
@@ -111,10 +115,14 @@ class ProfileePage extends Component {
         }).then(res => {
             if (res.ok) {
                 //window.location.assign(`https://genius-solio.herokuapp.com/usercenter`)
-                window.location.assign(`http://localhost:3000/usercenter`);
+                window.location.assign(`http://localhost:3000/userupadteportfolio`);
+                window.sessionStorage.removeItem("spec_collection")
                 //window.location.href = `CaregiverInformation/${username}`;
             }
         });
+    }
+    parentFunction=(data_from_child)=>{
+        this.setState({file: data_from_child});
     }
     render() {
 
@@ -174,8 +182,13 @@ class ProfileePage extends Component {
                                         }}
                                         // change src to show the pdf you want
                                         src={this.state.file}/>
-
+                                    <Grid item xs={12} >
+                                        <Paper className={classes.paper}>
+                                            <UpdateUpload functionCallFromParent={this.parentFunction.bind(this)}/>
+                                        </Paper>
+                                    </Grid>
                                 </GridItem>
+
                             </GridContainer>
 
                         </div>
