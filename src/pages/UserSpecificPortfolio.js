@@ -40,6 +40,7 @@ import Nav from "../components/Nav";
 import DocView from "../components/DocView";
 import IconButton from "@material-ui/core/IconButton";
 import jwt_decode from "jwt-decode";
+import {func} from "prop-types";
 
 const useStyles = makeStyles(styles);
 
@@ -68,8 +69,9 @@ export default function ProfilePage(props) {
     let file;
     let image;
     let userid;
+    if(localStorage.getItem("id_token")){
     var user_token = localStorage.getItem("id_token");
-    var myuserid = jwt_decode(user_token).sub;
+    var myuserid = jwt_decode(user_token).sub;}
 
 
     {
@@ -91,6 +93,12 @@ export default function ProfilePage(props) {
                 console.log("image: ", {image});
             }
         })
+    }
+
+    function bookmark(){
+        if(localStorage.getItem("id_token")){
+            return <BookMarkFile myuserid={myuserid} user_sub={user_sub} onClick={()=>addBookmark(myuserid,user_sub)} className={classes.margin5} aria-label="Bookmark"/>
+        }
     }
     return (
         <div>
@@ -114,8 +122,7 @@ export default function ProfilePage(props) {
                                         {/*</Button>*/}
 
 
-                                        <BookMarkFile myuserid={myuserid} user_sub={user_sub} onClick={()=>addBookmark(myuserid,user_sub)} className={classes.margin5} aria-label="Bookmark"/>
-
+                                        {bookmark()}
 
 
 
