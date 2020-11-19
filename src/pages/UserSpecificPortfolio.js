@@ -100,7 +100,8 @@ export default function ProfilePage(props) {
                             <GridItem xs={12} sm={12} md={6}>
                                 <div className={classes.profile}>
                                     <div>
-                                        <img src={image || "https://portal.staralliance.com/cms/aux-pictures/prototype-images/avatar-default.png/@@images/image.png"} alt="" className={imageClasses}/>
+                                        <img src={image || "https://portal.staralliance.com/cms/aux-pictures/prototype-images/avatar-default.png/@@images/image.png"}
+                                             alt="" className={imageClasses}/>
                                     </div>
                                     <div className={classes.name}>
                                         <h3 className={classes.title}>{first_name} {last_name}</h3>

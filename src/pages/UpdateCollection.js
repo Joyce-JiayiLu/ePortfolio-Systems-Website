@@ -39,7 +39,147 @@ import Paper from "@material-ui/core/Paper";
 import FileUpload from "../components/FileUpload";
 import Grid from "@material-ui/core/Grid";
 import UpdateUpload from "../components/UpdateUpload";
-const useStyles = makeStyles(styles);
+import TextField from "@material-ui/core/TextField";
+import imagesStyle from "./UserPortfolio/imagesStyles";
+import { withStyles } from '@material-ui/styles';
+import TextareaAutosize from "@material-ui/core/TextareaAutosize";
+
+const containerFluid = {
+    paddingRight: "15px",
+    paddingLeft: "15px",
+    marginRight: "auto",
+    marginLeft: "auto",
+    width: "100%"
+};
+const container = {
+    ...containerFluid,
+    "@media (min-width: 576px)": {
+        maxWidth: "540px"
+    },
+    "@media (min-width: 768px)": {
+        maxWidth: "720px"
+    },
+    "@media (min-width: 992px)": {
+        maxWidth: "960px"
+    },
+    "@media (min-width: 1200px)": {
+        maxWidth: "1140px"
+    }
+};
+
+const title = {
+    color: "#3C4858",
+    margin: "1.75rem 0 0.875rem",
+    textDecoration: "none",
+    fontWeight: "700",
+    fontFamily: `"Roboto Slab", "Times New Roman", serif`
+};
+
+const useStyles = theme => ({
+    imgFluid: {
+        maxWidth: "100%",
+        height: "auto"
+    },
+    imgRounded: {
+        borderRadius: "6px !important"
+    },
+    imgRoundedCircle: {
+        borderRadius: "50% !important"
+    },
+    imgRaised: {
+        boxShadow:
+            "0 5px 15px -8px rgba(0, 0, 0, 0.24), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"
+    },
+    imgGallery: {
+        width: "100%",
+        marginBottom: "2.142rem"
+    },
+    imgCardTop: {
+        width: "100%",
+        borderTopLeftRadius: "calc(.25rem - 1px)",
+        borderTopRightRadius: "calc(.25rem - 1px)"
+    },
+    imgCardBottom: {
+        width: "100%",
+        borderBottomLeftRadius: "calc(.25rem - 1px)",
+        borderBottomRightRadius: "calc(.25rem - 1px)"
+    },
+    imgCard: {
+        width: "100%",
+        borderRadius: "calc(.25rem - 1px)"
+    },
+    imgCardOverlay: {
+        position: "absolute",
+        top: "0",
+        right: "0",
+        bottom: "0",
+        left: "0",
+        padding: "1.25rem"
+    },
+    profile: {
+        textAlign: "center",
+        "& img": {
+            maxWidth: "160px",
+            width: "100%",
+            margin: "0 auto",
+            transform: "translate3d(0, -50%, 0)"
+        }
+    },
+    description: {
+        margin: "1.071rem auto 0",
+        maxWidth: "600px",
+        color: "#999",
+        textAlign: "center !important"
+    },
+    updatedescription: {
+        margin: "1.071rem auto 0",
+        marginTop: "3px",
+        maxWidth: "600px",
+        color: "#999",
+        textAlign: "center !important"
+    },
+    name: {
+        marginTop: "-80px"
+    },
+    ...imagesStyle,
+    main: {
+        background: "#FFFFFF",
+        position: "relative",
+        zIndex: "3"
+    },
+    mainRaised: {
+        margin: "-60px 30px 0px",
+        borderRadius: "6px",
+        boxShadow:
+            "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"
+    },
+    title: {
+        ...title,
+        display: "inline-block",
+        position: "relative",
+        marginTop: "30px",
+        minHeight: "32px",
+        textDecoration: "none"
+    },
+    socials: {
+        marginTop: "0",
+        width: "100%",
+        transform: "none",
+        left: "0",
+        top: "0",
+        height: "100%",
+        lineHeight: "41px",
+        fontSize: "20px",
+        color: "#999"
+    },
+    navWrapper: {
+        margin: "20px auto 50px auto",
+        textAlign: "center"
+    },
+
+});
+
+
 
 class ProfileePage extends Component {
     constructor(props) {
@@ -125,8 +265,9 @@ class ProfileePage extends Component {
         this.setState({file: data_from_child});
     }
     render() {
+        const {...rest} = this.props;
+        const { classes } = this.props;
 
-        const classes = makeStyles(styles);
         const imageClasses = classNames(
             classes.imgRaised,
             classes.imgRoundedCircle,
@@ -136,6 +277,7 @@ class ProfileePage extends Component {
 
         //var title = collection.title;
         //var description = collection.description;
+        console.log(this.state.file);
 
         return (
             <div>
@@ -148,31 +290,52 @@ class ProfileePage extends Component {
                                 <GridItem xs={12} sm={12} md={6}>
                                     <div className={classes.profile}>
                                         <div>
-                                            <img src={this.state.image||"https://portal.staralliance.com/cms/aux-pictures/prototype-images/avatar-default.png/@@images/image.png"} alt="" className={imageClasses}/>
+                                            <img src={this.state.image||"https://portal.staralliance.com/cms/aux-pictures/prototype-images/avatar-default.png/@@images/image.png"}
+                                                 alt="" className={imageClasses}/>
                                         </div>
                                         <div className={classes.name}>
-                                            <h3 className={classes.title}></h3>
-                                            <input type="text"
-                                                   name="title"
-                                                   value = {this.state.title}
-                                                   onChange= {event => this.setState({...this.state,
-                                                       title: (event.target.value)})}
-                                            />
+                                            <h3 className={classes.title}>Title</h3>
+
 
                                         </div>
+                                        <TextField
+                                            id="outlined-helperText"
+                                            label="Title"
+                                            defaultValue="Default Value"
+
+                                            variant="outlined"
+                                            type="text"
+                                            name="title"
+                                            value = {this.state.title}
+                                            onChange= {event => this.setState({...this.state,
+                                                title: (event.target.value)})}
+                                        />
+
+                                        <div >
+                                            <h3 className={classes.title}>Description</h3>
+
+
+                                        </div>
+
+
+                                        <TextareaAutosize
+                                            rowsMax={10}
+                                            aria-label="Description"
+                                            placeholder="Description"
+                                                name="description"
+                                                value ={this.state.description}
+                                                onChange={event => this.setState({...this.state,
+                                                    description: (event.target.value)})}
+                                        />
+
+
                                     </div>
                                 </GridItem>
                             </GridContainer>
-                            <div className={classes.description}>
-                                <input type="text"
-                                       name="description"
-                                       value ={this.state.description}
-                                       onChange={event => this.setState({...this.state,
-                                           description: (event.target.value)})}
-                                />
-                            </div>
+
                             <GridContainer justify="center">
                                 <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
+                                    <GridContainer justify="center">
                                     <DocView
                                         style={{
                                             width: "1200px",
@@ -187,6 +350,7 @@ class ProfileePage extends Component {
                                             <UpdateUpload functionCallFromParent={this.parentFunction.bind(this)}/>
                                         </Paper>
                                     </Grid>
+                                        </GridContainer>
                                 </GridItem>
 
                             </GridContainer>
@@ -202,4 +366,5 @@ class ProfileePage extends Component {
         );
     }
 }
-export default withRouter(ProfileePage);
+//export default withRouter(ProfileePage);
+export default withStyles(useStyles)(ProfileePage);

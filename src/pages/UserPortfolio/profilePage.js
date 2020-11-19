@@ -48,6 +48,13 @@ const profilePageStyle = {
     color: "#999",
     textAlign: "center !important"
   },
+  updatedescription: {
+    margin: "1.071rem auto 0",
+    marginTop: "3px",
+    maxWidth: "600px",
+    color: "#999",
+    textAlign: "center !important"
+  },
   name: {
     marginTop: "-80px"
   },
