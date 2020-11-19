@@ -294,7 +294,7 @@ class ProfileePage extends Component {
                                                  alt="" className={imageClasses}/>
                                         </div>
                                         <div className={classes.name}>
-                                            <h3 className={classes.title}>Title</h3>
+                                            <h2 className={classes.title}>Title</h2>
 
 
                                         </div>
@@ -312,14 +312,14 @@ class ProfileePage extends Component {
                                         />
 
                                         <div >
-                                            <h3 className={classes.title}>Description</h3>
+                                            <h2 className={classes.title}>Description</h2>
 
 
                                         </div>
 
 
                                         <textarea rows = "5" cols = "60"
-                                            
+
                                             aria-label="Description"
                                             placeholder="Description"
                                                 name="description"
@@ -336,32 +336,36 @@ class ProfileePage extends Component {
                             <GridContainer justify="center">
                                 <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
                                     <GridContainer justify="center">
-                                    <DocView
-                                        style={{
-                                            width: "1200px",
-                                            height: "780px",
-                                            border: 'none',
-                                            position: 'relative'
-                                        }}
-                                        // change src to show the pdf you want
-                                        src={this.state.file}/>
+
+                                    {/*<DocView*/}
+                                    {/*    style={{*/}
+                                    {/*        width: "1200px",*/}
+                                    {/*        height: "780px",*/}
+                                    {/*        border: 'none',*/}
+                                    {/*        position: 'relative'*/}
+                                    {/*    }}*/}
+                                    {/*    // change src to show the pdf you want*/}
+                                    {/*    src={this.state.file}/>*/}
                                     <Grid item xs={12} >
                                         <Paper className={classes.paper}>
+                                            <h2 className={classes.title}>Portfolio</h2>
                                             <UpdateUpload functionCallFromParent={this.parentFunction.bind(this)}/>
                                         </Paper>
                                     </Grid>
                                         </GridContainer>
                                 </GridItem>
 
+
                             </GridContainer>
+                            <Button onClick={()=>this.onSubmit()}>
+                                Update
+                            </Button>
 
                         </div>
                     </div>
                 </div>
                 <Footer/>
-                <Button onClick={()=>this.onSubmit()}>
-                    Update
-                </Button>
+
             </div>
         );
     }

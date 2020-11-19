@@ -8,6 +8,7 @@ export default class DocView extends Component{
 
     render(){
         let url = this.props.src;
+        console.log(url);
 
         return(
             <embed style={{
