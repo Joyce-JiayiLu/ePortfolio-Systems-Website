@@ -42,10 +42,14 @@ export const mainListItems = (
     </div>
 );
 
+function toBookmark() {
+    window.location.assign(`http://localhost:3000/bookmarks`);
+}
+
 export const secondaryListItems = (
     <div>
         <ListSubheader inset></ListSubheader>
-        <ListItem button>
+        <ListItem button onClick={() => toBookmark()}>
             <ListItemIcon>
                 <BookmarkIcon/>
             </ListItemIcon>

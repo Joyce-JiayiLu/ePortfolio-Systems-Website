@@ -255,8 +255,8 @@ class ProfileePage extends Component {
         }).then(res => {
             if (res.ok) {
                 //window.location.assign(`https://genius-solio.herokuapp.com/usercenter`)
-                window.location.assign(`http://localhost:3000/userupadteportfolio`);
-                window.sessionStorage.removeItem("spec_collection")
+                window.location.assign(`http://localhost:3000/userportfolio`);
+                // window.sessionStorage.removeItem("spec_collection")
                 //window.location.href = `CaregiverInformation/${username}`;
             }
         });
