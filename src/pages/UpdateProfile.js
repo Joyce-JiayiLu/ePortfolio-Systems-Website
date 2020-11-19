@@ -142,7 +142,7 @@ export default function UpdateProfile(props) {
                         startIcon={<SaveIcon/>}
                         onClick={() => Submit()}
                     >
-                        Save
+                        Update
                     </Button>
                 </div>
             </form>
