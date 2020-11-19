@@ -4,15 +4,23 @@ import cc from "classcat";
 import styles from "./Favorite.module.css";
 import Delete from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
+import {getBookmark, useBookmark} from "../../api";
 
-export default function Favorite({ onClick, props }) {
+export default function Favorite({ myuserid,user_sub,onClick, props }) {
     const [active, setActive] = useState(false);
-
+    const {loading, bookmarks, error} = useBookmark(myuserid);
+    /*
+    bookmarks.map(bookmark=>{
+        console.log(bookmark);
+        if(bookmark["_id"]===user_sub){
+            console.log("this is existed!!!!!!")
+            setActive(true);
+        }
+    })*/
     const handleClick = () => {
         if (typeof onClick === "function") {
             onClick();
         }
-
         setActive(!active);
     };
 
