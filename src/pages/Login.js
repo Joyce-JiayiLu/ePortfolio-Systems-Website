@@ -88,6 +88,18 @@ class Login extends Component {
                     <Grid item xs={false} sm={4} md={7} className={this.props.classes.image}/>
                     <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
                         <div className={classes.paper}>
+
+                        </div>
+                        <div className={classes.paper}>
+
+                        </div>
+                        <div className={classes.paper}>
+
+                        </div>
+                        <div className={classes.paper}>
+
+                        </div>
+                        <div className={classes.paper}>
                             {/*{<Avatar className={classes.avatar}>*/}
                             {/*    <LockOutlinedIcon />*/}
                             {/*</Avatar>}*/}
@@ -129,15 +141,9 @@ class Login extends Component {
                                     className={classes.submit}
                                     onClick={this.props.auth.login}
                                 >
-                                    Log In
+                                    Log In / SiGn Up
                                 </Button>
-                                <Button
-                                    //type="submit"
-                                    fullWidth
-                                    variant="contained"
-                                    color="primary">
-                                    Sign Up
-                                </Button>
+                                
 
                                 <Grid container>
                                     <Grid item>
@@ -156,6 +162,21 @@ class Login extends Component {
                                         </Link>
                                     </Grid>
                                 </Grid>
+                                <div className={classes.paper}>
+
+                                </div>
+                                <div className={classes.paper}>
+
+                                </div>
+                                <div className={classes.paper}>
+
+                                </div>
+                                <div className={classes.paper}>
+
+                                </div>
+                                <div className={classes.paper}>
+
+                                </div>
                                 <Box mt={5}>
                                     <Copyright/>
                                 </Box>
