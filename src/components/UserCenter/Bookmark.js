@@ -189,12 +189,12 @@ export default function Dashboard() {
     let items = [];
     console.log(bookmarks);
     bookmarks.map(collect => {
-        if (collect.userid === user_sub) {
+
             items.push(collect);
-        }
+
     });
 
-    //console.log(items);
+    console.log(items);
     /*
     let first_name;
     let last_name;
@@ -228,17 +228,19 @@ export default function Dashboard() {
     let contentDisplay;
 
     if (isAddingNew) {
-        contentDisplay = <Grid item xs={12}>
+        contentDisplay = (<Grid item xs={12}>
             <Checkout/>
-        </Grid>
+        </Grid>)
     }
     else {
-        contentDisplay = <Grid item xs={12} container spacing={4}>
+        console.log(items);
+        contentDisplay = (<Grid item xs={12} container spacing={4}>
             {items.map((post) => (
+
                 <FeaturedPost post={post} />
             ))}
 
-        </Grid>
+        </Grid>)
     }
 
     const addNewPortfolio = () => {
