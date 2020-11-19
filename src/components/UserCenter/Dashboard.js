@@ -25,6 +25,7 @@ import {getUserAndCreat, useUsers} from "../../api";
 import UpdateProfileButton from "../Button/UpdateProfileButton";
 import jwt_decode from "jwt-decode";
 import Upload from "../Upload";
+import UpdateProfile from "../../pages/UpdateProfile";
 
 function Copyright() {
     return (
@@ -203,7 +204,14 @@ export default function Dashboard() {
             }
         })
     }
-    //console.log(first_name);
+    let user = {
+        "first_name" : first_name,
+        "last_name" : last_name,
+        "introduction" : introduction,
+        "gender" : gender,
+        "age" : age,
+    }
+    console.log(user);
 
     return (
         <div className={classes.root}>
@@ -261,15 +269,7 @@ export default function Dashboard() {
                         {/* Chart */}
                         <Grid item xs={12} md={8} lg={9}>
                             <Paper className={fixedHeightPaper}>
-                                <p>firstname: {first_name}</p>
-                                <p>lastname: {last_name}</p>
-                                <p>gender: {gender}</p>
-                                <p>birthday: {age}</p>
-                                <p>introduction: {introduction}</p>
-                                <p></p>
-                                <p></p>
-                                <p></p>
-                                <p className={classes.buttonBottom}><UpdateProfileButton/></p>
+                                <UpdateProfile data = {user}/>
 
                             </Paper>
 

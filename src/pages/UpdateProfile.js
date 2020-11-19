@@ -43,12 +43,14 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function UpdateProfile() {
+export default function UpdateProfile(props) {
     const classes = useStyles();
 
-    const [age, setAge] = React.useState('');
-    const [gender, setGender] = React.useState('');
-
+    const [age, setAge] = React.useState(props.data.age);
+    const [gender, setGender] = React.useState(props.data.gender);
+    const [firstname, setFirstname] = React.useState(props.data.first_name);
+    const [lastname, setLastname] = React.useState(props.data.last_name);
+    const [introduction, setIntroduction] = React.useState(props.data.introduction);
     const handleChangeAge = (event) => {
         setAge(event.target.value);
     };
@@ -57,15 +59,42 @@ export default function UpdateProfile() {
         setGender(event.target.value);
     };
 
+    function Submit() {
+        console.log(firstname);
+        var user_token = localStorage.getItem("id_token");
+        var user_sub = jwt_decode(user_token).sub;
+        let userid;
+        userid = user_sub;
+        updateUserProfile({
+            userid,
+            firstname,
+            lastname,
+            gender,
+            introduction,
+            age,
+            // username,
+            // age,
+            // address,
+            // working_experience,
+            // contact_information,
+        });
+    }
+
     return (
         <div>
             <form className={classes.root} noValidate autoComplete="off">
                 <div className={classes.divStyle}>
                     <TextField required id="first_name" label="firstname" variant="outlined"
-                               className={classes.textFieldStyle}/>
+                               className={classes.textFieldStyle}
+                               value = {firstname}
+                               onChange = {event => {setFirstname(event.target.value)}}
+                    />
 
                     <TextField required id="last_name" label="lastname" variant="outlined"
-                               className={classes.textFieldStyle}/>
+                               className={classes.textFieldStyle}
+                               value = {lastname}
+                               onChange = {event => {setLastname(event.target.value)}}
+                    />
                     <div>
                         <FormControl variant="outlined" className={classes.formControl}>
                             <InputLabel id="genderInput">Gender</InputLabel>
@@ -87,18 +116,22 @@ export default function UpdateProfile() {
                                 id="age"
                                 label="Birthday"
                                 type="date"
-                                defaultValue="2000-05-24"
                                 className={classes.textFieldStyle}
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
                                 variant="outlined"
+                                value={age}
+                                onChange = {event => {setAge(event.target.value)}}
                             />
                         </form>
                     </div>
                     <div>
                         <TextField required multiline rows={5} id="introduction" label="introduction" variant="outlined"
-                                   className={classes.textFieldStyle}/>
+                                   className={classes.textFieldStyle}
+                                   value={introduction}
+                                   onChange = {event => {setIntroduction(event.target.value)}}
+                        />
                     </div>
                 </div>
                 <div className={classes.divStyle}>
@@ -107,7 +140,7 @@ export default function UpdateProfile() {
                         color="primary"
                         className={classes.button}
                         startIcon={<SaveIcon/>}
-                        onClick={() => onSubmit(gender)}
+                        onClick={() => Submit()}
                     >
                         Save
                     </Button>
@@ -122,7 +155,7 @@ function onSubmit(gender) {
     var user_token = localStorage.getItem("id_token");
     var user_sub = jwt_decode(user_token).sub;
     let userid;
-    userid = user_sub
+    userid = user_sub;
     console.log(userid);
     var first_name = document.getElementById("first_name").value;
     var last_name = document.getElementById("last_name").value;

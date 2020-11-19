@@ -103,14 +103,14 @@ export function useCollections() {
 }
 
 export function updateUserProfile(user) {
-    const {userid, first_name, last_name, gender, introduction, age} = user;
+    const {userid, firstname, lastname, gender, introduction, age} = user;
     let reg = /^[0-9]+.?[0-9]*$/;
     // if(!reg.test(age)){
     //   alert("age must be number!");
     //   return;
     // }
 
-    if (!first_name || !last_name) {
+    if (!firstname || !lastname) {
         alert("must include a first name or last name to update!");
         return;
     }
@@ -129,8 +129,8 @@ export function updateUserProfile(user) {
         },
         body: JSON.stringify({
             userid,
-            first_name,
-            last_name,
+            firstname,
+            lastname,
             introduction,
             age,
             gender,
