@@ -318,8 +318,8 @@ class ProfileePage extends Component {
                                         </div>
 
 
-                                        <TextareaAutosize
-                                            rowsMax={10}
+                                        <textarea rows = "5" cols = "60"
+                                            
                                             aria-label="Description"
                                             placeholder="Description"
                                                 name="description"
