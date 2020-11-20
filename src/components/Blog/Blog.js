@@ -197,15 +197,6 @@ class Blog extends Component {
                                 <FeaturedPost post={post} />
                             ))}
                         </Grid>
-                        <Grid container spacing={5} className={classes.mainGrid}>
-                            {/*<Main title="From the firehose" posts={posts} />*/}
-                            <Sidebar
-                                title={sidebar.title}
-                                description={sidebar.description}
-                                archives={sidebar.archives}
-                                social={sidebar.social}
-                            />
-                        </Grid>
                     </main>
                 </Container>
                 <Footer title="GeniuSolio" description="Endorse your own works." />
