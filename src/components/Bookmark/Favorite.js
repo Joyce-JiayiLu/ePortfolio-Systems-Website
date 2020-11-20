@@ -5,16 +5,16 @@ import styles from "./Favorite.module.css";
 import Delete from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
 import {getBookmark, useBookmark} from "../../api";
+import {checkIn} from "../../pages/UserSpecificPortfolio";
 
-export default function Favorite({ myuserid,user_sub,onClick, props }) {
+export default function Favorite({ bookmarks,myuserid,user_sub,onClick, props }) {
     const [active, setActive] = useState(false);
-    const {loading, bookmarks, error} = useBookmark(myuserid);
-
-    if(checkInside(bookmarks, user_sub)){
-        if(!active) {
+    if(checkIn(bookmarks, user_sub)) {
+        if (!active) {
             setActive(true);
         }
     }
+
     const handleClick = () => {
         console.log("active");
         if (typeof onClick === "function") {
@@ -65,8 +65,15 @@ export default function Favorite({ myuserid,user_sub,onClick, props }) {
 
     );
 }
+export function covertArray(bookmarks){
+    var array=[];
+    for(var i=0; i< bookmarks.length; i++){
+        array.push(bookmarks[i]["_id"]);
+    }
+    return array;
+}
 
-function checkInside(bookmarks, id){
+export function checkInside(bookmarks, id){
     for(var i=0; i< bookmarks.length; i++){
         if(bookmarks[i]["_id"]===id){
             return true;
