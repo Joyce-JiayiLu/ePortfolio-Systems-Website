@@ -23,16 +23,22 @@ class ResumeUpload extends Component  {
             urL: newSelected
         })
     }
+
     success(){
+        if (this.state.urL === "")
+        {
+            sessionStorage.setItem("resumeIsUploaded", "false");
+        }
         if (this.state.urL){
             console.log(this.state.urL);
+            sessionStorage.setItem("resumeIsUploaded", "true");
             return(
                 <Alert message="Upload successful" type="success" showIcon />
             );
         }
     }
-    render() {
 
+    render() {
 
         return(
             <div className="container">
