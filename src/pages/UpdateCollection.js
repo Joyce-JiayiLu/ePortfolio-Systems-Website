@@ -43,6 +43,7 @@ import TextField from "@material-ui/core/TextField";
 import imagesStyle from "./UserPortfolio/imagesStyles";
 import { withStyles } from '@material-ui/styles';
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
+import ResumeUpload from "../components/ResumeUpload";
 
 const containerFluid = {
     paddingRight: "15px",
@@ -190,6 +191,7 @@ class ProfileePage extends Component {
             description:"",
             userid:"",
             title:"",
+            resume:"",
             file:"",
             first_name:"",
             last_name:"",
@@ -210,6 +212,7 @@ class ProfileePage extends Component {
         this.setState({description: result.description});
         this.setState({title: result.title});
         this.setState({file: result.file});
+        this.setState({resume: result.resume});
         let user = await this.getUser();
         this.setState({image: user.image});
         this.setState({first_name: user.first_name});
@@ -251,17 +254,22 @@ class ProfileePage extends Component {
                 "description": this.state.description,
                 "cover": this.state.cover,
                 "file": this.state.file,
+                "resume": this.state.resume,
             })
         }).then(res => {
             if (res.ok) {
+                console.log("here");
                 //window.location.assign(`https://genius-solio.herokuapp.com/usercenter`)
-                window.location.assign(`http://localhost:3000/userportfolio`);
+                //window.location.assign(`http://localhost:3000/userportfolio`);
                 // window.sessionStorage.removeItem("spec_collection")
                 //window.location.href = `CaregiverInformation/${username}`;
             }
         });
     }
     parentFunction=(data_from_child)=>{
+        this.setState({file: data_from_child});
+    }
+    parentFunction_resume=(data_from_child)=>{
         this.setState({file: data_from_child});
     }
     render() {
@@ -350,6 +358,10 @@ class ProfileePage extends Component {
                                         <Paper className={classes.paper}>
                                             <h2 className={classes.title}>Portfolio</h2>
                                             <UpdateUpload functionCallFromParent={this.parentFunction.bind(this)}/>
+                                        </Paper>
+                                        <Paper className={classes.paper}>
+                                            <h2 className={classes.title}>Portfolio</h2>
+                                            <ResumeUpload functionCallFromParent={this.parentFunction_resume.bind(this)}/>
                                         </Paper>
                                     </Grid>
                                         </GridContainer>

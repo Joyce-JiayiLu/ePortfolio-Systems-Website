@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
+import ResumeForm from "./ResumeForm";
 import {createCollection} from "../../api";
 
 function Copyright() {
@@ -70,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const steps = ['Enter Your Title', 'Choose Your Tag', 'Upload Your File'];
+const steps = ['Enter Your Title', 'Choose Your Tag', 'Upload Your Resume', 'Upload Your File'];
 
 function getStepContent(step) {
     switch (step) {
@@ -79,6 +80,8 @@ function getStepContent(step) {
         case 1:
             return <PaymentForm />;
         case 2:
+            return <ResumeForm />;
+        case 3:
             return <Review />;
         default:
             throw new Error('Unknown step');

@@ -275,6 +275,7 @@ export function createCollection() {
     const tags = sessionStorage.getItem("portfolio_value");
     const description = sessionStorage.getItem("description");
     const fileUrl = sessionStorage.getItem("fileUrl");
+    const resumeUrl = sessionStorage.getItem("resumeUrl");
     const endpoint = BASE_URL + `/collection/`;
     return fetch(endpoint, {
         method: "POST",
@@ -287,7 +288,8 @@ export function createCollection() {
             "description": description,
             "tag": tags,
             "cover": coverUrl,
-            "file": fileUrl
+            "file": fileUrl,
+             "resume":resumeUrl,
 
         })
     }).then(res => {
@@ -370,6 +372,9 @@ export function addBookmark(userid,collectionid){
             "collectionid":collectionid,
         })
     }).then(res => {
+        if(!res.ok){
+
+        }
         //console.log("success!")
         //window.location.assign(`https://genius-solio.herokuapp.com/`)
     });
