@@ -9,15 +9,14 @@ import {getBookmark, useBookmark} from "../../api";
 export default function Favorite({ myuserid,user_sub,onClick, props }) {
     const [active, setActive] = useState(false);
     const {loading, bookmarks, error} = useBookmark(myuserid);
-    /*
-    bookmarks.map(bookmark=>{
-        console.log(bookmark);
-        if(bookmark["_id"]===user_sub){
-            console.log("this is existed!!!!!!")
+
+    if(checkInside(bookmarks, user_sub)){
+        if(!active) {
             setActive(true);
         }
-    })*/
+    }
     const handleClick = () => {
+        console.log("active");
         if (typeof onClick === "function") {
             onClick();
         }
@@ -65,4 +64,13 @@ export default function Favorite({ myuserid,user_sub,onClick, props }) {
         </button>
 
     );
+}
+
+function checkInside(bookmarks, id){
+    for(var i=0; i< bookmarks.length; i++){
+        if(bookmarks[i]["_id"]===id){
+            return true;
+        }
+    }
+    return false
 }
