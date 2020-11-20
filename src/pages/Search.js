@@ -17,7 +17,8 @@ import SearchBar from "material-ui-search-bar";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from '@material-ui/icons/Search';
 import {withRouter} from "react-router-dom";
-
+import {Space, Spin} from "antd";
+import "../views/styles.css"
 
 const sections = [
     // { title: 'Technology', url: '#' },
@@ -75,6 +76,7 @@ class Result extends Component {
         super(props);
         this.state = {
             items: [],
+            load:false
         };
 
         // This binding is necessary to make `this` work in the callback
@@ -96,12 +98,14 @@ class Result extends Component {
     async doSomething() {
         let result = await this.search();
         console.log(result);
-        this.setState({items: result})
+        this.setState({items: result});
+        this.setState({load:false});
         return result;
     }
 
 
     search() {
+        this.setState({load:true});
         var name = window.sessionStorage.getItem("keyword");
         console.log(name);
         const endpoint = "https://geniusolio.herokuapp.com/search";
@@ -125,7 +129,12 @@ class Result extends Component {
     }
 
     render() {
-
+        if(this.state.load){
+            return(
+                <Space justify="center" className={"loading"} size="large">
+                    <Spin size="large" tip="Loading..."/>
+                </Space>)
+        }
 
         const classes = makeStyles((theme) => ({
             mainGrid: {
