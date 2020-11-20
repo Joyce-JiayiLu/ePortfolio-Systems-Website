@@ -18,21 +18,21 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Review() {
+export default function ResumeForm() {
     const classes = useStyles();
     const portfolio_tags = JSON.parse(sessionStorage.getItem("portfolio_value"))
     console.log(portfolio_tags);
     return (
         <React.Fragment>
             <Typography variant="h6" gutterBottom>
-                Upload the Masterwork you want to show
+                Upload the Resume you want to show
             </Typography>
             {/*<List disablePadding>*/}
-                {/*{symptoms.map((symptom) => (*/}
-                {/*    <ListItem className={classes.listItem} key={symptom.title}>*/}
-                {/*        {symptom.title}*/}
-                {/*    </ListItem>*/}
-                {/*))}*/}
+            {/*{symptoms.map((symptom) => (*/}
+            {/*    <ListItem className={classes.listItem} key={symptom.title}>*/}
+            {/*        {symptom.title}*/}
+            {/*    </ListItem>*/}
+            {/*))}*/}
 
             {/*</List>*/}
             <Grid item xs={12} >
