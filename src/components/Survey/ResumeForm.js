@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import FileUpload from "../FileUpload";
 import Paper from "@material-ui/core/Paper";
 import {Alert} from "antd";
+import ResumeUpload from "../ResumeUpload";
 
 const useStyles = makeStyles((theme) => ({
     listItem: {
@@ -37,7 +38,7 @@ export default function ResumeForm() {
             {/*</List>*/}
             <Grid item xs={12} >
                 <Paper className={classes.paper}>
-                    <FileUpload />
+                    <ResumeUpload />
                 </Paper>
             </Grid>
             {/*<Grid container spacing={2}>*/}

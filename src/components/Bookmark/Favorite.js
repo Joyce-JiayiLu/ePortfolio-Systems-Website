@@ -18,6 +18,7 @@ export default function Favorite({ myuserid,user_sub,onClick, props }) {
         }
     })*/
     const handleClick = () => {
+        console.log("active");
         if (typeof onClick === "function") {
             onClick();
         }
