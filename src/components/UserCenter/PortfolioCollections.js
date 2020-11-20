@@ -46,9 +46,8 @@ function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
-            {/*<Link color="inherit" href="https://genius-solio.herokuapp.com/usercenter">*/}
-            <Link color="inherit" href="http://localhost:3000/usercenter">
-                Your Website
+            <Link color="inherit" href="https://genius-solio.herokuapp.com/">
+                GeniuSolio
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
