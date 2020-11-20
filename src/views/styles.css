@@ -263,3 +263,7 @@ fieldset[disabled] .btn {
 .loading{
   margin: 25%;
 }
+#des{
+  text-align: left;
+  font-size:130%
+}

@@ -41,7 +41,7 @@ import DocView from "../components/DocView";
 import IconButton from "@material-ui/core/IconButton";
 import jwt_decode from "jwt-decode";
 import {func} from "prop-types";
-
+import "../views/styles.css"
 const useStyles = makeStyles(styles);
 
 export default function ProfilePage(props) {
@@ -155,7 +155,7 @@ export default function ProfilePage(props) {
                             </GridItem>
                         </GridContainer>
                         <div className={classes.description}>
-                            <p>
+                            <p id="des">
                                 {description}
                             </p>
                         </div>
