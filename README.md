@@ -1,8 +1,8 @@
 # IT-Project-Front-end
 
-Modern, open-source ePortfolio system built by unimelb students for capstone subject COMP30022. You can check at https://genius-solio.herokuapp.com/ .
+Modern, open-source ePortfolio system built - GeniuSolios by unimelb students for capstone subject COMP30022. You can check at https://genius-solio.herokuapp.com/ .
 
-![Image text](https://raw.githubusercontent.com/Jiayi-Joyce-Lu/IT-Project-Front-end/master/src/picture/homepageshots.png?token=AOZXEAOZDF7EOHLPVP7IJIC7MYFD4)
+![Image text](./src/assets/Ivory%20Bliss_T.png)
 
 **Built with:** NodeJS, Express, MongoDB, ReactJS and Material-UI
 
@@ -41,43 +41,35 @@ Finally, run the command:
 The left button on the navigation bar is the homepage, which contains a description about the website 
 and what can this website do for the users.
 
----------------------------------HomePage Button PICTURE
+![Image text](./src/picture/homepage20.png)
 
 ### User Blog Feature
 
 The middle button on the navigation bar is the user blog page, which used to display user's portfolio.
 
-![Image text](https://raw.githubusercontent.com/Jiayi-Joyce-Lu/IT-Project-Front-end/master/src/picture/blogpage.png?token=AOZXEAINTUMMIESYNRQVHY27MYHJI)
+![Image text](./src/picture/blogpage20.png)
 
-#### Portfolio List Page
 The user can have a look upon the portfolio list on this page, each portfolio contains a title, a cover and the
-author's name.
-
-------------------------Portfolio PICTURE
-
-The user is also able to filter the portfolios which are in the different fields by selecting tags.
-
---------------------------Tages PICTURE
-
-The user also can look for portfolios that he is interested in by search the keywords.
-
--------------------------Search bar PICTURE
+author's name. There is a tag list under the search bar, and the user could easily choose the tags to filter the target portfolio.
+We also allow our users to search the keywords to find portfolios which they are interested in.
 
 #### Single Portfolio Page
 The user can visit any portfolio page from the portfolio list page by clicking the portfolio.
 
-The user can click the red-heart button to mark the portfolio, and it will be added to user center for
-visiting it again later on.
+![Image text](./src/picture/specificPortfoliopage.png)
 
--------------------------Mark PIC
+The user can click the red-heart button to bookmark the portfolio, and it will be added to user's Bookmark page in user center 
+for visiting it again later on.
 
-The user can read the portfolio by clcking the button "PORTFOLIO"
+![Image text](./src/picture/bookmark20.png)
 
--------------------------Portfolio PIC
+The user can read the portfolio by clicking the switch button "PORTFOLIO" and author's resume by switching to "RESUME" button.
 
-The user can switch to the author's resume by clicking the button "RESUME"
+![Image text](./src/picture/portfolioresume.png)
 
---------------------------Resume PIC
+Also they could choose to update or delete their own portfolios by clicking the corresponding buttons below.
+
+![Image text](./src/picture/deleteUpdate20.png)
 
 ### User Center Feature
 
@@ -87,7 +79,7 @@ The third button on the navigation bar is the Signup/Login or user center featur
 
 If users haven't signed up/logged in, when they click this button, the page will link to the signup/login page.
 
-![Image text](https://raw.githubusercontent.com/Jiayi-Joyce-Lu/IT-Project-Front-end/master/src/picture/loginpage.png?token=AOZXEAPRDLRUHICFVM4JJN27MYICE)
+![Image text](./src/picture/loginsignup2020.png)
 
 In this page, user could click login/signup button, then the page will link to auth0 api which user could use to login/signup.
 
@@ -95,22 +87,23 @@ In this page, user could click login/signup button, then the page will link to a
 
 If users have already logged in, when they click this button, the page will link to their user center.
     
-![Image text](https://raw.githubusercontent.com/Jiayi-Joyce-Lu/IT-Project-Front-end/master/src/picture/usercenterpage.png?token=AOZXEAJCGE6E3DERTJC3HCK7MYIIW)
+![Image text](./src/picture/usercenter20.png)
 
-In user center page, we developed several sub functions, the first one is Update Profile in user information, and the second one is the Upload File feature in Portfolio Collections and Resume page.
+In user center page, we developed several sub pages, the first one and also the default one is the User Information page, 
+users could update their personal information and avatar image there.
+
+The second one is the Portfolio Collections page, users could upload their portfolios there, 
+and also the portfolios will be stored at this page where they can check what they have posted later.
  
---------------------------------PIC?
+![Image text](./src/picture/portfoliocollection20.png)
 
+The user can click "+" button in this page to upload portfolios with cover image, title, tag, description and resume.
 
-The user can click "Portfolio Collections" on the left hand side to upload portfolios 
-with cover, title, tag and resume.
+![Image text](./src/picture/submitportfolio20.png)
 
-----------------------------------PIC
+The third one is Bookmarks page, users could see the portfolios displayed there which they has marked before.
 
-The user can click "Bookmarks" on the left hand side to read the portfolios that he has
-marked before.
-
-----------------------PIC
+![Image text](./src/picture/bookmark20.png)
 
 
 
