@@ -23,8 +23,13 @@ class FileUpload extends Component  {
         })
     }
     success(){
+        if (this.state.urL === "")
+        {
+            sessionStorage.setItem("fileIsUploaded", "false");
+        }
         if (this.state.urL){
             console.log(this.state.urL);
+            sessionStorage.setItem("fileIsUploaded", "true");
             return(
                 <Alert message="Upload successful" type="success" showIcon />
             );

@@ -18,7 +18,11 @@ import SearchIcon from '@material-ui/icons/Search';
 import { withRouter } from "react-router-dom";
 import SearchBar from "../SearchBar";
 import Chips from "./Tag";
+
 import { Spin, Space } from 'antd';
+
+import LoadingPrepare from "./LoadingPrepare";
+
 
 import '../../views/styles.css'
 const sections = [
@@ -200,11 +204,7 @@ class Blog extends Component {
                         <MainFeaturedPost post={mainFeaturedPost} />
                         <SearchBar />
                         <Chips selected={this.state.selected} onChange={this.updateSelected}/>
-                        <Grid container spacing={4}>
-                            {items.map((post) => (
-                                <FeaturedPost post={post} />
-                            ))}
-                        </Grid>
+                        <LoadingPrepare data={items}/>
                     </main>
                 </Container>
                 <Footer title="GeniuSolio" description="Endorse your own works." />

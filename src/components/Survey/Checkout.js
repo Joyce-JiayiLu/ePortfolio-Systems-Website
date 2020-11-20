@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -94,13 +94,62 @@ export default function Checkout() {
 
     const [activeStep, setActiveStep] = React.useState(0);
 
+    useEffect(() => {
+        // Update the document title using the browser API
+        if (activeStep === 0) {
+            removeSessionStorage();
+        }
+    });
+
     const handleNext = () => {
-        setActiveStep(activeStep + 1);
+        if (activeStep === 0 && sessionStorage.getItem("title") === null)
+        {
+            console.log("title is not filled");
+            alert("You must fill in the title.")
+            setActiveStep(0);
+            return;
+        }
+
+        if (activeStep === 0 && sessionStorage.getItem("coverIsUploaded") === "false")
+        {
+            console.log("cover is not uploaded");
+            alert("You must upload the cover image.")
+            setActiveStep(0);
+            return;
+        }
+
+        if (activeStep === 1 && sessionStorage.getItem("portfolio_value") === null)
+        {
+            console.log("tags are not filled");
+            alert("You must select at least one tag.")
+            setActiveStep(1);
+            return;
+        }
+
+        if (activeStep === 2 && sessionStorage.getItem("resumeIsUploaded") === "false")
+        {
+            console.log("resume is not uploaded");
+            setActiveStep(2);
+            alert("You must upload one resume.")
+            return;
+        }
+
+        if (activeStep === 3 && sessionStorage.getItem("fileIsUploaded") === "false")
+        {
+            console.log("file is not uploaded");
+            setActiveStep(3);
+            alert("You must upload your e-portfolio.")
+            return;
+        }
+
         if (activeStep === steps.length - 1) {
             createCollection();
             removeSessionStorage();
         }
+        setActiveStep(activeStep + 1);
+        console.log("active step: ", activeStep);
     };
+
 
     function removeSessionStorage() {
         title = sessionStorage.getItem("title")
@@ -120,6 +169,10 @@ export default function Checkout() {
         sessionStorage.removeItem("portfolio_value")
         sessionStorage.removeItem("coverUrl")
         sessionStorage.removeItem("fileUrl")
+        sessionStorage.removeItem("resumeUrl")
+        sessionStorage.removeItem("resumeIsUploaded")
+        sessionStorage.removeItem("fileIsUploaded")
+        sessionStorage.removeItem("coverIsUploaded")
     }
 
     const handleBack = () => {

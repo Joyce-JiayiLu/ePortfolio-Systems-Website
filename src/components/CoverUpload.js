@@ -22,8 +22,13 @@ class CoverFileUpload extends Component {
         })
     }
     success(){
+        if (this.state.urL === "")
+        {
+            sessionStorage.setItem("coverIsUploaded", "false");
+        }
         if (this.state.urL){
             console.log(this.state.urL);
+            sessionStorage.setItem("coverIsUploaded", "true");
             return(
                 <Alert message="Upload successful" type="success" showIcon closable/>
             );

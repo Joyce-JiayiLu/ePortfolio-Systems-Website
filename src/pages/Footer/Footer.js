@@ -46,7 +46,7 @@ export default function Footer(props) {
           >
             UNITEE
           </a>{" "}
-          for a better tomorrow.
+          for a better recruitment.
         </div>
       </div>
     </footer>
