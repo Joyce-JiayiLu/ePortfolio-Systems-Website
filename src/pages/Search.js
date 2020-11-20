@@ -25,12 +25,11 @@ const sections = [
 ];
 
 const mainFeaturedPost = {
-    title: "Dig into today's Most featured design here.",
+    title: "FIND THE THOUGHTFUL REFLECTIONS AND SMART SOUL",
     description:
         "",
-    image: 'https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
+    image: 'https://itproject.s3.amazonaws.com/file/multiple-photo-1170x658.jpg',
     imgText: 'main image description',
-    linkText: 'Continue reading…',
 };
 /*
 const featuredPosts = [
@@ -149,15 +148,7 @@ class Result extends Component {
                                 <FeaturedPost key={post.userid} post={post}/>
                             ))}
                         </Grid>
-                        <Grid container spacing={5} className={classes.mainGrid}>
-                            {/*<Main title="From the firehose" posts={posts} />*/}
-                            <Sidebar
-                                title={sidebar.title}
-                                description={sidebar.description}
-                                archives={sidebar.archives}
-                                social={sidebar.social}
-                            />
-                        </Grid>
+
                     </main>
                 </Container>
                 <Footer title="GeniuSolio" description="Endorse your own works."/>
