@@ -260,3 +260,6 @@ fieldset[disabled] .btn {
   background: #f4511e;
   box-shadow: none;
 }
+.loading{
+  margin: 25%;
+}

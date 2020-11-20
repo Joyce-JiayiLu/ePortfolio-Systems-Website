@@ -18,8 +18,9 @@ import SearchIcon from '@material-ui/icons/Search';
 import { withRouter } from "react-router-dom";
 import SearchBar from "../SearchBar";
 import Chips from "./Tag";
+import { Spin, Space } from 'antd';
 
-
+import '../../views/styles.css'
 const sections = [
     // { title: 'Technology', url: '#' },
     // { title: 'Design', url: '#' },
@@ -78,6 +79,7 @@ class Blog extends Component {
         this.state = {
             items:[],
             selected: [],
+            load:false
         };
 
         // This binding is necessary to make `this` work in the callback
@@ -138,12 +140,14 @@ class Blog extends Component {
         }
         //console.log(result);
         //this.setState({items: result})
+        this.setState({load:false});
         return result;
     }
 
 
 
     search(){
+        this.setState({load:true});
         const endpoint = "https://geniusolio.herokuapp.com/collection";
         return fetch(endpoint).then(res => {
             //console.log(res);
@@ -155,7 +159,6 @@ class Blog extends Component {
             }
         });
     }
-
     link_to_user(id){
         const endpoint = `https://geniusolio.herokuapp.com/user/${id}`;
         return fetch(endpoint).then(res => {
@@ -169,7 +172,12 @@ class Blog extends Component {
     }
     render() {
 
-
+        if(this.state.load){
+            return(
+                <Space justify="center" className={"loading"} size="large">
+                    <Spin size="large" tip="Loading..."/>
+                </Space>)
+        }
         const classes = makeStyles((theme) => ({
             mainGrid: {
                 marginTop: theme.spacing(3),
@@ -201,6 +209,7 @@ class Blog extends Component {
                 </Container>
                 <Footer title="GeniuSolio" description="Endorse your own works." />
             </React.Fragment>
+
         );
     }
 }
