@@ -36,11 +36,48 @@ Finally, run the command:
 
 ## Main Features
 
+### User HomePage Feature
+
+The left button on the navigation bar is the homepage, which contains a description about the website 
+and what can this website do for the users.
+
+---------------------------------HomePage Button PICTURE
+
 ### User Blog Feature
 
 The middle button on the navigation bar is the user blog page, which used to display user's portfolio.
 
 ![Image text](https://raw.githubusercontent.com/Jiayi-Joyce-Lu/IT-Project-Front-end/master/src/picture/blogpage.png?token=AOZXEAINTUMMIESYNRQVHY27MYHJI)
+
+#### Portfolio List Page
+The user can have a look upon the portfolio list on this page, each portfolio contains a title, a cover and the
+author's name.
+
+------------------------Portfolio PICTURE
+
+The user is also able to filter the portfolios which are in the different fields by selecting tags.
+
+--------------------------Tages PICTURE
+
+The user also can look for portfolios that he is interested in by search the keywords.
+
+-------------------------Search bar PICTURE
+
+#### Single Portfolio Page
+The user can visit any portfolio page from the portfolio list page by clicking the portfolio.
+
+The user can click the red-heart button to mark the portfolio, and it will be added to user center for
+visiting it again later on.
+
+-------------------------Mark PIC
+
+The user can read the portfolio by clcking the button "PORTFOLIO"
+
+-------------------------Portfolio PIC
+
+The user can switch to the author's resume by clicking the button "RESUME"
+
+--------------------------Resume PIC
 
 ### User Center Feature
 
@@ -62,8 +99,21 @@ If users have already logged in, when they click this button, the page will link
 
 In user center page, we developed several sub functions, the first one is Update Profile in user information, and the second one is the Upload File feature in Portfolio Collections and Resume page.
  
- * however, for the Upload File function, we haven't finished the displaying function, you could check the uploaded file in console.
- ![Image text](https://raw.githubusercontent.com/Jiayi-Joyce-Lu/IT-Project-Front-end/master/src/picture/console.png?token=AOZXEAI3HUFVD5S37ROAO2C7MYQL2)
+--------------------------------PIC?
+
+
+The user can click "Portfolio Collections" on the left hand side to upload portfolios 
+with cover, title, tag and resume.
+
+----------------------------------PIC
+
+The user can click "Bookmarks" on the left hand side to read the portfolios that he has
+marked before.
+
+----------------------PIC
+
+
+
  ## Authors
  
  - [Jiayi Lu](https://github.com/Jiayi-Joyce-Lu)
