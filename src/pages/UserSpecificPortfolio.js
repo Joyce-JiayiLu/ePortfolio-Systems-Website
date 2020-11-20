@@ -60,7 +60,15 @@ export default function ProfilePage(props) {
     if (error||errorr) {
         return <p>Something went wrong: {error.message}</p>;
     }
-    let user_sub = window.sessionStorage.getItem("spec_userid");
+    let url;
+    url = window.location.pathname;
+    let index;
+    index = url.lastIndexOf('/');
+    let collection_id;
+    collection_id = url.slice(index+1);
+    console.log(collection_id);
+    let user_sub = collection_id;
+    //let user_sub = window.sessionStorage.getItem("spec_userid");
     let first_name;
     let last_name;
     let title;
