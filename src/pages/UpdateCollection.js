@@ -44,6 +44,7 @@ import imagesStyle from "./UserPortfolio/imagesStyles";
 import { withStyles } from '@material-ui/styles';
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import ResumeUpload from "../components/ResumeUpload";
+import UpdateResume from "../components/UpdateResume";
 
 const containerFluid = {
     paddingRight: "15px",
@@ -270,7 +271,8 @@ class ProfileePage extends Component {
         this.setState({file: data_from_child});
     }
     parentFunction_resume=(data_from_child)=>{
-        this.setState({file: data_from_child});
+        this.setState({resume: data_from_child});
+        console.log(this.state.resume);
     }
     render() {
         const {...rest} = this.props;
@@ -361,7 +363,7 @@ class ProfileePage extends Component {
                                         </Paper>
                                         <Paper className={classes.paper}>
                                             <h2 className={classes.title}>Portfolio</h2>
-                                            <ResumeUpload functionCallFromParent={this.parentFunction_resume.bind(this)}/>
+                                            <UpdateResume functionCallFromParent={this.parentFunction_resume.bind(this)}/>
                                         </Paper>
                                     </Grid>
                                         </GridContainer>
