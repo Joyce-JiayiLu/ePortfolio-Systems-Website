@@ -318,8 +318,6 @@ export default function Dashboard() {
                 <Divider/>
                 <List>{mainListItems}</List>
                 <Divider/>
-                <List>{secondaryListItems}</List>
-                <Divider/>
                 <List>{thirdListItems}</List>
             </Drawer>
             <main className={classes.content}>

@@ -27,17 +27,17 @@ export const mainListItems = (
             </ListItemIcon>
             <ListItemText primary="User Information"/>
         </ListItem>
-        <ListItem button onClick={() => toResume()}>
-            <ListItemIcon>
-                <ResumeIcon/>
-            </ListItemIcon>
-            <ListItemText primary="Resume"/>
-        </ListItem>
         <ListItem button onClick={() => toPortfolioCollections()}>
             <ListItemIcon>
                 <PortfolioIcon/>
             </ListItemIcon>
             <ListItemText primary="Portfolio Collections"/>
+        </ListItem>
+        <ListItem button onClick={() => toBookmark()}>
+            <ListItemIcon>
+                <BookmarkIcon/>
+            </ListItemIcon>
+            <ListItemText primary="Bookmarks"/>
         </ListItem>
     </div>
 );
