@@ -226,8 +226,7 @@ function deleteEnable(userid, postid){
          var user = jwt_decode(user_token).sub;
          if (user === userid) {
              return (
-                 <Button onClick={() => {deleteCollection(postid);
-                 window.location.assign(`http://localhost:3000/blog`);}}>delete</Button>
+                 <Button onClick={() => deleteCollection(postid)}>delete</Button>
              )
          }
      }

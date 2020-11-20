@@ -316,7 +316,7 @@ export function deleteCollection(id){
     }).then(res => {
         if (res.ok) {
             //window.location.assign(`https://genius-solio.herokuapp.com/portfoliocollections`)
-            //window.location.assign(`http://localhost:3000/portfoliocollections`);
+            window.location.assign(`http://localhost:3000/portfoliocollections`);
             //window.location.href = `CaregiverInformation/${username}`;
         }
     });
