@@ -293,11 +293,7 @@ export default function Dashboard() {
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
                         User Center
                     </Typography>
-                    <IconButton color="inherit">
-                        <Badge badgeContent={4} color="secondary">
-                            <NotificationsIcon/>
-                        </Badge>
-                    </IconButton>
+
                     <IconButton color="inherit">
                         <Avatar alt="/static/images/avatar/1.jpg" src={image}/>
                     </IconButton>

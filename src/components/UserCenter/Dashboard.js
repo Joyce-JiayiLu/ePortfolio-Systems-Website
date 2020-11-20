@@ -234,11 +234,6 @@ export default function Dashboard() {
                         User Center
                     </Typography>
                     <IconButton color="inherit">
-                        <Badge badgeContent={4} color="secondary">
-                            <NotificationsIcon/>
-                        </Badge>
-                    </IconButton>
-                    <IconButton color="inherit">
                         <Avatar alt="/static/images/avatar/1.jpg" src={image} />
                     </IconButton>
                 </Toolbar>
