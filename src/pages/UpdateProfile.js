@@ -48,8 +48,8 @@ export default function UpdateProfile(props) {
 
     const [age, setAge] = React.useState(props.data.age);
     const [gender, setGender] = React.useState(props.data.gender);
-    const [firstname, setFirstname] = React.useState(props.data.first_name);
-    const [lastname, setLastname] = React.useState(props.data.last_name);
+    const [first_name, setFirstname] = React.useState(props.data.first_name);
+    const [last_name, setLastname] = React.useState(props.data.last_name);
     const [introduction, setIntroduction] = React.useState(props.data.introduction);
     const handleChangeAge = (event) => {
         setAge(event.target.value);
@@ -60,15 +60,14 @@ export default function UpdateProfile(props) {
     };
 
     function Submit() {
-        console.log(firstname);
         var user_token = localStorage.getItem("id_token");
         var user_sub = jwt_decode(user_token).sub;
         let userid;
         userid = user_sub;
         updateUserProfile({
             userid,
-            firstname,
-            lastname,
+            first_name,
+            last_name,
             gender,
             introduction,
             age,
@@ -86,13 +85,15 @@ export default function UpdateProfile(props) {
                 <div className={classes.divStyle}>
                     <TextField required id="first_name" label="firstname" variant="outlined"
                                className={classes.textFieldStyle}
-                               value = {firstname}
-                               onChange = {event => {setFirstname(event.target.value)}}
+                               value = {first_name}
+                               onChange = {event => {
+                                   console.log(event.target.value)
+                                   setFirstname(event.target.value)}}
                     />
 
                     <TextField required id="last_name" label="lastname" variant="outlined"
                                className={classes.textFieldStyle}
-                               value = {lastname}
+                               value = {last_name}
                                onChange = {event => {setLastname(event.target.value)}}
                     />
                     <div>
