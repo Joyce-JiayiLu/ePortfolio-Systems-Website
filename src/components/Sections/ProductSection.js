@@ -3,9 +3,9 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
-import Chat from "@material-ui/icons/Chat";
+import LocalOffer from "@material-ui/icons/LocalOffer";
 import VerifiedUser from "@material-ui/icons/VerifiedUser";
-import Fingerprint from "@material-ui/icons/Fingerprint";
+import CollectionsBookmark from "@material-ui/icons/CollectionsBookmark";
 // core components
 import GridContainer from "../../pages/Grid/GridContainer";
 import GridItem from "../../pages/Grid/GridItem";
@@ -33,9 +33,9 @@ export default function ProductSection() {
                 <GridContainer>
                     <GridItem xs={12} sm={12} md={4}>
                         <InfoArea
-                            title="Free Chat"
-                            description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-                            icon={Chat}
+                            title="Search Tags"
+                            description="Divided the collection of portfolios into different types with the type tag, so that user could easily add tag to search and filter the target portfolio."
+                            icon={LocalOffer}
                             iconColor="info"
                             vertical
                         />
@@ -43,7 +43,7 @@ export default function ProductSection() {
                     <GridItem xs={12} sm={12} md={4}>
                         <InfoArea
                             title="Verified Users"
-                            description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+                            description="Implement the third party component Auth0 to log in or sign up, so that the user could log in or sign up with Google, and Auth0 could simply verified users. "
                             icon={VerifiedUser}
                             iconColor="success"
                             vertical
@@ -51,9 +51,9 @@ export default function ProductSection() {
                     </GridItem>
                     <GridItem xs={12} sm={12} md={4}>
                         <InfoArea
-                            title="Fingerprint"
-                            description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-                            icon={Fingerprint}
+                            title="Collections Bookmark"
+                            description="User could easily press the red heart in portfolio page to bookmark their favorite portfolio, and then they could easily find the bookmarked portfolios in their user center pages."
+                            icon={CollectionsBookmark}
                             iconColor="danger"
                             vertical
                         />

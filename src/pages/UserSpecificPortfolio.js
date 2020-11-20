@@ -83,6 +83,12 @@ export default function ProfilePage(props) {
     let image;
     let userid;
 
+    let resume;
+    if(localStorage.getItem("id_token")){
+    var user_token = localStorage.getItem("id_token");
+    var myuserid = jwt_decode(user_token).sub;}
+
+
 
     {
         collections.map(collection => {
@@ -92,6 +98,7 @@ export default function ProfilePage(props) {
                 cover = collection["cover"];
                 file = collection.file;
                 userid = collection.userid;
+                resume = collection.resume;
             }
         })
         users.map(user => {
@@ -185,75 +192,20 @@ export default function ProfilePage(props) {
                                             tabIcon: AccountBox,
                                             tabContent: (
                                                 <GridContainer justify="center">
-                                                    <GridItem xs={12} sm={12} md={4}>
-                                                        <img
-                                                            alt="..."
-                                                            src={work1}
-                                                            className={navImageClasses}
-                                                        />
-                                                        <img
-                                                            alt="..."
-                                                            src={work2}
-                                                            className={navImageClasses}
-                                                        />
-                                                        <img
-                                                            alt="..."
-                                                            src={work3}
-                                                            className={navImageClasses}
-                                                        />
-                                                    </GridItem>
-                                                    <GridItem xs={12} sm={12} md={4}>
-                                                        <img
-                                                            alt="..."
-                                                            src={work4}
-                                                            className={navImageClasses}
-                                                        />
-                                                        <img
-                                                            alt="..."
-                                                            src={work5}
-                                                            className={navImageClasses}
-                                                        />
-                                                    </GridItem>
+                                                    <div>
+                                                        <DocView
+                                                            style={{
+                                                                width: "1200px",
+                                                                height: "780px",
+                                                                border: 'none',
+                                                                position: 'relative'
+                                                            }}
+                                                            // change src to show the pdf you want
+                                                            src={resume}/>
+                                                    </div>
                                                 </GridContainer>
                                             )
                                         },
-                                        {
-                                            tabButton: "Comment",
-                                            tabIcon: Comment,
-                                            tabContent: (
-                                                <GridContainer justify="center">
-                                                    <GridItem xs={12} sm={12} md={4}>
-                                                        <img
-                                                            alt="..."
-                                                            src={work4}
-                                                            className={navImageClasses}
-                                                        />
-                                                        <img
-                                                            alt="..."
-                                                            src={studio3}
-                                                            className={navImageClasses}
-                                                        />
-                                                    </GridItem>
-                                                    <GridItem xs={12} sm={12} md={4}>
-                                                        <img
-                                                            alt="..."
-                                                            src={work2}
-                                                            className={navImageClasses}
-                                                        />
-                                                        <img
-                                                            alt="..."
-                                                            src={work1}
-                                                            className={navImageClasses}
-                                                        />
-                                                        <img
-                                                            alt="..."
-                                                            src={studio1}
-                                                            className={navImageClasses}
-                                                        />
-                                                    </GridItem>
-                                                </GridContainer>
-                                            )
-                                        }
                                     ]}
                                 />
                             </GridItem>
