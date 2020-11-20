@@ -239,7 +239,7 @@ function deleteEnable(userid, postid){
              return (
                  <Button onClick={() => {
                      window.sessionStorage.setItem("spec_collection", postid);
-                     window.location.assign(`http://localhost:3000/userupadteportfolio`);}}>update</Button>
+                     window.location.assign(`https://genius-solio.herokuapp.com/userupadteportfolio`);}}>update</Button>
              )
          }
 

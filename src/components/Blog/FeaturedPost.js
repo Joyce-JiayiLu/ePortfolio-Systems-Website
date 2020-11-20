@@ -32,7 +32,7 @@ export default function FeaturedPost(props) {
         //console.log(post.userid);
         window.sessionStorage.setItem("spec_userid", post["_id"]);
         // window.location.assign(`https://genius-solio.herokuapp.com/userportfolio`);
-        window.location.assign(`http://localhost:3000/userportfolio/${post["_id"]}`);
+        window.location.assign(`https://genius-solio.herokuapp.com/userportfolio/${post["_id"]}`);
     }
 
     console.log(post.userid);
@@ -95,7 +95,7 @@ function update(post){
             return (
                 <Button onClick={() => {
                     window.sessionStorage.setItem("spec_collection", post["_id"]);
-                    window.location.assign(`http://localhost:3000/userupadteportfolio`);
+                    window.location.assign(`https://genius-solio.herokuapp.com/userupadteportfolio`);
                 }}>update</Button>
             )
         }

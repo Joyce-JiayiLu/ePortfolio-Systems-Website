@@ -82,6 +82,6 @@ Header.propTypes = {
 };
 
 function backHomePage(){
-    //window.location.assign(`https://genius-solio.herokuapp.com/`);
-    window.location.assign(`http://localhost:3000/`);
+    window.location.assign(`https://genius-solio.herokuapp.com/`);
+
 }

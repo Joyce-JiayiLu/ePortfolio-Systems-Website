@@ -30,5 +30,5 @@ export default function UpdateProfileButton({ className, children, onClick, ...p
 
 function updateUserProfile(userid){
     //window.location.assign(`https://genius-solio.herokuapp.com/updateProfile/${userid}`);
-    window.location.assign(`http://localhost:3000/updateProfile/${userid}`);
+    window.location.assign(`https://genius-solio.herokuapp.com/updateProfile/${userid}`);
 }
