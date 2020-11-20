@@ -403,3 +403,23 @@ export function useBookmark(userid) {
         error
     };
 }
+
+export function deleteBookmark(userid, collectionid){
+    const endpoint = BASE_URL + `/bookmark/`;
+    return fetch(endpoint, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            "userid":userid,
+            "collectionid":collectionid,
+        })
+    }).then(res => {
+        if(!res.ok){
+
+        }
+        //console.log("success!")
+        //window.location.assign(`https://genius-solio.herokuapp.com/`)
+    });
+}

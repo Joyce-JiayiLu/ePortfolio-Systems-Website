@@ -10,7 +10,7 @@ import Favorite from "@material-ui/icons/Favorite";
 import Comment from "@material-ui/icons/Comment";
 import Delete from "@material-ui/icons/Delete";
 import BookmarkIcon from '@material-ui/icons/Bookmark';
-import BookMarkFile from "../components/Bookmark/Favorite";
+import BookMarkFile, {checkInside, covertArray} from "../components/Bookmark/Favorite";
 import DeletePost from "../components/Bookmark/DeletePost";
 
 // core components
@@ -35,7 +35,7 @@ import work4 from "./UserPortfolio/examples/mariya-georgieva.jpg";
 import work5 from "./UserPortfolio/examples/clem-onojegaw.jpg";
 
 import styles from "./UserPortfolio/profilePage";
-import {addBookmark, deleteCollection, useCollections, useUsers} from "../api";
+import {addBookmark, deleteBookmark, deleteCollection, useBookmark, useCollections, useUsers} from "../api";
 import Nav from "../components/Nav";
 import DocView from "../components/DocView";
 import IconButton from "@material-ui/core/IconButton";
@@ -51,9 +51,14 @@ export default function ProfilePage(props) {
         classes.imgRoundedCircle,
         classes.imgFluid
     );
+    if(localStorage.getItem("id_token")){
+        var user_token = localStorage.getItem("id_token");
+        var myuserid = jwt_decode(user_token).sub;}
     const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
+    const {loadding, bookmarks, errror} = useBookmark(myuserid);
     const {loading, collections, error} = useCollections();
     const {loadingg, users, errorr} = useUsers();
+    var bookmarkarray= covertArray(bookmarks);
     if (loading||loadingg) {
         return <p>Loading...</p>;
     }
@@ -77,9 +82,6 @@ export default function ProfilePage(props) {
     let file;
     let image;
     let userid;
-    if(localStorage.getItem("id_token")){
-    var user_token = localStorage.getItem("id_token");
-    var myuserid = jwt_decode(user_token).sub;}
 
 
     {
@@ -105,7 +107,7 @@ export default function ProfilePage(props) {
 
     function bookmark(){
         if(localStorage.getItem("id_token")){
-            return <BookMarkFile myuserid={myuserid} user_sub={user_sub} onClick={()=>addBookmark(myuserid,user_sub)} className={classes.margin5} aria-label="Bookmark"/>
+            return <BookMarkFile bookmarks={bookmarkarray} myuserid={myuserid} user_sub={user_sub} onClick={()=>clickbranch(myuserid,bookmarkarray,user_sub)} className={classes.margin5} aria-label="Bookmark"/>
         }
     }
     return (
@@ -291,3 +293,27 @@ function deleteEnable(userid, postid){
 
      }
  }
+
+ function clickbranch(userid,bookmarks, collectionid){
+    console.log(bookmarks);
+    if(!checkIn(bookmarks,collectionid)){
+        console.log("add!")
+        bookmarks.push(collectionid);
+        return addBookmark(userid,collectionid);
+    }
+    else{
+        console.log("delete!")
+        var index = bookmarks.indexOf(collectionid);
+        bookmarks.splice(index,1);
+        return deleteBookmark(userid,collectionid);
+    }
+}
+
+ export function checkIn(bookmarks, id){
+    for(var i=0; i< bookmarks.length; i++){
+        if(bookmarks[i]===id){
+            return true;
+        }
+    }
+    return false
+}
